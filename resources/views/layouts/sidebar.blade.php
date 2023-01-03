@@ -36,7 +36,7 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="{{url('/akunmitra')}}">Akun</a>
+                        <a href="{{route('mitra.akun')}}">Akun</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="#">Postingan</a>

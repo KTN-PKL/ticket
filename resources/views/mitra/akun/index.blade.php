@@ -38,9 +38,9 @@
                                 <a href="{{route('mitra.akun.edit', $mitras->id_mitra) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                                 <a href="{{route('mitra.akun.destroy', $mitras->id_mitra) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                                 @if($mitras->status == "active")
-                                <a href="#" class="btn btn-danger">Inactive</a>
+                                <a href="{{route('mitra.akun.inactive', $mitras->id_mitra)}}" class="btn btn-danger">Inactive</a>
                                 @else
-                                <a href="#" class="btn btn-success">Active</a>
+                                <a href="{{route('mitra.akun.active', $mitras->id_mitra)}}" class="btn btn-success">Active</a>
                                 @endif
                             </td>
                           

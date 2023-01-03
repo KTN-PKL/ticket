@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\kategori;
+use App\Models\fasilitas;
 
 class c_fasilitas extends Controller
 {

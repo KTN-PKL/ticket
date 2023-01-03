@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="#" class="btn btn-primary">Kembali</a>
+    <a href="{{ route('mitra.akun') }}" class="btn btn-primary">Kembali</a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -37,7 +37,7 @@
                                 </div>
                                  <div class="form-group mandatory">
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
-                                    <input type="whatsapp" id="whatsapp" class="form-control" name="kontak" data-parsley-required="true" value="{{$mitra->kontak}}">
+                                    <input type="number" id="whatsapp" class="form-control" name="kontak" data-parsley-required="true" value="{{$mitra->kontak}}">
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">

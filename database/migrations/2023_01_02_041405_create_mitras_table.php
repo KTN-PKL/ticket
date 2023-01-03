@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('mitras', function (Blueprint $table) {
             $table->id('id_mitra');
-            $table->string('deskripsi_mitra');
+            $table->text('deskripsi_mitra');
             $table->string('balance');
             $table->timestamps();
         });

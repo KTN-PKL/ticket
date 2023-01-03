@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="#" class="btn btn-primary">Kembali</a>
+    <a href="{{ route('mitra.akun') }}" class="btn btn-primary">Kembali</a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -28,15 +28,15 @@
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" id="username" class="form-control" placeholder="Masukkan username Mitra" name="username" data-parsley-required="true">
+                                    <input type="text" id="username" class="form-control" placeholder="Masukkan Username Mitra" name="username" data-parsley-required="true">
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" id="password" class="form-control" placeholder="Masukkan password Mitra" name="password" data-parsley-required="true">
+                                    <input type="password" id="password" class="form-control" placeholder="Masukkan Password Mitra" name="password" data-parsley-required="true">
                                 </div>
                                  <div class="form-group mandatory">
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
-                                    <input type="whatsapp" id="kontak" class="form-control" placeholder="Masukkan whatsapp Mitra" name="kontak" data-parsley-required="true">
+                                    <input type="number" id="kontak" class="form-control" placeholder="Masukkan Nomor Whatsapp Mitra" name="kontak" data-parsley-required="true">
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">

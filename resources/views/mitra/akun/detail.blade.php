@@ -15,7 +15,7 @@
                     <img class="img-fluid mt-2" width="200px" height="200px" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 25%">
                     </center>
                 </div>
-                <div class="card-body" style="margin-left:4em;margin-right:4em;">
+                <div class="card-body" style="margin-left:3em;margin-right:3em;">
                     <div class="row">
                         <div  class="col-md-5">  
                             <table>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-md-2">
                             <center>
-                                <div style="border:1px solid black;height:150px;width:0px;"></div>
+                                <div style="border:1px solid black;height:250px;width:0px;"></div>
                             </center>
                             
                         </div>
@@ -52,7 +52,7 @@
                                 <center>
                                     <h6>Deskripsi</h6>
                                 </center>
-                                <p>{{$mitra->deskripsi_mitra}}</p>
+                                <p class="text-justify" style="font-size: 12px">{{$mitra->deskripsi_mitra}}</p>
                             </div>
                            
                         </div>
