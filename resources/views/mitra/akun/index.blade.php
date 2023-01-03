@@ -4,7 +4,7 @@
 <div class="container">
 <h3>Daftar Akun Mitra</h3>
     <div class="col mt-4">
-        <a href="{{route('mitra/akun/create')}}" class="btn btn-primary">Create Mitra</a>
+        <a href="{{route('mitra.akun.create')}}" class="btn btn-primary">Create Mitra</a>
     </div>
     <br>
     <section class="section">
