@@ -75,14 +75,14 @@ class c_mitra extends Controller
             'deskripsi_mitra' => $request->deskripsi_mitra,
         ];
         $this->mitra->editMitra($id_mitra, $data);
-        $this->index();
+        return redirect()->route('mitra.akun')->with('create', 'Mitra Berhasil Dibuat');
     }
 
     public function inactive($id_mitra)
     {
         $data = ['status' => "inactive"];
         $this->mitra->editUser($id_mitra, $data);
-        $this->index();
+        return redirect()->route('mitra.akun')->with('create', 'Mitra Berhasil Dibuat');
     }
 
     public function detail($id_mitra)
@@ -95,7 +95,7 @@ class c_mitra extends Controller
     {
         $data = ['status' => "active"];
         $this->mitra->editUser($id_mitra, $data);
-        $this->index();
+        return redirect()->route('mitra.akun')->with('create', 'Mitra Berhasil Dibuat');
     }
 
     public function destroy($id_mitra)
@@ -104,6 +104,6 @@ class c_mitra extends Controller
         unlink(public_path('foto'). '/' .$cek->foto);
         $this->mitra->deleteUser($id_mitra);
         $this->mitra->deleteMitra($id_mitra);
-        $this->index();
+        return redirect()->route('mitra.akun')->with('create', 'Mitra Berhasil Dibuat');
     }
 }
