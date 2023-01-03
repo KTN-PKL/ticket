@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\c_mitra;
+use App\Http\Controllers\c_kategori;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +43,13 @@ Route::controller(c_mitra::class)->group(function () {
     Route::get('/mitra/akun/detail/{id}', 'detail')->name('mitra.akun.detail');
     Route::get('/mitra/akun/active/{id}', 'active')->name('mitra.akun.active');
     Route::get('/mitra/akun/inactive/{id}', 'inactive')->name('mitra.akun.inactive');
+});
+
+Route::controller(c_kategori::class)->group(function () {
+    Route::get('/kategori', 'index')->name('kategori');
+    Route::post('/kategori/store', 'store')->name('kategori.store');
+    Route::get('/kategori/create', 'create')->name('kategori.create');
+    Route::get('/kategori/edit/{id}', 'edit')->name('kategori.edit');
+    Route::post('/kategori/update/{id}', 'update')->name('kategori.update');
+    Route::get('/kategori/destroy/{id}', 'destroy')->name('kategori.destroy');
 });
