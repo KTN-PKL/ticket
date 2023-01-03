@@ -23,3 +23,6 @@ Route::get('/dashboard', function () {
 Route::get('/akunmitra', function () {
     return view('mitra/v_akunmitra');
 });
+Route::get('/createmitra', function () {
+    return view('mitra/v_createmitra');
+});
