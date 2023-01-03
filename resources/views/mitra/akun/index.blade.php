@@ -36,7 +36,7 @@
                             <td>
                                 <a href="{{route('mitra.akun.detail', $mitras->id_mitra)}}" class="btn btn-success"><i class="bi bi-eye"></i></a>
                                 <a href="{{route('mitra.akun.edit', $mitras->id_mitra) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
-                                <a href="" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                <a href="{{route('mitra.akun.destroy', $mitras->id_mitra) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                                 <a href="#" class="btn btn-danger">Inactive</a>
                             </td>
                           

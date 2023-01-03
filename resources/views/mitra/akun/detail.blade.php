@@ -7,12 +7,12 @@
     <br>
     <section class="section">
         <div class="col-md-12">
-            <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;border-radius:0%"> 
+            <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;"> 
                 <div class="card-header">
                     <center>
                     <h5>Detail Mitra</h5>
                   
-                    <img class="img-fluid mt-2" width="25%" height="auto" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 50%">
+                    <img class="img-fluid mt-2" width="200px" height="200px" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 25%">
                     </center>
                 </div>
                 <div class="card-body" style="margin-left:4em;margin-right:4em;">
