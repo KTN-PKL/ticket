@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('username')->unique()->nullable();
             $table->string('kontak');
             $table->string('foto');
-            $table->string('kontak');
             $table->string('level');
             $table->string('status');
             $table->timestamp('email_verified_at')->nullable();
