@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\c_mitra;
 use App\Http\Controllers\c_kategori;
+use App\Http\Controllers\c_fasilitas;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,13 @@ Route::controller(c_kategori::class)->group(function () {
     Route::get('/kategori/edit/{id}', 'edit')->name('kategori.edit');
     Route::post('/kategori/update/{id}', 'update')->name('kategori.update');
     Route::get('/kategori/destroy/{id}', 'destroy')->name('kategori.destroy');
+});
+
+Route::controller(c_fasilitas::class)->group(function () {
+    Route::get('/fasilitas', 'index')->name('fasilitas');
+    Route::post('/fasilitas/store', 'store')->name('fasilitas.store');
+    Route::get('/fasilitas/create', 'create')->name('fasilitas.create');
+    Route::get('/fasilitas/edit/{id}', 'edit')->name('fasilitas.edit');
+    Route::post('/fasilitas/update/{id}', 'update')->name('fasilitas.update');
+    Route::get('/fasilitas/destroy/{id}', 'destroy')->name('fasilitas.destroy');
 });
