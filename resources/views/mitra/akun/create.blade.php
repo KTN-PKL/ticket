@@ -14,7 +14,7 @@
                     </center>
                 </div>
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST"action="{{ route('mitra.akun.store') }}" class="form" data-parsley-validate>
+                    <form enctype="multipart/form-data" method="POST" action="{{ route('mitra.akun.store') }}" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">

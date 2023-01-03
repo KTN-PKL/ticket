@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="#" class="btn btn-primary">Kembali</a>
+    <a href="{{ route('mitra.akun') }}" class="btn btn-primary">Kembali</a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -12,32 +12,32 @@
                     <center>
                     <h5>Detail Mitra</h5>
                   
-                    <img class="img-fluid mt-2" width="10%" src="{{asset('template')}}/default.png" alt="" style="border-radius: 50%">
+                    <img class="img-fluid mt-2" width="25%" height="auto" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 50%">
                     </center>
                 </div>
-                <div class="card-body" style="margin-left:6em;margin-right:6em;">
+                <div class="card-body" style="margin-left:4em;margin-right:4em;">
                     <div class="row">
                         <div  class="col-md-5">  
                             <table>
                                 <tr>
-                                    <td style="width:85%"><h6>Nama</h6></td>
+                                    <td style="width:50%"><h6>Nama</h6></td>
                                     <td><h6>:</h6></td>
-                                    <td><h6>ss</h6></td>
+                                    <td><h6>{{$mitra->name}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td><h6>Email</h6></td>
                                     <td><h6>:</h6></td>
-                                    <td><h6>ss</h6></td>
+                                    <td><h6>{{$mitra->email}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td><h6>Username</h6></td>
                                     <td><h6>:</h6></td>
-                                    <td><h6>ss</h6></td>
+                                    <td><h6>{{$mitra->username}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td><h6>Whatsapp</h6></td>
                                     <td><h6>:</h6></td>
-                                    <td><h6>ss</h6></td>
+                                    <td><h6>{{$mitra->kontak}}</h6></td>
                                 </tr>
                             </table>
                         </div>
@@ -52,7 +52,7 @@
                                 <center>
                                     <h6>Deskripsi</h6>
                                 </center>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin maximus est at magna cursus rutrum. Sed nec pharetra erat. Quisque commodo gravida viverra.</p>
+                                <p>{{$mitra->deskripsi_mitra}}</p>
                             </div>
                            
                         </div>
