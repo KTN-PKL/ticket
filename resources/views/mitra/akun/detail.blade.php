@@ -17,36 +17,42 @@
                 </div>
                 <div class="card-body" style="margin-left:6em;margin-right:6em;">
                     <div class="row">
-                        <div  class="col-md-6">  
+                        <div  class="col-md-5">  
                             <table>
                                 <tr>
-                                    <td style="width:45%">Nama</td>
-                                    <td>:</td>
-                                    <td>Sari Ater Corp</td>
+                                    <td style="width:85%"><h6>Nama</h6></td>
+                                    <td><h6>:</h6></td>
+                                    <td><h6>ss</h6></td>
                                 </tr>
                                 <tr>
-                                    <td>Email</td>
-                                    <td>:</td>
-                                    <td>sariater@gmail.com</td>
+                                    <td><h6>Email</h6></td>
+                                    <td><h6>:</h6></td>
+                                    <td><h6>ss</h6></td>
                                 </tr>
                                 <tr>
-                                    <td>Username</td>
-                                    <td>:</td>
-                                    <td>sariater07</td>
+                                    <td><h6>Username</h6></td>
+                                    <td><h6>:</h6></td>
+                                    <td><h6>ss</h6></td>
                                 </tr>
                                 <tr>
-                                    <td>Whatsapp</td>
-                                    <td>:</td>
-                                    <td>082249025414</td>
+                                    <td><h6>Whatsapp</h6></td>
+                                    <td><h6>:</h6></td>
+                                    <td><h6>ss</h6></td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-md-6">
-                            <div style="margin-left:4em">
+                        <div class="col-md-2">
+                            <center>
+                                <div style="border:1px solid black;height:150px;width:0px;"></div>
+                            </center>
+                            
+                        </div>
+                        <div class="col-md-5">
+                            <div>
                                 <center>
                                     <h6>Deskripsi</h6>
                                 </center>
-                                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin maximus est at magna cursus rutrum. Sed nec pharetra erat. Quisque commodo gravida viverra.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin maximus est at magna cursus rutrum. Sed nec pharetra erat. Quisque commodo gravida viverra.</p>
                             </div>
                            
                         </div>
