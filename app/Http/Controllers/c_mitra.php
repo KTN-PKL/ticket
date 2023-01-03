@@ -47,7 +47,7 @@ class c_mitra extends Controller
             'balance' => 0,
         ];
         $this->mitra->addDataMitra($data);
-        $this->index();
+        return redirect()->route('mitra.akun')->with('create', 'Mitra Berhasil Dibuat');
     }
 
     public function edit($id_mitra)
