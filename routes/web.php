@@ -24,14 +24,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/index', function () {
-    return view('mitra/akun/index');
+Route::get('/test1', function () {
+    return view('mitra.postingan.index');
 });
-Route::get('/createmitra', function () {
-    return view('mitra/akun/index');
+Route::get('/test2', function () {
+    return view('mitra.postingan.create');
 });
-Route::get('/test', function () {
-    return view('mitra/akun/detail');
+
+Route::get('/test3', function () {
+    return view('mitra.postingan.edit');
 });
 
 Route::controller(c_mitra::class)->group(function () {
