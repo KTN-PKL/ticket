@@ -34,8 +34,8 @@ Route::get('/test', function () {
 
 Route::controller(c_mitra::class)->group(function () {
     Route::get('/mitra/akun', 'index')->name('mitra.akun');
-    Route::get('/mitra/akun/store', 'store')->name('mitra.akun.store');
-    Route::post('/mitra/akun/create', 'create')->name('mitra.akun.create');
+    Route::post('/mitra/akun/store', 'store')->name('mitra.akun.store');
+    Route::get('/mitra/akun/create', 'create')->name('mitra.akun.create');
     Route::get('/mitra/akun/edit/{id}', 'edit')->name('mitra.akun.edit');
     Route::post('/mitra/akun/update/{id}', 'update')->name('mitra.akun.update');
     Route::get('/mitra/akun/destroy/{id}', 'destroy')->name('mitra.akun.destroy');

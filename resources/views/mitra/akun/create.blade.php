@@ -14,7 +14,7 @@
                     </center>
                 </div>
                 <div class="card-body">
-                    <form  method="POST" action="#" class="form" data-parsley-validate>
+                    <form enctype="multipart/form-data" method="POST"action="{{ route('mitra.akun.store') }}" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">
@@ -36,17 +36,17 @@
                                 </div>
                                  <div class="form-group mandatory">
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
-                                    <input type="whatsapp" id="whatsapp" class="form-control" placeholder="Masukkan whatsapp Mitra" name="whatsapp" data-parsley-required="true">
+                                    <input type="whatsapp" id="kontak" class="form-control" placeholder="Masukkan whatsapp Mitra" name="kontak" data-parsley-required="true">
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
-                                    <label for="fotomitra" class="form-label">Upload Foto</label>
-                                    <input type="file" id="logomitra" class="form-control" placeholder="Masukkan Foto Mitra" name="fotomitra" data-parsley-required="true">
+                                    <label for="foto" class="form-label">Upload Foto</label>
+                                    <input type="file" id="foto" class="form-control" placeholder="Masukkan Foto Mitra" name="foto" data-parsley-required="true">
                                 </div>
                                 <div class="form-group mandatory">
-                                    <label for="deskripsimitra" class="form-label">Deskripsi Mitra</label>
-                                    <textarea type="text" id="deskripsi" class="form-control" placeholder="Masukkan deskripsi Mitra" name="deskripsi" data-parsley-required="true"></textarea>
+                                    <label for="deskripsi_mitra" class="form-label">Deskripsi Mitra</label>
+                                    <textarea type="text" id="deskripsi" class="form-control" placeholder="Masukkan deskripsi Mitra" name="deskripsi_mitra" data-parsley-required="true"></textarea>
                                 </div>
                             </div>
                         </div>

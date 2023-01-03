@@ -16,7 +16,7 @@ class mitra extends Model
     }
     public function allData()
     {
-        return DB::table('users')->join('mitras', 'user.id', '=', 'mitras.id_mitra')->get();
+        return DB::table('users')->join('mitras', 'users.id', '=', 'mitras.id_mitra')->get();
     }
     public function addDataUser($data)
     {
@@ -28,7 +28,7 @@ class mitra extends Model
     }
     public function detailData($id_mitra)
     {
-        return DB::table('users')->join('mitras', 'user.id', '=', 'mitras.id_mitra')->where('id_mitra', $id_mitra)->first();
+        return DB::table('users')->join('mitras', 'users.id', '=', 'mitras.id_mitra')->where('id_mitra', $id_mitra)->first();
     }
     public function deleteUser($id)
     {
