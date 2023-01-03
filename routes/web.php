@@ -20,9 +20,13 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-Route::get('/akunmitra', function () {
-    return view('mitra/v_akunmitra');
+
+Route::get('/index', function () {
+    return view('mitra/akun/index');
 });
 Route::get('/createmitra', function () {
-    return view('mitra/v_createmitra');
+    return view('mitra/akun/index');
+});
+Route::get('/test', function () {
+    return view('mitra/akun/detail');
 });
