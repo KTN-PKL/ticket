@@ -53,7 +53,7 @@ class c_mitra extends Controller
     public function edit($id_mitra)
     {
         $data = ['mitra' => $this->mitra->detailData($id_mitra),];
-        return view('mitra.akun.edit');
+        return view('mitra.akun.edit', $data);
     }
 
     public function update(Request $request, $id_mitra)
@@ -83,6 +83,12 @@ class c_mitra extends Controller
         $data = ['status' => "inactive"];
         $this->mitra->editUser($id_mitra, $data);
         $this->index();
+    }
+
+    public function detail($id_mitra)
+    {
+        $data = ['mitra' => $this->mitra->detailData($id_mitra),];
+        return view('mitra.akun.detail', $data);
     }
 
     public function active($id_mitra)
