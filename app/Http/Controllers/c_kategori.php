@@ -27,7 +27,7 @@ class c_kategori extends Controller
     {
         $data = ['kategori' => $request->kategori,];
         $this->kategori->addData($data);
-        $this->index();
+        return redirect()->route('kategori')->with('create', 'Mitra Berhasil Dibuat');
     }
 
     public function edit($id_kategori)
@@ -40,13 +40,12 @@ class c_kategori extends Controller
     {
         $data = ['kategori' => $request->kategori,];
         $this->kategori->editData($id_kategori, $data);
-        $this->index();
+        return redirect()->route('kategori')->with('create', 'Mitra Berhasil Dibuat');
     }
 
     public function destroy($id_kategori)
     {
         $this->kategori->deleteData($id_kategori);
-        $this->index();
+        return redirect()->route('kategori')->with('create', 'Mitra Berhasil Dibuat');
     }
-
 }
