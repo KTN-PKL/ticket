@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\c_mitra;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,16 @@ Route::get('/createmitra', function () {
 });
 Route::get('/test', function () {
     return view('mitra/akun/detail');
+});
+
+Route::controller(c_mitra::class)->group(function () {
+    Route::get('/mitra/akun', 'index')->name('mitra.akun');
+    Route::get('/mitra/akun/store', 'store')->name('mitra.akun.store');
+    Route::post('/mitra/akun/create', 'create')->name('mitra.akun.create');
+    Route::get('/mitra/akun/edit/{id}', 'edit')->name('mitra.akun.edit');
+    Route::post('/mitra/akun/update/{id}', 'update')->name('mitra.akun.update');
+    Route::get('/mitra/akun/destroy/{id}', 'destroy')->name('mitra.akun.destroy');
+    Route::get('/mitra/akun/detail/{id}', 'detail')->name('mitra.akun.detail');
+    Route::get('/mitra/akun/active/{id}', 'active')->name('mitra.akun.active');
+    Route::get('/mitra/akun/inactive/{id}', 'inactive')->name('mitra.akun.inactive');
 });
