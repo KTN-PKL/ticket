@@ -22,6 +22,15 @@
 <link rel="stylesheet" href="{{asset('template')}}/dist/assets/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.css">
 <link rel="stylesheet" href="{{asset('template')}}/dist/assets/extensions/toastify-js/src/toastify.css">
 <link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/pages/filepond.css">
+
+{{-- Javascript Propper --}}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    
+
+
 </head>
 
 <body>
@@ -68,6 +77,7 @@
 <script src="{{asset('template')}}/dist/assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="{{asset('template')}}/dist/assets/js/pages/dashboard.js"></script> --}}
 
+
 {{-- DataTables --}}
 <script src="{{asset('template')}}/dist/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
 <script src="{{asset('template')}}/dist/assets/js/pages/simple-datatables.js"></script>
@@ -76,6 +86,19 @@
 <script src="{{asset('template')}}/dist/assets/extensions/filepond/filepond.js"></script>
 <script src="{{asset('template')}}/dist/assets/extensions/toastify-js/src/toastify.js"></script>
 <script src="{{asset('template')}}/dist/assets/js/pages/filepond.js"></script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
 

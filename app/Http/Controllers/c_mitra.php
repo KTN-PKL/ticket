@@ -26,6 +26,17 @@ class c_mitra extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'password' => 'required|confirmed',
+            'username' => 'required|unique',
+            'email' => 'required|unique',
+            'kontak' => 'required',
+            'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
+        ],[
+            'name.required'=>'Nama Mitra Wajib terisi',
+           
+        ]);
         $file  = $request->foto;
         $filename = $request->email.'.'.$file->extension();
         $file->move(public_path('foto'),$filename);
