@@ -9,37 +9,24 @@
         <div class="col-md-12">
             <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;"> 
                 <div class="card-header">
-                    <center>
-                    <h5>Detail Mitra</h5>
-                  
-                    <img class="img-fluid mt-2" width="200px" height="200px" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 25%">
-                    </center>
+                   <center>
+                    <h3>Detail Postingan</h3>
+                    @foreach($fotowisata as $fotowisatas)
+                <img class="img-fluid mt-2" width="100px" height="100px" src="{{asset('/fotowisata/'. $fotowisatas->fotowisata)}}" alt="" style="border-radius: 25%">
+                    @endforeach
+                   </center>
                 </div>
-                <div class="card-body" style="margin-left:3em;margin-right:3em;">
+                <div class="card-body mt-2" style="margin-left:3em;margin-right:3em;">
                     <div class="row">
                         <div  class="col-md-5">  
-                            <table>
-                                <tr>
-                                    <td style="width:50%"><h6>Nama</h6></td>
-                                    <td><h6>:</h6></td>
-                                    <td><h6>{{$mitra->name}}</h6></td>
-                                </tr>
-                                <tr>
-                                    <td><h6>Email</h6></td>
-                                    <td><h6>:</h6></td>
-                                    <td><h6>{{$mitra->email}}</h6></td>
-                                </tr>
-                                <tr>
-                                    <td><h6>Username</h6></td>
-                                    <td><h6>:</h6></td>
-                                    <td><h6>{{$mitra->username}}</h6></td>
-                                </tr>
-                                <tr>
-                                    <td><h6>Whatsapp</h6></td>
-                                    <td><h6>:</h6></td>
-                                    <td><h6>{{$mitra->kontak}}</h6></td>
-                                </tr>
-                            </table>
+                            <h4>{{$wisata->wisata}}</h4>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <h6 style="color:blue;border: 1px solid rgb(19, 164, 255);">{{$wisata->kategori}}</h6>
+                                </div>
+
+                            </div>
+                            
                         </div>
                         <div class="col-md-2">
                             <center>
@@ -52,7 +39,7 @@
                                 <center>
                                     <h6>Deskripsi</h6>
                                 </center>
-                                <p class="text-justify" style="font-size: 12px">{{$mitra->deskripsi_mitra}}</p>
+                                <p class="text-justify" style="font-size: 12px">Desc</p>
                             </div>
                            
                         </div>
