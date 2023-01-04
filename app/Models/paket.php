@@ -12,23 +12,23 @@ class paket extends Model
 
     public function wisataData($id_wisata)
     {
-        return DB::table('paket')->where('id_wisata', $id_wisata)->get();
+        return DB::table('pakets')->where('id_wisata', $id_wisata)->get();
     }
 
     public function addData($data)
     {
-        DB::table('paket')->insert($data);
+        DB::table('pakets')->insert($data);
     }
     public function deleteData($id_paket)
     {
-        DB::table('paket')->where('id_paket', $id_paket)->delete();
+        DB::table('pakets')->where('id_paket', $id_paket)->delete();
     }
     public function deleteData2($id_paket)
     {
-        DB::table('paket')->where('id_paket', $id_paket)->delete();
+        DB::table('pakets')->where('id_paket', $id_paket)->delete();
     }
     public function editData($id_paket, $data)
     {
-        DB::table('paket')->where('id_paket', $id_paket)->update($data);
+        DB::table('pakets')->where('id_paket', $id_paket)->update($data);
     }
 }

@@ -14,7 +14,7 @@
                     </center>
                 </div>
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST" action="" class="form" data-parsley-validate>
+                    <form enctype="multipart/form-data" method="POST" action="{{route('mitra.postingan.store', $id)}}" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">
@@ -129,7 +129,7 @@
                                                     <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
                                                 </center>
                                                 <!-- File uploader with multiple files upload -->
-                                                <input type="file" class="multiple-files-filepond" name="fotowisata[]" multiple >
+                                                <input type="file" multiple name="fotowisata[]" >
                                             </div>
                                         </div>  
                                 </div>  
