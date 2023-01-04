@@ -77,8 +77,8 @@ class c_postingan extends Controller
             ];
             $this->jam_buka->addData($data);
         }
-        for ($i=0; $i < $request->jft; $i++) { 
-            $file  = $request->fotowisata[$i];
+        foreach ($request->fotowisata as $fwsata) {
+            $file  = $fwsata;
             $filename = $request->wisata.$i.'.'.$file->extension();
             $file->move(public_path('fotowisata'),$filename);
             $data = [
