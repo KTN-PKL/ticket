@@ -12,22 +12,22 @@ class fasilitas extends Model
 
     public function allData()
     {
-        return DB::table('fasilitass')->get();
+        return DB::table('fasilitas')->get();
     }
     public function addData($data)
     {
-        DB::table('fasilitass')->insert($data);
+        DB::table('fasilitas')->insert($data);
     }
     public function deleteData($id_fasilitas)
     {
-        DB::table('fasilitass')->where('id_fasilitas', $id_fasilitas)->delete();
+        DB::table('fasilitas')->where('id_fasilitas', $id_fasilitas)->delete();
     }
     public function editData($id_fasilitas, $data)
     {
-        DB::table('fasilitass')->where('id_fasilitas', $id_fasilitas)->update($data);
+        DB::table('fasilitas')->where('id_fasilitas', $id_fasilitas)->update($data);
     }
     public function detailData($id_fasilitas)
     {
-        return DB::table('fasilitass')->where('id_fasilitas', $id_fasilitas)->first();
+        return DB::table('fasilitas')->where('id_fasilitas', $id_fasilitas)->first();
     }
 }

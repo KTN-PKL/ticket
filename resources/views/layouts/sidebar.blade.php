@@ -17,7 +17,7 @@
     </div>
     <div class="sidebar-menu">
         <div class="logo">
-            <a style="margin-left:4em" href="{{asset('template')}}/dist/index.html"><img width="150px" height="75px" src="{{('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
+            <a style="margin-left:4em" href="#"><img width="150px" height="75px" src="{{('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
         </div>
         <ul class="menu">
             <li
@@ -36,7 +36,7 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="{{url('/akunmitra')}}">Akun</a>
+                        <a href="{{route('mitra.akun')}}">Akun</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="#">Postingan</a>
