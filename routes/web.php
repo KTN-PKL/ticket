@@ -26,12 +26,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-// Route::get('/test1', function () {
-//     return view('mitra.postingan.index');
-// });
-// Route::get('/test2', function () {
-//     return view('mitra.postingan.create');
-// });
+Route::get('/test1', function () {
+    return view('pengunjung.index');
+});
+
+Route::get('/test2', function () {
+    return view('pengunjung.pengunjung');
+});
+
 
 // Route::get('/test3', function () {
 //     return view('mitra.postingan.edit');

@@ -18,8 +18,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Sari Ater Corp</td>
-                            <td>Balance</td>
+                            <td>1</td>
+                            <td style="width:35%">Sari Ater Corp</td>
+                            <td style="width:25%">Balance</td>
                             <td>
                                 <a href="#" class="btn btn-primary">Lihat Pengunjung</a>
                                 <a href="#" class="btn btn-warning"><i class="bi bi-clock-history"></i>History</a>
