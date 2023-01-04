@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('id_paket');
             $table->string('paket');
             $table->string('id_wisata');
+            $table->string('fitur');
             $table->string('harga_wday');
             $table->string('harga_wend');
             $table->timestamps();

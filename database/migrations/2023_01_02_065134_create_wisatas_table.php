@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('wisatas', function (Blueprint $table) {
             $table->id('id_wisata');
-            $table->string('wisata');
+            $table->string('wisata')->unique();
             $table->string('id_kategori');
             $table->string('lokasi');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('id_mitra');
             $table->timestamps();
         });
