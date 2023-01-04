@@ -10,22 +10,18 @@ class fotowisata extends Model
 {
     use HasFactory;
 
-    public function wisataData($id_wsiata)
+    public function wisataData($id_wisata)
     {
-        return DB::table('fotowisatas')->where('id_wsiata', $id_wsiata)->get();
+        return DB::table('fotowisatas')->where('id_wisata', $id_wisata)->get();
     }
 
     public function addData($data)
     {
         DB::table('fotowisatas')->insert($data);
     }
-    public function deleteData($id_fotow)
+    public function deleteData($id_wisata)
     {
-        DB::table('fotowisatas')->where('id_fotow', $id_fotow)->delete();
-    }
-    public function editData($id_fotow, $data)
-    {
-        DB::table('fotowisatas')->where('id_fotow', $id_fotow)->update($data);
+        DB::table('fotowisatas')->where('id_wisata', $id_wisata)->delete();
     }
 
 }

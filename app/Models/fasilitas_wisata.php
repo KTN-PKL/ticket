@@ -10,22 +10,18 @@ class fasilitas_wisata extends Model
 {
     use HasFactory;
 
-    public function wisataData($id_wsiata)
+    public function wisataData($id_wisata)
     {
-        return DB::table('fasilitas_wisatas')->join('fasilitass', 'fasilitas_wisatas.id_fasilitas', '=', 'fasilitass.id_fasilitas')->where('id_wsiata', $id_wsiata)->get();
+        return DB::table('fasilitas_wisatas')->join('fasilitass', 'fasilitas_wisatas.id_fasilitas', '=', 'fasilitass.id_fasilitas')->where('id_wisata', $id_wisata)->get();
     }
 
     public function addData($data)
     {
         DB::table('fasilitas_wisatas')->insert($data);
     }
-    public function deleteData($id_fw)
+    public function deleteData($id_wisata)
     {
-        DB::table('fasilitas_wisatas')->where('id_fw', $id_fw)->delete();
-    }
-    public function editData($id_fw, $data)
-    {
-        DB::table('fasilitas_wisatas')->where('id_fw', $id_fw)->update($data);
+        DB::table('fasilitas_wisatas')->where('id_wisata', $id_wisata)->delete();
     }
     
 }

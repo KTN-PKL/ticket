@@ -96,7 +96,111 @@ class c_postingan extends Controller
             ];
             $this->paket->addData($data);
         }
+        return redirect()->route('mitra.postingan')->with('create', 'Mitra Berhasil Dibuat');
     }
 
+    public function edit($id_wisata)
+    {
+        $data = [
+            'wisata' => $this->wisata->detailData($id_wisata),
+            'fasilitas_wisata' => $this->fasilitas_wisata->wisataData($id_wisata),
+            'jam_buka' => $this->jam_buka->wisataData($id_wisata),
+            'fotowisata' => $this->fotowisata->wisataData($id_wisata),
+            'paket' => $this->paket->wisataData($id_wisata),
+        ];
+        return view('mitra.postingan.edit', $data);
+    }
 
+    public function detail($id_wisata)
+    {
+        $data = [
+            'wisata' => $this->wisata->detailData($id_wisata),
+            'fasilitas_wisata' => $this->fasilitas_wisata->wisataData($id_wisata),
+            'jam_buka' => $this->jam_buka->wisataData($id_wisata),
+            'fotowisata' => $this->fotowisata->wisataData($id_wisata),
+            'paket' => $this->paket->wisataData($id_wisata),
+        ];
+        return view('mitra.postingan.detail', $data);
+    }
+
+    public function update($id_wisata)
+    {
+        $data = [
+            'wisata' => $request->wisata,
+            'id_kategori' => $request->id_kategori,
+            'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+        ];
+        $this->wisata->editData($id_wisata, $data);
+        $this->fasilitas_wisata->deleteData($id_wisata);
+        for ($i=0; $i < $request->jf; $i++) { 
+            $data = [
+                'id_wisata' => $id_wisata,
+                'id_fasilitas' => $request->{$i."id_fasilitas"},
+            ];
+            $this->fasilitas_wisata->addData($data);
+        }
+        $jb = $this->jam_buka->wisataData($id_wisata);
+        $i = 0;
+        foreach ($jb as $jamb) {
+            $data = [
+                'jam_buka' => $request->{$i."jam_buka"},
+                'jam_tutup' => $request->{$i."jam_tutup"},
+            ];
+            $i = $i +1;
+            $this->jam_buka->addData($jamb->id_jambuka, $data);
+        }
+        if ($request->fotowisata[0] <> null) {
+            $fw = $this->jfotowisata->wisataData($id_wisata);
+            foreach ($fw as $fotow) {
+                unlink(public_path('fotowisata'). '/' .$fotow->fotowisata);
+            }
+            $this->fotowisata->deleteData($id_wisata);
+            for ($i=0; $i < $request->jft; $i++) { 
+                $file  = $request->fotowisata[$i];
+                $filename = $request->wisata.$i.'.'.$file->extension();
+                $file->move(public_path('fotowisata'),$filename);
+                $data = [
+                    'id_wisata' => $id,
+                    'fotowisata' => $filename,
+                ];
+                $this->fotowisata->addData($data);
+            }
+        }
+        $paket= $this->paket->wisataData($id_wisata);
+        $i = 0;
+        foreach ($variable as $key => $value) {  
+        if ($i < $request->jp) {
+            $fitur = $request->{"fitur".$i};
+            if ($request->{"jftr".$i} <> 1) {
+            for ($j=1; $j < $request->{"jftr".$i} ; $j++) { 
+                $fitur = $fitur."+".$request->{"fitur".$i.$j};
+            }
+            }
+            $data = [
+                'fitur' => $fitur,
+                'paket' => $request->{"paket".$i},
+                'harga_wday' => $request->{"harga_wday".$i},
+                'harga_wend' => $request->{"harga_wend".$i},
+            ];
+            $this->paket->edirData($id_paket, $data);
+        } else {
+            $this->paket->deleteData($id_paket);
+        }
+        $i = $i + 1;
+        }
+        return redirect()->route('mitra.postingan')->with('create', 'Mitra Berhasil Dibuat');
+    }
+    public function destroy($id_wisata)
+    {
+        $fw = $this->jfotowisata->wisataData($id_wisata);
+        foreach ($fw as $fotow) {
+            unlink(public_path('fotowisata'). '/' .$fotow->fotowisata);
+        }
+        $this->fotowisata->deleteData($id_wisata);
+        $this->fasilitas_wisata->deleteData($id_wisata);
+        $this->jam_buka->deleteData($id_wisata);
+        $this->paket->deleteData2($id_wisata);
+        $this->wisata->deleteData($id_wisata);
+    }
 }

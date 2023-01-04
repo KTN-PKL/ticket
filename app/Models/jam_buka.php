@@ -10,18 +10,18 @@ class jam_buka extends Model
 {
     use HasFactory;
 
-    public function wisataData($id_wsiata)
+    public function wisataData($id_wisata)
     {
-        return DB::table('jam_bukas')->where('id_wsiata', $id_wsiata)->get();
+        return DB::table('jam_bukas')->where('id_wisata', $id_wisata)->get();
     }
 
     public function addData($data)
     {
         DB::table('jam_bukas')->insert($data);
     }
-    public function deleteData($id_jambuka)
+    public function deleteData($id_wisata)
     {
-        DB::table('jam_bukas')->where('id_jambuka', $id_jambuka)->delete();
+        DB::table('jam_bukas')->where('id_wisata', $id_wisata)->delete();
     }
     public function editData($id_jambuka, $data)
     {
