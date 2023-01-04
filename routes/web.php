@@ -5,6 +5,7 @@ use App\Http\Controllers\c_mitra;
 use App\Http\Controllers\c_kategori;
 use App\Http\Controllers\c_fasilitas;
 use App\Http\Controllers\c_postingan;
+use App\Http\Controllers\c_pengguna;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,18 @@ Route::controller(c_mitra::class)->group(function () {
     Route::get('/mitra/akun/detail/{id}', 'detail')->name('mitra.akun.detail');
     Route::get('/mitra/akun/active/{id}', 'active')->name('mitra.akun.active');
     Route::get('/mitra/akun/inactive/{id}', 'inactive')->name('mitra.akun.inactive');
+});
+
+Route::controller(c_pengguna::class)->group(function () {
+    Route::get('/pengguna', 'index')->name('pengguna');
+    Route::post('/pengguna/store', 'store')->name('pengguna.store');
+    Route::get('/pengguna/create', 'create')->name('pengguna.create');
+    Route::get('/pengguna/edit/{id}', 'edit')->name('pengguna.edit');
+    Route::post('/pengguna/update/{id}', 'update')->name('pengguna.update');
+    Route::get('/pengguna/destroy/{id}', 'destroy')->name('pengguna.destroy');
+    Route::get('/pengguna/detail/{id}', 'detail')->name('pengguna.detail');
+    Route::get('/pengguna/active/{id}', 'active')->name('pengguna.active');
+    Route::get('/pengguna/inactive/{id}', 'inactive')->name('pengguna.inactive');
 });
 
 Route::controller(c_postingan::class)->group(function () {
