@@ -10,30 +10,21 @@
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Mitra</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <td style="width:60%">Sari Ater Corp</td>
-                        {{-- @foreach($mitra as $mitras)
+                        @foreach($mitra as $mitras)
                         <tr>
-                            <td>{{$mitras->name}}</td>
-                            <td>{{$mitras->email}}</td>
-                            <td>{{$mitras->username}}</td>
+                            <td>1</td>
+                            <td style="width:75%">{{$mitras->name}}</td>
                             <td>
-                                @if ($mitras->status == "active")
-                                <span class="badge bg-success">Active</span>
-                                @else
-                                <span class="badge bg-danger">Inactive</span>
-                                @endif
-                            </td> --}}
-                            <td>
-                                <a href="#" class="btn btn-primary">Lihat Postingan</a>
-                              
+                                <a href="{{route('mitra.postingan', $mitras->id_mitra)}}" class="btn btn-primary">Lihat Postingan</a>
                             </td>
-                          
                         </tr>
+                        @endforeach
                        {{-- @endforeach --}}
                     </tbody>
                 </table>

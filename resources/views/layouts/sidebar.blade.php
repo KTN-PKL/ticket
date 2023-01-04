@@ -16,9 +16,9 @@
         </div>
     </div>
     <div class="sidebar-menu">
-        <div class="logo">
+        {{-- <div class="logo">
             <a style="margin-left:4em" href="#"><img width="150px" height="75px" src="{{('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
-        </div>
+        </div> --}}
         <ul class="menu">
             <li
                 class="sidebar-item active ">
