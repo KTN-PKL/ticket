@@ -103,9 +103,48 @@
                         <div class="col-md-5">
                             <div>
                                 <h6>Fasilitas Umum</h6>
-                                @foreach($fasilitas as $fasilitas2)
-                                <span class="badge badge-danger">{{ $fasilitas2->fasilitas }}</span>
+                                @foreach($fasilitas_wisata as $fasilitas2)
+                                <div class="row">
+                                    <div class="col col-4 col-md-4">
+                                        <center>
+                                            <h6 style="color:rgb(19, 164, 255);border: 1px solid rgb(19, 164, 255);">{{$fasilitas2->fasilitas}}</h6>
+                                        </center> 
+                                    </div>
+                                </div>
+                               
                                 @endforeach
+                            </div>
+
+                            <div>
+                                <h6>Lokasi</h6>
+                                <h6>LINKKKKK</h6>
+                               
+                            </div>
+
+                            <br><br>
+                            <div style="border:1px solid grey;border-radius:10%">
+                              
+                                    <div>
+                                        @foreach($paket as $pakets)
+                                        <center>
+                                        <h6>{{ $pakets->paket}}</h6>
+                                        </center>
+                                        <div style="margin-left:1em">
+                                            <h6 style="font-size: 12px;">Fitur yang didapatkan</h6>
+                                            <div class="col col-4 col-md-4">
+                                                <center>
+                                                    <h6 style="color:rgb(19, 164, 255);border: 1px solid rgb(19, 164, 255);">{{$fasilitas2->fasilitas}}</h6>
+                                                </center> 
+                                            </div>
+                                        </div>
+                                       
+                                        @endforeach
+                                     
+                                    </div>
+                                
+                                
+                                
+                             
                             </div>
                            
                         </div>
