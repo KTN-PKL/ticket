@@ -77,6 +77,7 @@ class c_postingan extends Controller
             ];
             $this->jam_buka->addData($data);
         }
+        $i = 0;
         foreach ($request->fotowisata as $fwsata) {
             $file  = $fwsata;
             $filename = $request->wisata.$i.'.'.$file->extension();
@@ -86,12 +87,13 @@ class c_postingan extends Controller
                 'fotowisata' => $filename,
             ];
             $this->fotowisata->addData($data);
+        $i = $i + 1;
         }
         for ($i=0; $i < $request->jp; $i++) { 
             $fitur = $request->{"fitur".$i};
             if ($request->{"jftr".$i} <> 1) {
             for ($j=1; $j < $request->{"jftr".$i} ; $j++) { 
-                $fitur = $fitur."+".$request->{"fitur".$i.$j};
+                $fitur = $fitur."+".$request->{"fitur".$i."-".$j};
             }
             }
             $data = [
@@ -183,7 +185,7 @@ class c_postingan extends Controller
             $fitur = $request->{"fitur".$i};
             if ($request->{"jftr".$i} <> 1) {
             for ($j=1; $j < $request->{"jftr".$i} ; $j++) { 
-                $fitur = $fitur."+".$request->{"fitur".$i.$j};
+                $fitur = $fitur."+".$request->{"fitur".$i."-".$j};
             }
             }
             $data = [
