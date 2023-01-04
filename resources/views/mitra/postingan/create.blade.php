@@ -59,56 +59,56 @@
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Senin</span>
                                           </div>
-                                          <input type="time" class="form-control" name="0jam_buka"/>
-                                          <input type="time" class="form-control" name="0jam_tutup"/>
+                                          <input type="time" class="form-control" name="0jam_buka" data-parsley-required="true" />
+                                          <input type="time" class="form-control" name="0jam_tutup"  data-parsley-required/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="selasa"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Selasa</span>
                                           </div>
-                                          <input type="time" class="form-control" name="1jam_buka"/>
-                                          <input type="time" class="form-control" name="1jam_tutup"/>
+                                          <input type="time" class="form-control" name="1jam_buka" data-parsley-required="true"/>
+                                          <input type="time" class="form-control" name="1jam_tutup" data-parsley-required="true"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="rabu"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Rabu</span>
                                           </div>
-                                          <input type="time" class="form-control" name="2jam_buka"/>
-                                          <input type="time" class="form-control" name="2jam_tutup"/>
+                                          <input type="time" class="form-control" name="2jam_buka" data-parsley-required="true"/>
+                                          <input type="time" class="form-control" name="2jam_tutup" data-parsley-required="true"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="kamis"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Kamis</span>
                                           </div>
-                                          <input type="time" class="form-control" name="3jam_buka"/>
-                                          <input type="time" class="form-control" name="3jam_tutup"/>
+                                          <input type="time" class="form-control" name="3jam_buka" data-parsley-required="true"/>
+                                          <input type="time" class="form-control" name="3jam_tutup" data-parsley-required="true"/>
                                         </div>
                                         <div class="input-group mt-2 ">
                                             <label style="font-size:8px" for="Jumat"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Jumat</span>
                                           </div>
-                                          <input type="time" class="form-control" name="4jam_buka"/>
-                                          <input type="time" class="form-control" name="4jam_tutup"/>
+                                          <input type="time" class="form-control" name="4jam_buka" data-parsley-required="true"/>
+                                          <input type="time" class="form-control" name="4jam_tutup" data-parsley-required="true"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="Sabtu"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Sabtu</span>
                                           </div>
-                                          <input type="time" class="form-control" name="5jam_buka"/>
-                                          <input type="time" class="form-control" name="5jam_tutup"/>
+                                          <input type="time" class="form-control" name="5jam_buka" data-parsley-required="true"/>
+                                          <input type="time" class="form-control" name="5jam_tutup" data-parsley-required="true"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="Minggu"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Minggu</span>
                                           </div>
-                                          <input type="time" class="form-control" name="6jam_buka"/>
-                                          <input type="time" class="form-control" name="6jam_tutup"/>
+                                          <input type="time" class="form-control" name="6jam_buka" data-parsley-required="true"/>
+                                          <input type="time" class="form-control" name="6jam_tutup" data-parsley-required="true"/>
                                         </div>
                                         <div class="form-group mandatory">
                                           <label for="name" class="form-label">Deskripsi</label>
@@ -121,10 +121,10 @@
                                 </div>       
                             </div>
                             <div class="col-md-6 col-12">
-                                {{-- <div class="form-group mandatory">
+                                <div class="form-group mandatory">
                                     <label for="lokasi" class="form-label">Link Lokasi</label>
                                     <input type="text" id="lokasi" class="form-control" placeholder="Masukkan link lokasi" name="lokasi" data-parsley-required="true">
-                                </div> --}}
+                                </div>
                                 
                                 <div class="form-group mandatory">
                                     <label for="foto" class="form-label">Upload Foto</label>

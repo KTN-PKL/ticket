@@ -28,13 +28,23 @@ class c_mitra extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'password' => 'required',
+            'password' => 'required|confirmed',
             'username' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'kontak' => 'required',
             'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
+            'deskripsi_mitra'=>'required'
         ],[
             'name.required'=>'Nama Mitra Wajib terisi',
+            'password.required'=>'Password Wajib terisi',
+            'username.required'=>'Username Wajib terisi',
+            'email.required'=>'Email Wajib terisi',
+            'email.email'=>'Masukkan Format Email',
+            'kontak.required'=>'Kontak Wajib terisi',
+            'foto.required'=>'Foto Wajib terisi',
+            'foto.mimes'=>"Format Foto jpg,png, jpeg",
+            'foto.max'=>"Maksimal ukuran foto 2048mb",
+            'deskripsi_mitra.required'=>'Deskripsi Wajib terisi',
            
         ]);
         $file  = $request->foto;
@@ -69,6 +79,23 @@ class c_mitra extends Controller
 
     public function update(Request $request, $id_mitra)
     {
+        $request->validate([
+            'name' => 'required',
+            'password' => 'confirmed',
+            'kontak' => 'required',
+            'foto' => 'mimes:jpg,png,jpeg|max:2048',
+            'deskripsi_mitra'=>'required'
+        ],[
+            'name.required'=>'Nama Mitra Wajib terisi',
+            'username.required'=>'Username Wajib terisi',
+            'email.email'=>'Masukkan Format Email',
+            'kontak.required'=>'Kontak Wajib terisi',
+            'foto.mimes'=>"Format Foto jpg,png, jpeg",
+            'foto.max'=>"Maksimal ukuran foto 2048mb",
+            'deskripsi_mitra.required'=>'Deskripsi Wajib terisi',
+           
+        ]);
+
         if ($request->foto <> null) {
             $file  = $request->foto;
             $filename = $request->email.'.'.$file->extension();

@@ -20,22 +20,23 @@
             <a style="margin-left:4em" href="#"><img width="150px" height="75px" src="{{('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
         </div> --}}
         <ul class="menu">
+            
             <li
-                class="sidebar-item active ">
-                <a href="{{url('/dashboard')}}" class='sidebar-link'>
+                class="sidebar-item {{request()->is('dashboard') ? 'active' : ''}}">
+                <a href="{{url('/dashboard')}}" class='sidebar-link '>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             
             <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
+                class="sidebar-item  has-sub ">
+                <a href="#" class='sidebar-link '>
                     <i class="bi bi-stack"></i>
                     <span>Mitra</span>
                 </a>
-                <ul class="submenu ">
-                    <li class="submenu-item ">
+                <ul class="submenu {{request()->routeIs('mitra.*') ? 'active' : ''}}">
+                    <li class="submenu-item">
                         <a href="{{route('mitra.akun')}}">Akun</a>
                     </li>
                     <li class="submenu-item ">
@@ -44,8 +45,8 @@
                 </ul>
             </li>
             <li
-                class="sidebar-item  ">
-                <a href="#" class='sidebar-link'>
+                class="sidebar-item {{request()->routeIs('pengunjung') ? 'active' : ''}} ">
+                <a href="{{route('mitra.akun')}}" class='sidebar-link'>
                     <i class="bi bi-person-lines-fill"></i>
                     <span>Pengunjung</span>
                 </a>

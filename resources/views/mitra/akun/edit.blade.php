@@ -20,34 +20,79 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
                                     <label for="name" class="form-label">Nama Mitra</label>
-                                    <input type="text" id="name" class="form-control" name="name" data-parsley-required="true" value="{{$mitra->name}}">
+                                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" value="{{$mitra->name}}" placeholder="Masukkan Nama Mitra" name="name">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                  @enderror
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="emailmitra" class="form-label">Email</label>
-                                    <input style="background-color: #bdbdbd" type="text" id="email" class="form-control"  name="email" data-parsley-required="true" value="{{$mitra->email}}" readonly>
+                                    <input type="text" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan Email Mitra" name="email"  value="{{$mitra->email}}" readonly>
+                                 @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                  @enderror
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="username" class="form-label">Username</label>
-                                    <input style="background-color: #bdbdbd" type="text" id="username" class="form-control"  name="username" data-parsley-required="true" value="{{$mitra->username}}" readonly>
+                                    <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan Username Mitra" name="username"  value="{{$mitra->username}}" readonly>
+                                 @error('username')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                  @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="form-label">Password</label>
-                                    <small class="text-muted"><i>Masukkan Password baru jika ingin mengubah</i></small>
-                                    <input type="password" id="password" class="form-control"  name="password" data-parsley-required="true">
+                                    <small class="text-muted"><i>Input jika ingin mengubah password</i> </small>
+                                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password Mitra" name="password">
+                                 @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                  @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="password-confirmation" class="form-label">Password Konfirmasi</label>
+                                    <input type="password" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Masukkan Konfirmasi Password" name="password_confirmation">
+                                 @error('password_confirmation')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                  @enderror
                                 </div>
                                  <div class="form-group mandatory">
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
-                                    <input type="number" id="whatsapp" class="form-control" name="kontak" data-parsley-required="true" value="{{$mitra->kontak}}">
+                                    <input type="number" id="kontak" class="form-control @error('kontak') is-invalid @enderror" placeholder="Masukkan Nomor Whatsapp Mitra" name="kontak"  value="{{$mitra->kontak}}">
+                                 @error('kontak')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                  @enderror
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
                                     <label for="foto" class="form-label">Upload Foto</label>
-                                    <input type="file" id="foto" class="form-control" name="foto" data-parsley-required="true">
+                                    
+                                    <input type="file" id="foto" class="form-control @error('foto') is-invalid @enderror" placeholder="Masukkan Foto Mitra" name="foto" value="{{$mitra->foto}}">
+                                 @error('foto')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                  @enderror
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="deskripsi_mitra" class="form-label">Deskripsi Mitra</label>
-                                    <textarea type="text" id="deskripsi" class="form-control" name="deskripsi_mitra" data-parsley-required="true">{{$mitra->deskripsi_mitra}}</textarea>
+                                    <textarea type="text" id="deskripsi" class="form-control @error('deskripsi_mitra') is-invalid @enderror" placeholder="Masukkan deskripsi Mitra" name="deskripsi_mitra">{{$mitra->deskripsi_mitra}}"</textarea>
+                                @error('deskripsi_mitra')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                         </div>

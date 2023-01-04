@@ -20,7 +20,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
                                     <label for="name" class="form-label">Nama Mitra</label>
-                                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Masukkan Nama Mitra" name="name">
+                                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" placeholder="Masukkan Nama Mitra" name="name">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="emailmitra" class="form-label">Email</label>
-                                    <input type="text" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan Email Mitra" name="email">
+                                    <input type="text" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan Email Mitra" name="email" value="{{old('email')}}">
                                  @error('email')
                                     <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan Username Mitra" name="username">
+                                    <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan Username Mitra" name="username" value="{{old('username')}}">
                                  @error('username')
                                     <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -56,8 +56,8 @@
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="password-confirmation" class="form-label">Password Konfirmasi</label>
-                                    <input type="password-confirmation" id="password-confirmation" class="form-control @error('password-confirmation') is-invalid @enderror" placeholder="Masukkan Password-confirmation Mitra" name="password-confirmation">
-                                 @error('password-confirmation')
+                                    <input type="password" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Masukkan Password-confirmation Mitra" name="password_confirmation">
+                                 @error('password_confirmation')
                                     <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                     </span>
@@ -65,7 +65,7 @@
                                 </div>
                                  <div class="form-group mandatory">
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
-                                    <input type="number" id="kontak" class="form-control @error('kontak') is-invalid @enderror" placeholder="Masukkan Nomor Whatsapp Mitra" name="kontak">
+                                    <input type="number" id="kontak" class="form-control @error('kontak') is-invalid @enderror" placeholder="Masukkan Nomor Whatsapp Mitra" name="kontak" value="{{old('kontak')}}">
                                  @error('kontak')
                                     <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="deskripsi_mitra" class="form-label">Deskripsi Mitra</label>
-                                    <textarea type="text" id="deskripsi" class="form-control @error('deskripsi_mitra') is-invalid @enderror" placeholder="Masukkan deskripsi Mitra" name="deskripsi_mitra"></textarea>
+                                    <textarea type="text" id="deskripsi" class="form-control @error('deskripsi_mitra') is-invalid @enderror" placeholder="Masukkan deskripsi Mitra" name="deskripsi_mitra">{{old('deskripsi_mitra')}}</textarea>
                                 @error('deskripsi_mitra')
                                     <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>

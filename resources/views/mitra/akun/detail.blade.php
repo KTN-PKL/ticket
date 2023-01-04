@@ -10,9 +10,9 @@
             <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;"> 
                 <div class="card-header">
                     <center>
-                    <h5>Detail Mitra</h5>
+                    <h4>Detail Mitra</h4>
                   
-                    <img class="img-fluid mt-2" width="200px" height="200px" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 25%">
+                    <img class="img-fluid mt-2" width="200px" height="200px" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 50%">
                     </center>
                 </div>
                 <div class="card-body" style="margin-left:3em;margin-right:3em;">
@@ -22,22 +22,22 @@
                                 <tr>
                                     <td style="width:50%"><h6>Nama</h6></td>
                                     <td><h6>:</h6></td>
-                                    <td><h6>{{$mitra->name}}</h6></td>
+                                    <td><h6 style="color: black">{{$mitra->name}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td><h6>Email</h6></td>
                                     <td><h6>:</h6></td>
-                                    <td><h6>{{$mitra->email}}</h6></td>
+                                    <td><h6 style="color: black">{{$mitra->email}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td><h6>Username</h6></td>
                                     <td><h6>:</h6></td>
-                                    <td><h6>{{$mitra->username}}</h6></td>
+                                    <td><h6 style="color: black">{{$mitra->username}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td><h6>Whatsapp</h6></td>
                                     <td><h6>:</h6></td>
-                                    <td><h6>{{$mitra->kontak}}</h6></td>
+                                    <td><h6 style="color: black">{{$mitra->kontak}}</h6></td>
                                 </tr>
                             </table>
                         </div>

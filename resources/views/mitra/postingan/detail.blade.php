@@ -2,7 +2,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    {{-- <a href="{{route('mitra.postingan', $mitra->i)}}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a> --}}
+    <a href="{{route('mitra.postingan', $wisata->id_mitra)}}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -14,18 +14,28 @@
                     <h3>Detail Postingan</h3>
                     @php
                     $jumlahfoto = count($fotowisata);
+                    $jml = $jumlahfoto = 4;
                     @endphp
                     
-                    <img class="img-fluid mt-2" width="300px" height="100px" src="{{asset('/fotowisata/'. $fotowisata[0]->fotowisata)}}" alt="">
-                    @for ($i = 1; $i < $jumlahfoto; $i++)
-                    <img class="img-fluid mt-2" width="150px" height="100px" src="{{asset('/fotowisata/'. $fotowisata[$i]->fotowisata)}}" alt="">
+                    <img class="img-fluid mt-2" width="400px" height="100px" src="{{asset('/fotowisata/'. $fotowisata[0]->fotowisata)}}" alt="">
+                   </center>
+                   <center>
+                    @for ($i = 1; $i < $jml; $i++)
+                    <img  class="img-fluid mt-2" width="100px" height="50px" src="{{asset('/fotowisata/'. $fotowisata[$i]->fotowisata)}}" alt="">
                     @endfor
+                    @if($jumlahfoto > 4)
+                    <a style="position: absolute;right:30%;"  href=""><i class="bi bi-arrow-right-circle-fill"></i></a>
+                    @endif
+                   </center>
+                  
                     {{-- @foreach($fotowisata as $fotowisatas)
                         <img class="img-fluid mt-2" width="100px" height="100px" src="{{asset('/fotowisata/'. $fotowisatas->fotowisata)}}" alt="" style="border-radius: 25%">
                     @endforeach --}}
-                   </center>
+                  
                 </div>
-                <div class="card-body mt-2" style="margin-left:2em;margin-right:2em;">
+                <br>
+                <br>
+                <div class="card-body mt-4" style="margin-left:2em;margin-right:2em;">
                     <div class="row">
                         {{-- Start Column Kiri --}}
                         <div  class="col-md-5">  

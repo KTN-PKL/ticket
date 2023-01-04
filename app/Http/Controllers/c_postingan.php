@@ -117,6 +117,8 @@ class c_postingan extends Controller
             'jam_buka' => $this->jam_buka->wisataData($id_wisata),
             'fotowisata' => $this->fotowisata->wisataData($id_wisata),
             'paket' => $this->paket->wisataData($id_wisata),
+            'kategori' => $this->kategori->allData(),
+            'fasilitas' => $this->fasilitas->allData(),
         ];
         return view('mitra.postingan.edit', $data);
     }
@@ -131,7 +133,6 @@ class c_postingan extends Controller
             'paket' => $this->paket->wisataData($id_wisata),
             'kategori' => $this->kategori->allData(),
             'fasilitas' => $this->fasilitas->allData(),
-            'mitra' => $this->mitra->detailData($id_wisata),
         ];
         return view('mitra.postingan.detail', $data);
     }
