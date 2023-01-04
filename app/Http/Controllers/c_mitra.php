@@ -65,9 +65,12 @@ class c_mitra extends Controller
             $data = ['foto' => $filename,];
             $this->mitra->editUser($id_mitra, $data);
         }
+        if ($request->password <> null) {
+            $data = ['password' => Hash::make($request->password),];
+            $this->mitra->editUser($id_mitra, $data);
+        }
         $data = [
             'name' => $request->name,
-            'password' => Hash::make($request->password),
             'kontak' => $request->kontak,
         ];
         $this->mitra->editUser($id_mitra, $data);
