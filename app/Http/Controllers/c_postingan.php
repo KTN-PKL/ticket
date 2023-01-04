@@ -110,6 +110,19 @@ class c_postingan extends Controller
         ];
         return view('mitra.postingan.edit', $data);
     }
+
+    public function detail($id_wisata)
+    {
+        $data = [
+            'wisata' => $this->wisata->detailData($id_wisata),
+            'fasilitas_wisata' => $this->fasilitas_wisata->wisataData($id_wisata),
+            'jam_buka' => $this->jam_buka->wisataData($id_wisata),
+            'fotowisata' => $this->fotowisata->wisataData($id_wisata),
+            'paket' => $this->paket->wisataData($id_wisata),
+        ];
+        return view('mitra.postingan.detail', $data);
+    }
+
     public function update($id_wisata)
     {
         $data = [
