@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="kategori" class="form-label">Kategori</label>
-                                    <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="kategori" data-parsley-required="true">
+                                    <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="id_kategori" data-parsley-required="true">
                                       <option selected>--Pilih Kategori--</option>
                                       @foreach ($kategori as $kategoris)
                                       <option value="{{ $kategoris->id_kategori }}">{{ $kategoris->kategori }}</option>
@@ -33,7 +33,8 @@
                                 </div>
                                 <div class="form-group mandatory">
                                   <label for="kategori" class="form-label">Fasilitas</label>
-                                  <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="kategori" data-parsley-required="true">
+                                  <input type="text" hidden value="1" name="jf">
+                                  <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="0id_fasilitas" data-parsley-required="true">
                                     <option selected>--Pilih Fasilitas--</option>
                                     @foreach ($fasilitas as $fasilitass)
                                     <option value="{{ $fasilitass->id_fasilitas }}">{{ $fasilitass->fasilitas }}</option>
@@ -42,7 +43,7 @@
                               </div>
                                 <div class="form-group mandatory">
                                     <label for="alamat" class="form-label">Alamat</label>
-                                    <input type="text" id="alamat" class="form-control" placeholder="Masukkan alamat Wisata" name="alamat" data-parsley-required="true">
+                                    <input type="text" id="lokasi" class="form-control" placeholder="Masukkan alamat Wisata" name="lokasi" data-parsley-required="true">
                                 </div>
                                 <div class="row">
                                     <label for="jam" class="form-label">Jam Operasional</label>
@@ -53,74 +54,72 @@
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Senin</span>
                                           </div>
-                                          <input type="time" class="form-control" name=""/>
-                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name="0jam_buka"/>
+                                          <input type="time" class="form-control" name="0jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="selasa"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Selasa</span>
                                           </div>
-                                          <input type="time" class="form-control" name=""/>
-                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name="1jam_buka"/>
+                                          <input type="time" class="form-control" name="1jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="rabu"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Rabu</span>
                                           </div>
-                                          <input type="time" class="form-control" name=""/>
-                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name="2jam_buka"/>
+                                          <input type="time" class="form-control" name="2jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="kamis"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Kamis</span>
                                           </div>
-                                          <input type="time" class="form-control" name=""/>
-                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name="3jam_buka"/>
+                                          <input type="time" class="form-control" name="3jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2 ">
                                             <label style="font-size:8px" for="Jumat"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Jumat</span>
                                           </div>
-                                          <input type="time" class="form-control" name=""/>
-                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name="4jam_buka"/>
+                                          <input type="time" class="form-control" name="4jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="Sabtu"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Sabtu</span>
                                           </div>
-                                          <input type="time" class="form-control" name=""/>
-                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name="5jam_buka"/>
+                                          <input type="time" class="form-control" name="5jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="Minggu"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Minggu</span>
                                           </div>
-                                          <input type="time" class="form-control" name=""/>
-                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name="6jam_buka"/>
+                                          <input type="time" class="form-control" name="6jam_tutup"/>
                                         </div>
+                                        <div class="form-group mandatory">
+                                          <label for="name" class="form-label">Deskripsi</label>
+                                          <input type="text" id="deskripsi" class="form-control" placeholder="Masukkan Deskripsi" name="deskripsi" data-parsley-required="true">
+                                      </div>
                                       </fieldset>  
                                       
                                     </div>
-                                    <div class="col-6">
-                                      <fieldset>
-                                        
-                                        
-                                      </fieldset>  
-                                    </div>
-                                    
+                                   
                                 </div>       
                             </div>
                             <div class="col-md-6 col-12">
-                                <div class="form-group mandatory">
+                                {{-- <div class="form-group mandatory">
                                     <label for="lokasi" class="form-label">Link Lokasi</label>
                                     <input type="text" id="lokasi" class="form-control" placeholder="Masukkan link lokasi" name="lokasi" data-parsley-required="true">
-                                </div>
+                                </div> --}}
                                 
                                 <div class="form-group mandatory">
                                     <label for="foto" class="form-label">Upload Foto</label>
@@ -130,21 +129,22 @@
                                                     <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
                                                 </center>
                                                 <!-- File uploader with multiple files upload -->
-                                                <input type="file" class="multiple-files-filepond" multiple>
+                                                <input type="file" class="multiple-files-filepond" name="fotowisata[]" multiple >
                                             </div>
                                         </div>  
                                 </div>  
                                 <div class="form-group">
+                                  <input type="text" name="jp" hidden value="1">
                                     <label for="paket" class="form-label">Paket Wisata</label>
-                                    <input type="text" id="paket" class="form-control" placeholder="Masukkan Nama Paket" name="" data-parsley-required="true">
+                                    <input type="text" id="paket" class="form-control" placeholder="Masukkan Nama Paket" name="paket0" data-parsley-required="true">
                                     <div class="row mt-2">
                                         <div class="col col-6 col-md-6">
                                             <label for="weekday" class="form-label">Harga Weekday</label>
-                                            <input type="text" id="weekday" class="form-control" placeholder="Harga Weekday" name="" data-parsley-required="true">
+                                            <input type="text" id="weekday" class="form-control" placeholder="Harga Weekday" name="harga_wday0" data-parsley-required="true">
                                         </div>
                                         <div class="col col-6 col-md-6">
                                             <label for="weekend" class="form-label">Harga Weekend</label>
-                                            <input type="text" id="weekend" class="form-control" placeholder="Harga Weekend" name="" data-parsley-required="true">
+                                            <input type="text" id="weekend" class="form-control" placeholder="Harga Weekend" name="harga_wend0" data-parsley-required="true">
                                         </div>
                                     </div>
                                     <div class="row mt-2">
@@ -158,9 +158,9 @@
                                         </div> --}}
                                         <div class="mb-3">
                                             <label class="form-label">Fitur Paket</label>
-                                            <input type="text" name="jumlah" value="1" id="jumlah" hidden>
+                                            <input type="text" name="jftr" value="1" id="jftr" hidden>
                                             <div class="input-group col-md-12">
-                                            <input type="text" class="form-control  @error('fitur') is-invalid @enderror" value="{{ old('fitur') }}" name="fitur" placeholder="Masukkan Fitur ...">
+                                            <input type="text" class="form-control  @error('fitur') is-invalid @enderror" value="{{ old('fitur') }}" name="fitur0" placeholder="Masukkan Fitur ...">
                                             <span class="input-group-text" id="T1" type = "button" onclick="plus(1)"><i class="bi bi-plus"></i></span>
                                             </div>
                                             <div id="M1"></div>
@@ -201,10 +201,10 @@
       var x = id + 1;
       document.getElementById("T" + id).style.display="none";
       document.getElementById("M" + id).style.display="none";
-      $("#jumlah").val(x)
+      $("#jftr").val(x)
       $("#plus" + id).html(`
       <div class="input-group col-md-12">
-      <input type="text" class="form-control" name="skill`+id+`" placeholder="Skill ...">
+      <input type="text" class="form-control" name="fitur`+id+`" placeholder="Skill ...">
       <span class="input-group-text" id="T`+x+`" type = "button" onclick="plus(`+x+`)"><i class="bi bi-plus"></i></span>
       <span class="input-group-text" id="M`+x+`" type = "button" onclick="mins(`+x+`)"><i class="bi bi-x"></i></span>
       </div>
@@ -216,7 +216,7 @@
       var x = id - 1;
       document.getElementById("T" + x).style.display="block";
       document.getElementById("M" + x).style.display="block";
-      $("#jumlah").val(x)
+      $("#jftr").val(x)
       $("#plus"+ x).html(`  `);
     }
   </script> 
