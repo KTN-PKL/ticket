@@ -39,7 +39,7 @@
                         <a href="{{route('mitra.akun')}}">Akun</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="#">Postingan</a>
+                        <a href="{{route('mitra')}}">Postingan</a>
                     </li>
                 </ul>
             </li>
