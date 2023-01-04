@@ -24,10 +24,22 @@
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="kategori" class="form-label">Kategori</label>
-                                    <select type="text" id="email" class="form-select" placeholder="Masukkan Kategori Wisata" name="kategori" data-parsley-required="true">
-                                        <option value="1">1</option>
+                                    <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="kategori" data-parsley-required="true">
+                                      <option selected>--Pilih Kategori--</option>
+                                      @foreach ($kategori as $kategoris)
+                                      <option value="{{ $kategoris->id_kategori }}">{{ $kategoris->kategori }}</option>
+                                      @endforeach
                                     </select>    
                                 </div>
+                                <div class="form-group mandatory">
+                                  <label for="kategori" class="form-label">Fasilitas</label>
+                                  <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="kategori" data-parsley-required="true">
+                                    <option selected>--Pilih Fasilitas--</option>
+                                    @foreach ($fasilitas as $fasilitass)
+                                    <option value="{{ $fasilitass->id_fasilitas }}">{{ $fasilitass->fasilitas }}</option>
+                                    @endforeach
+                                  </select>    
+                              </div>
                                 <div class="form-group mandatory">
                                     <label for="alamat" class="form-label">Alamat</label>
                                     <input type="text" id="alamat" class="form-control" placeholder="Masukkan alamat Wisata" name="alamat" data-parsley-required="true">
