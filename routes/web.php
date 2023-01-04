@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\c_mitra;
 use App\Http\Controllers\c_kategori;
 use App\Http\Controllers\c_fasilitas;
+use App\Http\Controllers\c_postingan;
 
 /*
 |--------------------------------------------------------------------------
