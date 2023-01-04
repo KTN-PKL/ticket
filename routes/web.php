@@ -25,16 +25,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/test1', function () {
-    return view('mitra.postingan.index');
-});
-Route::get('/test2', function () {
-    return view('mitra.postingan.create');
-});
+// Route::get('/test1', function () {
+//     return view('mitra.postingan.index');
+// });
+// Route::get('/test2', function () {
+//     return view('mitra.postingan.create');
+// });
 
-Route::get('/test3', function () {
-    return view('mitra.postingan.edit');
-});
+// Route::get('/test3', function () {
+//     return view('mitra.postingan.edit');
+// });
 
 Route::controller(c_mitra::class)->group(function () {
     Route::get('/mitra/akun', 'index')->name('mitra.akun');
@@ -49,8 +49,8 @@ Route::controller(c_mitra::class)->group(function () {
 });
 
 Route::controller(c_postingan::class)->group(function () {
-    Route::get('/mitra', 'index')->name('mitra');
-    Route::get('/mitra/postingan/{id}', 'postingan')->name('mitra.postingan');
+    // Route::get('/mitra', 'index')->name('mitra');
+    // Route::get('/mitra/postingan/mitra/{id}', 'postingan')->name('mitra.postingan');
     Route::post('/mitra/postingan/store/{id}', 'store')->name('mitra.postingan.store');
     Route::get('/mitra/postingan/create/{id}', 'create')->name('mitra.postingan.create');
     Route::get('/mitra/postingan/edit/{id}', 'edit')->name('mitra.postingan.edit');

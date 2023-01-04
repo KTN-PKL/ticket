@@ -38,7 +38,8 @@ class c_postingan extends Controller
 
     public function create($id_mitra)
     {
-        return view('mitra.postingan.create', $id_mitra);
+        $data =['id' => $id_mitra,];
+        return view('mitra.postingan.create',$data);
     }
 
     public function store(Request $request, $id_mitra)

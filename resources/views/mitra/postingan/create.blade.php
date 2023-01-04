@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="{{ route('mitra.akun') }}" class="btn btn-primary">Kembali</a>
+    <a href="#" class="btn btn-primary">Kembali</a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -14,7 +14,7 @@
                     </center>
                 </div>
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST" action="{{ route('mitra.akun.store') }}" class="form" data-parsley-validate>
+                    <form enctype="multipart/form-data" method="POST" action="" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">

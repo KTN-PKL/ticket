@@ -28,9 +28,9 @@ class c_mitra extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'password' => 'required|confirmed',
-            'username' => 'required|unique',
-            'email' => 'required|unique',
+            'password' => 'required',
+            'username' => 'required',
+            'email' => 'required',
             'kontak' => 'required',
             'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
         ],[
