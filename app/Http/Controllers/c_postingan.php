@@ -9,18 +9,22 @@ use App\Models\jam_buka;
 use App\Models\fotowisata;
 use App\Models\wisata;
 use App\Models\mitra;
+use App\Models\kategori;
+use App\Models\fasilitas;
 
 
 class c_postingan extends Controller
 {
     public function __construct()
     {
-        $this->mitra = new mitra();
+        $this->fasilitas = new fasilitas();
         $this->paket = new paket();
         $this->fasilitas_wisata = new fasilitas_wisata();
         $this->jam_buka = new jam_buka();
         $this->fotowisata = new fotowisata();
         $this->wisata = new wisata();
+        $this->mitra = new mitra();
+        $this->kategori = new kategori();
     }
 
     public function index()
@@ -38,7 +42,9 @@ class c_postingan extends Controller
 
     public function create($id_mitra)
     {
-        $data =['id' => $id_mitra,];
+        $data =['id' => $id_mitra,
+                'kategori' => $this->kategori->allData(),
+                'fasilitas' => $this->fasilitas->allData(),];
         return view('mitra.postingan.create',$data);
     }
 
@@ -120,6 +126,8 @@ class c_postingan extends Controller
             'jam_buka' => $this->jam_buka->wisataData($id_wisata),
             'fotowisata' => $this->fotowisata->wisataData($id_wisata),
             'paket' => $this->paket->wisataData($id_wisata),
+            'kategori' => $this->kategori->allData(),
+            'fasilitas' => $this->fasilitas->allData(),
         ];
         return view('mitra.postingan.detail', $data);
     }
