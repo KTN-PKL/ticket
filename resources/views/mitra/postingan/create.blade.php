@@ -10,7 +10,7 @@
             <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;border-radius:0%"> 
                 <div class="card-header">
                     <center>
-                    <h5>Create Mitra</h5>
+                    <h5>Create Postingan</h5>
                     </center>
                 </div>
                 <div class="card-body">
@@ -19,36 +19,103 @@
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
-                                    <label for="name" class="form-label">Nama Mitra</label>
-                                    <input type="text" id="name" class="form-control" placeholder="Masukkan Nama Mitra" name="name" data-parsley-required="true">
+                                    <label for="name" class="form-label">Nama Wisata</label>
+                                    <input type="text" id="wisata" class="form-control" placeholder="Masukkan Nama Wisata" name="wisata" data-parsley-required="true">
                                 </div>
                                 <div class="form-group mandatory">
-                                    <label for="emailmitra" class="form-label">Email</label>
-                                    <input type="text" id="email" class="form-control" placeholder="Masukkan Email Mitra" name="email" data-parsley-required="true">
+                                    <label for="kategori" class="form-label">Kategori</label>
+                                    <select type="text" id="email" class="form-control" placeholder="Masukkan Kategori Wisata" name="kategori" data-parsley-required="true">
+                                        <option value="1">1</option>
+                                    </select>    
                                 </div>
                                 <div class="form-group mandatory">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" id="username" class="form-control" placeholder="Masukkan Username Mitra" name="username" data-parsley-required="true">
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                    <input type="text" id="alamat" class="form-control" placeholder="Masukkan alamat Wisata" name="alamat" data-parsley-required="true">
                                 </div>
-                                <div class="form-group mandatory">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" id="password" class="form-control" placeholder="Masukkan Password Mitra" name="password" data-parsley-required="true">
-                                </div>
-                                 <div class="form-group mandatory">
-                                    <label for="whatsapp" class="form-label">Whatsapp</label>
-                                    <input type="number" id="kontak" class="form-control" placeholder="Masukkan Nomor Whatsapp Mitra" name="kontak" data-parsley-required="true">
-                                </div>
+                                <div class="row">
+                                    <label for="jam" class="form-label">Jam Operasional</label>
+                                    <div class="col-6">
+                                      <fieldset>
+                                        <div class="input-group">
+                                            <label style="font-size:8px" for="senin"></label>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Senin</span>
+                                          </div>
+                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name=""/>
+                                        </div>
+                                        <div class="input-group mt-2">
+                                            <label style="font-size:8px" for="selasa"></label>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Selasa</span>
+                                          </div>
+                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name=""/>
+                                        </div>
+                                        <div class="input-group mt-2">
+                                            <label style="font-size:8px" for="rabu"></label>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Rabu</span>
+                                          </div>
+                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name=""/>
+                                        </div>
+                                        <div class="input-group mt-2">
+                                            <label style="font-size:8px" for="kamis"></label>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Kamis</span>
+                                          </div>
+                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name=""/>
+                                        </div>
+                                      </fieldset>  
+                                      
+                                    </div>
+                                    <div class="col-6">
+                                      <fieldset>
+                                        <div class="input-group ">
+                                            <label style="font-size:8px" for="Jumat"></label>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Jumat</span>
+                                          </div>
+                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name=""/>
+                                        </div>
+                                        <div class="input-group mt-2">
+                                            <label style="font-size:8px" for="Sabtu"></label>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Sabtu</span>
+                                          </div>
+                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name=""/>
+                                        </div>
+                                        <div class="input-group mt-2">
+                                            <label style="font-size:8px" for="Minggu"></label>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Minggu</span>
+                                          </div>
+                                          <input type="time" class="form-control" name=""/>
+                                          <input type="time" class="form-control" name=""/>
+                                        </div>
+                                        
+                                      </fieldset>  
+                                    </div>
+                                    
+                                </div>       
                             </div>
                             <div class="col-md-6 col-12">
-                                <div class="form-group mandatory">
-                                    <label for="foto" class="form-label">Upload Foto</label>
-                                    <input type="file" id="foto" class="form-control" placeholder="Masukkan Foto Mitra" name="foto" data-parsley-required="true">
-                                </div>
-                                <div class="form-group mandatory">
-                                    <label for="deskripsi_mitra" class="form-label">Deskripsi Mitra</label>
-                                    <textarea type="text" id="deskripsi" class="form-control" placeholder="Masukkan deskripsi Mitra" name="deskripsi_mitra" data-parsley-required="true"></textarea>
-                                </div>
+                                <div class="card">
+                                        <h5 class="card-header">Upload Foto</h5>
+                                        <div style="border:1px solid grey" class="card-body">
+                                            <center>
+                                                <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
+                                            </center>
+                                            <!-- File uploader with multiple files upload -->
+                                            <input type="file" class="multiple-files-filepond" multiple>
+                                        </div>
+                                </div>  
                             </div>
+                          
                         </div>
                         <center>
                         <div class="mt-4" id="tombol_create">

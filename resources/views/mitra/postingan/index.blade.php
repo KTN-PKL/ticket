@@ -15,7 +15,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <td>Sari Ater Corp</td>
+                        <td style="width:60%">Sari Ater Corp</td>
                         {{-- @foreach($mitra as $mitras)
                         <tr>
                             <td>{{$mitras->name}}</td>

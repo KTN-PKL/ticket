@@ -13,8 +13,15 @@
     
 <link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/shared/iconly.css">
 
+{{-- datatable --}}
 <link rel="stylesheet" href="{{asset('template')}}/dist/assets/extensions/simple-datatables/style.css">
 <link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/pages/simple-datatables.css">
+
+{{-- fileuploader --}}
+<link rel="stylesheet" href="{{asset('template')}}/dist/assets/extensions/filepond/filepond.css">
+<link rel="stylesheet" href="{{asset('template')}}/dist/assets/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.css">
+<link rel="stylesheet" href="{{asset('template')}}/dist/assets/extensions/toastify-js/src/toastify.css">
+<link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/pages/filepond.css">
 </head>
 
 <body>
@@ -61,8 +68,14 @@
 <script src="{{asset('template')}}/dist/assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="{{asset('template')}}/dist/assets/js/pages/dashboard.js"></script> --}}
 
+{{-- DataTables --}}
 <script src="{{asset('template')}}/dist/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
 <script src="{{asset('template')}}/dist/assets/js/pages/simple-datatables.js"></script>
+
+{{-- FileUploader --}}
+<script src="{{asset('template')}}/dist/assets/extensions/filepond/filepond.js"></script>
+<script src="{{asset('template')}}/dist/assets/extensions/toastify-js/src/toastify.js"></script>
+<script src="{{asset('template')}}/dist/assets/js/pages/filepond.js"></script>
 
 </body>
 
