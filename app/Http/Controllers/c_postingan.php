@@ -36,7 +36,7 @@ class c_postingan extends Controller
     public function postingan($id_mitra)
     {
         $data = ['wisata' => $this->wisata->mitraData($id_mitra),
-                 'id_mitra' => $id_mitra,];
+                 'mitra' => $this->mitra->detailData($id_mitra),];
         return view('mitra.postingan.wisata', $data);
     }
 
@@ -44,7 +44,8 @@ class c_postingan extends Controller
     {
         $data =['id' => $id_mitra,
                 'kategori' => $this->kategori->allData(),
-                'fasilitas' => $this->fasilitas->allData(),];
+                'fasilitas' => $this->fasilitas->allData(),
+                'mitra' => $this->mitra->detailData($id_mitra),];
         return view('mitra.postingan.create',$data);
     }
 
@@ -130,6 +131,7 @@ class c_postingan extends Controller
             'paket' => $this->paket->wisataData($id_wisata),
             'kategori' => $this->kategori->allData(),
             'fasilitas' => $this->fasilitas->allData(),
+            'mitra' => $this->mitra->detailData($id_wisata),
         ];
         return view('mitra.postingan.detail', $data);
     }
@@ -206,7 +208,7 @@ class c_postingan extends Controller
     }
     public function destroy($id_wisata)
     {
-        $fw = $this->jfotowisata->wisataData($id_wisata);
+        $fw = $this->fotowisata->wisataData($id_wisata);
         foreach ($fw as $fotow) {
             unlink(public_path('fotowisata'). '/' .$fotow->fotowisata);
         }

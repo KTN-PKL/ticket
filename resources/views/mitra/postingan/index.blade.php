@@ -16,9 +16,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                        $i=0;
+                        @endphp
                         @foreach($mitra as $mitras)
+                        @php
+                        $i=$i+1
+                        @endphp
                         <tr>
-                            <td>1</td>
+                            <td>{{$i}}</td>
                             <td style="width:75%">{{$mitras->name}}</td>
                             <td>
                                 <a href="{{route('mitra.postingan', $mitras->id_mitra)}}" class="btn btn-primary">Lihat Postingan</a>
