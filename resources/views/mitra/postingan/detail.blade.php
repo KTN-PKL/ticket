@@ -12,12 +12,20 @@
                 <div class="card-header">
                    <center>
                     <h3>Detail Postingan</h3>
-                    @foreach($fotowisata as $fotowisatas)
-                <img class="img-fluid mt-2" width="100px" height="100px" src="{{asset('/fotowisata/'. $fotowisatas->fotowisata)}}" alt="" style="border-radius: 25%">
-                    @endforeach
+                    @php
+                    $jumlahfoto = count($fotowisata);
+                    @endphp
+                    
+                    <img class="img-fluid mt-2" width="300px" height="100px" src="{{asset('/fotowisata/'. $fotowisata[0]->fotowisata)}}" alt="">
+                    @for ($i = 1; $i < $jumlahfoto; $i++)
+                    <img class="img-fluid mt-2" width="150px" height="100px" src="{{asset('/fotowisata/'. $fotowisata[$i]->fotowisata)}}" alt="">
+                    @endfor
+                    {{-- @foreach($fotowisata as $fotowisatas)
+                        <img class="img-fluid mt-2" width="100px" height="100px" src="{{asset('/fotowisata/'. $fotowisatas->fotowisata)}}" alt="" style="border-radius: 25%">
+                    @endforeach --}}
                    </center>
                 </div>
-                <div class="card-body mt-2" style="margin-left:3em;margin-right:3em;">
+                <div class="card-body mt-2" style="margin-left:2em;margin-right:2em;">
                     <div class="row">
                         {{-- Start Column Kiri --}}
                         <div  class="col-md-5">  
@@ -35,51 +43,55 @@
                                     </center> 
                                 </div>
                             </div>
+                           
 
-                        <div class="row">
-                            <div class="col col-md-1 col-1">
-                                <i class="bi bi-geo-alt-fill"></i>
-                            </div>
-                            <div class="col col-10 col-md-10">
-                                <h6 style="font-size: 12px;color:grey">{{$wisata->lokasi}}</h6>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col col-md-1 col-1">
-                                <i class="bi bi-clock-fill"></i>
-                            </div>
-                            <div class="col col-10 col-md-10">
-                                @foreach($jam_buka as $jam)
+                            <div class="col col-12 col-md-12">
                                 <table style="width:65%;height:5px">
                                     <tr>
+                                        <td><i class="bi bi-geo-alt-fill"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h6 style="font-size:14px;color:grey">{{$wisata->lokasi}}</h6></td>
+                                    </tr>
+                                </table>
+                            </div>       
+                            <div class="col col-12 col-md-12">
+                                <table style="width:65%;height:5px">
+                                    
+                                    <tr>
+                                        <td> <i class="bi bi-clock-fill"></i></td>
+                                    </tr>
+                                    @foreach($jam_buka as $jam)
+                                    <tr>
+                                        
                                        <td style="width:30%">
                                         @if($jam->hari == 1) 
-                                        <h6 style="font-size:12px;color:grey">Senin</h6>
+                                        <h6 style="font-size:14px;color:grey">Senin</h6>
                                         @elseif($jam->hari == 2)
-                                        <h6 style="font-size:12px;color:grey">Selasa</h6>
+                                        <h6 style="font-size:14px;color:grey">Selasa</h6>
                                         @elseif($jam->hari == 3)
-                                        <h6 style="font-size:12px;color:grey">Rabu</h6>
+                                        <h6 style="font-size:14px;color:grey">Rabu</h6>
                                         @elseif($jam->hari == 4)
-                                        <h6 style="font-size:12px;color:grey">Kamis</h6>
+                                        <h6 style="font-size:14px;color:grey">Kamis</h6>
                                         @elseif($jam->hari == 5)
-                                        <h6 style="font-size:12px;color:grey">Jumat</h6>
+                                        <h6 style="font-size:14px;color:grey">Jumat</h6>
                                         @elseif($jam->hari == 6)
-                                        <h6 style="font-size:12px;color:grey">Sabtu</h6>
+                                        <h6 style="font-size:14px;color:grey">Sabtu</h6>
                                         @elseif($jam->hari == 7)
-                                        <h6 style="font-size:12px;color:grey">Minggu</h6>
+                                        <h6 style="font-size:14px;color:grey">Minggu</h6>
                                         @endif
                                         </td> 
-                                       <td style="width:15%"><h6 style="font-size:12px;color:grey">{{$jam->jam_buka}}</h6></td>
-                                       <td style="width:10%"><h6 style="font-size:12px;color:grey">-</h6></td>
-                                       <td style="width:15%"><h6 style="font-size:12px;color:grey">{{$jam->jam_tutup}}</h6></td>
+                                       <td style="width:15%"><h6 style="font-size:14px;color:grey">{{$jam->jam_buka}}</h6></td>
+                                       <td style="width:10%"><h6 style="font-size:14px;color:grey">-</h6></td>
+                                       <td style="width:15%"><h6 style="font-size:14px;color:grey">{{$jam->jam_tutup}}</h6></td>
+                                       @endforeach
                                     </tr>
                                 </table>
                                
         
-                                @endforeach
+                              
                             </div>
-                        </div>
+                       
                         <br>
 
                         <div class="col col-12 col-md-12">
@@ -93,7 +105,7 @@
                         {{-- Start Column Tengah --}}
                         <div class="col-md-2">
                             <center>
-                                <div style="border:1px solid black;height:250px;width:0px;"></div>
+                                <div style="border:1px solid black;height:500px;width:0px;"></div>
                             </center>
                             
                         </div>
@@ -103,50 +115,52 @@
                         <div class="col-md-5">
                             <div>
                                 <h6>Fasilitas Umum</h6>
-                                @foreach($fasilitas_wisata as $fasilitas2)
+                               
                                 <div class="row">
+                                    @foreach($fasilitas_wisata as $fasilitas2)
                                     <div class="col col-4 col-md-4">
                                         <center>
                                             <h6 style="color:rgb(19, 164, 255);border: 1px solid rgb(19, 164, 255);">{{$fasilitas2->fasilitas}}</h6>
                                         </center> 
                                     </div>
+                                    @endforeach
                                 </div>
                                
-                                @endforeach
+                               
                             </div>
 
                             <div>
                                 <h6>Lokasi</h6>
-                                <h6>LINKKKKK</h6>
+                                <h6></h6>
                                
                             </div>
 
                             <br><br>
-                            <div style="border:1px solid grey;border-radius:10%">
-                              
-                                    <div>
-                                        @foreach($paket as $pakets)
-                                        <center>
-                                        <h6>{{ $pakets->paket}}</h6>
-                                        </center>
-                                        <div style="margin-left:1em">
-                                            <h6 style="font-size: 12px;">Fitur yang didapatkan</h6>
-                                            <div class="col col-4 col-md-4">
-                                                <center>
-                                                    <h6 style="color:rgb(19, 164, 255);border: 1px solid rgb(19, 164, 255);">{{$fasilitas2->fasilitas}}</h6>
-                                                </center> 
-                                            </div>
+
+                            @foreach($paket as $pakets)
+                            <div style="border:1px solid grey;border-radius:5%;margin-top:1em">                                
+                                <center>
+                                <h6>{{ $pakets->paket}}</h6>
+                                </center>
+                                    <div style="margin-left:1em;margin-right:1em">
+                                        <h6 style="font-size: 12px;">Fitur yang didapatkan</h6>
+                                        <div class="row">
+                                            @php
+                                                $fiturpaket = explode("+" , $pakets->fitur);
+                                            @endphp
+                                                    @foreach($fiturpaket as $fiturpakets)
+                                                        <div class="col-md-6">
+                                                            <center>
+                                                                <h6 style="color:rgb(0, 247, 25);border: 1px solid rgb(0, 247, 25);border-radius:10%">{{$fiturpakets}}</h6>
+                                                            </center>
+                                                           
+                                                        </div>
+                                                    @endforeach
                                         </div>
-                                       
-                                        @endforeach
-                                     
+                                        
                                     </div>
-                                
-                                
-                                
-                             
                             </div>
-                           
+                            @endforeach
                         </div>
                         {{-- End Column Kanan --}}
 
