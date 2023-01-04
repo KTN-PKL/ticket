@@ -167,8 +167,9 @@ class c_postingan extends Controller
                 unlink(public_path('fotowisata'). '/' .$fotow->fotowisata);
             }
             $this->fotowisata->deleteData($id_wisata);
-            for ($i=0; $i < $request->jft; $i++) { 
-                $file  = $request->fotowisata[$i];
+            $i = 0;
+            foreach ($request->fotowisata as $fwsata) {
+                $file  = $fwsata;
                 $filename = $request->wisata.$i.'.'.$file->extension();
                 $file->move(public_path('fotowisata'),$filename);
                 $data = [
@@ -176,6 +177,7 @@ class c_postingan extends Controller
                     'fotowisata' => $filename,
                 ];
                 $this->fotowisata->addData($data);
+            $i = $i + 1;
             }
         }
         $paket= $this->paket->wisataData($id_wisata);
