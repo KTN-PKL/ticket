@@ -250,10 +250,10 @@
       <option value="{{ $fasilitass->id_fasilitas }}">{{ $fasilitass->fasilitas }}</option>
       @endforeach
       </select> 
-      <span class="input-group-text" id="Tf`+x+`" type = "button" onclick="paket(`+x+`)"><i class="bi bi-plus"></i></span>   
+      <span class="input-group-text" id="Tf`+x+`" type = "button" onclick="plusf(`+x+`)"><i class="bi bi-plus"></i></span>   
       <span class="input-group-text" id="Mf`+x+`" type = "button" onclick="minsf(`+x+`)"><i class="bi bi-x"></i></span>
       </div>
-      <div id="paket`+x+`"></div>
+      <div id="plusf`+x+`"></div>
       `);
     }
     function minsf(id)
