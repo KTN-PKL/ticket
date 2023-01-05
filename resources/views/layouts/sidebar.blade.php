@@ -46,7 +46,7 @@
             </li>
             <li
                 class="sidebar-item {{request()->routeIs('pengunjung') ? 'active' : ''}} ">
-                <a href="{{route('mitra.akun')}}" class='sidebar-link'>
+                <a href="{{route('pengunjung')}}" class='sidebar-link'>
                     <i class="bi bi-person-lines-fill"></i>
                     <span>Pengunjung</span>
                 </a>

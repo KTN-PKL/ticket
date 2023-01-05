@@ -29,7 +29,9 @@
                             <td>
                                 <a href="{{ route('pengunjung.pengunjung', $mitras->id_mitra) }}" class="btn btn-primary">Lihat Pengunjung</a>
                                 <a href="{{ route('pengunjung.histori', $mitras->id_mitra) }}" class="btn btn-warning"><i class="bi bi-clock-history"></i>History</a>
+                                @if($mitras->balance <> 0)
                                 <a href="#" class="btn btn-success" onclick="bayar({{ $mitras->id_mitra }})">Bayar</a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
