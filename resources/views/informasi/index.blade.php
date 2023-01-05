@@ -22,9 +22,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td style="width:25%">Diskon Besar - Besaran</td>
-                            <td>Berita</td>
+                            <td><h6>1</h6></td>
+                            <td style="width:25%"><h6>Diskon Besar - Besaran</h6></td>
+                            <td><h6>Berita</h6></td>
                             <td>
                                <h6 style="color: red">Tidak Aktif</h6> 
                             </td>
