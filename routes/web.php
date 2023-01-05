@@ -38,7 +38,7 @@ Route::get('/test3', function () {
     return view('informasi.edit');
 });
 Route::get('/test4', function () {
-    return view('pengunjung.detail');
+    return view('informasi.detail');
 });
 
 

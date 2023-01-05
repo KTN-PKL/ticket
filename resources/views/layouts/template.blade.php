@@ -106,6 +106,10 @@ integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0Ec
 
 {{-- Iconify --}}
 <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+
+{{-- CKEDITOR --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+<script src="{{asset('template')}}/dist/assets/js/pages/ckeditor.js"></script>
 </body>
 
 </html>

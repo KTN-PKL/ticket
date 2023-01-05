@@ -12,7 +12,7 @@
                     <center>
                     <h4>Detail Mitra</h4>
                   
-                    <img class="img-fluid mt-2" width="200px" height="200px" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 50%">
+                    <img class="img-rounded mt-2" width="200px" height="200px" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 50%">
                     </center>
                 </div>
                 <div class="card-body" style="margin-left:3em;margin-right:3em;">
