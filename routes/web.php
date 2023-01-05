@@ -28,17 +28,17 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/test1', function () {
-    return view('pembatalan.index');
+    return view('informasi.index');
 });
 
 Route::get('/test2', function () {
-    return view('pembatalan.detail');
+    return view('informasi.create');
 });
 Route::get('/test3', function () {
-    return view('pembatalan.edit');
+    return view('informasi.edit');
 });
 Route::get('/test4', function () {
-    return view('pengunjung.history');
+    return view('pengunjung.detail');
 });
 
 
