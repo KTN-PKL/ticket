@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pembatalan;
+use App\Models\pengunjung;
 use App\Models\mitra;
 use App\Models\hbalance;
 
@@ -12,7 +12,7 @@ class c_pengunjung extends Controller
     public function __construct()
     {
         $this->hbalance = new hbalance();
-        $this->pembatalan = new pembatalan();
+        $this->pengunjung = new pengunjung();
         $this->mitra = new mitra();
     }
 
@@ -24,29 +24,30 @@ class c_pengunjung extends Controller
 
     public function pengunjung($id_mitra)
     {
-        $data = ['pengunjung' => $this->pengunjung->mitraData($id_mitra),];
+        $data = ['pengunjung' => $this->pengunjung->mitraData($id_mitra),
+                 'mitra' => $this->mitra->detailData($id_mitra)];
         return view('pengunjung.pengunjung', $data);
     }
-    public function detailpengunjung($kode_tiket)
+    public function detail($kode_tiket)
     {
         $data = ['pengunjung' => $this->pengunjung->detailData($kode_tiket),];
-        return view('pengunjung.Dpengunjung', $data);
+        return view('pengunjung.detail', $data);
     }
     public function histori($id_mitra)
     {
         $data = ['histori' => $this->hbalance->mitraData($id_mitra),];
-        return view('pengunjung.histori', $data);
+        return view('pengunjung.history', $data);
     }
     public function detailhistori($id_balance)
     {
-        $data = ['histori' => $this->hbalance->detailData($id_balance),];
-        return view('pengunjung.Dhistori', $data);
+        $data =  $this->hbalance->detailData($id_balance);
+        return $data->buktibalance;
     }
-    public function bayar($id_mitra)
+    public function bayar(Request $request, $id_mitra)
     {
         date_default_timezone_set("Asia/Jakarta");
         $d = date("j");
-        $m = date("f");
+        $m = date("F");
         $y = date("Y");
         if ($d < 7) {
             $h = 1;
@@ -75,6 +76,7 @@ class c_pengunjung extends Controller
         $this->hbalance->addData($data);
         $data = ['balance' => 0,];
         $this->mitra->editMitra($id_mitra, $data);
+        return redirect()->route('pengunjung');
     }
 
 }

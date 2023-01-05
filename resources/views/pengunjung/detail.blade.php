@@ -2,7 +2,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="#" class="btn btn-primary">Kembali</a>
+    <a href="{{ route('pengunjung.pengunjung', $pengunjung->id_mitra) }}" class="btn btn-primary">Kembali</a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -12,7 +12,7 @@
                 <div class="card-header">
                     <center>
                     <h4>Detail Pengunjung</h4>
-                    <h6>Kode Tiket : ET-XXXX-XXXX-XX</h6>
+                    <h6>Kode Tiket : {{ $pengunjung->kode_tiket }}</h6>
                     </center>
                 </div>
                 <div class="card-body" style="margin-left:1em;margin-right:1em;">
@@ -22,22 +22,22 @@
                                 <tr>
                                     <td valign="top" style="width:50%"><h6>Nama Lengkap</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">Aji Santoso</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{ $pengunjung->atas_nama }}</h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Whatsapp</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">0822490253533</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{ $pengunjung->whatsapp }}</h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top" valign="top"><h6>Tujuan Wisata</h6></td>
                                     <td valign="top" valign="top"><h6>:</h6></td>
-                                    <td valign="top" valign="top"><h6 style="color: black">Sari Ater Hotel & Resort</h6></td>
+                                    <td valign="top" valign="top"><h6 style="color: black">{{ $pengunjung->wisata }}</h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Jadwal Kunjungan</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">24 Desember 2022</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{ $pengunjung->waktu_kunjungan }}</h6></td>
                                 </tr>
                             </table>
                         </div>
@@ -53,22 +53,22 @@
                                 <tr>
                                     <td valign="top" style="width:50%"><h6>Jumlah Pengunjung</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">1 <i class="bi bi-people"></i></h6></td>
+                                    <td valign="top"><h6 style="color: black">{{ $pengunjung->qty }} <i class="bi bi-people"></i></h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Paket</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><span class="badge bg-success" style="font-size: 14px"> Paket A</span></td>
+                                    <td valign="top"><span class="badge bg-success" style="font-size: 14px"> {{ $pengunjung->paket }}</span></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Harga</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">75000</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{ $pengunjung->harga }}</h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Status</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><span class="badge bg-success"><i class="bi bi-patch-check" style="font-size: 14px"></i> Check-in</span></td>
+                                    <td valign="top"><span class="badge bg-success"><i class="bi bi-patch-check" style="font-size: 14px"></i> {{ $pengunjung->status }}</span></td>
                                 </tr>
                             </table>
                         </div>

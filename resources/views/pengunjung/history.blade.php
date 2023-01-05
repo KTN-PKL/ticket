@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="#"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
+    <a href="{{ route('pengunjung') }}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container">
 <h3>History Balance Mitra, Sari Ater Corp</h3>
@@ -20,31 +20,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach ($histori as $historis)
                         <tr>
-                            <td>1</td>
-                            <td style="width:35%">Minggu ke 4, Desember 2022</td>
-                            <td style="width:25%">02-12-2022</td>
-                            <td>Rp. 500.000,-</td>
+                            <td>@php
+                                $i = $i + 1;
+                                echo $i;
+                            @endphp</td>
+                            <td style="width:35%">{{ $historis->jadwal_pembayaran }}</td>
+                            <td style="width:25%">{{ $historis->tanggal_pembayaran }}</td>
+                            <td>{{ $historis->hbalance }}</td>
                             <td>
                                 <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Lihat Bukti</a>
                             </td>
                         </tr>
-                        {{-- @php
-                        $i=0;
-                        @endphp
-                        @foreach($mitra as $mitras)
-                        @php
-                        $i=$i+1
-                        @endphp
-                        <tr>
-                            <td>{{$i}}</td>
-                            <td style="width:75%">{{$mitras->name}}</td>
-                            <td>
-                                <a href="{{route('mitra.postingan', $mitras->id_mitra)}}" class="btn btn-primary">Lihat Postingan</a>
-                            </td>
-                        </tr>
-                        @endforeach --}}
-                       {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -66,19 +58,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             </button>
         </div>
         <div class="modal-body">
-           <img src="#" alt="" width="200px">
-           Bonbon caramels muffin. Chocolate bar oat cake cookie pastry dragée
-           pastry. Carrot cake
-           chocolate tootsie roll chocolate bar candy canes biscuit.
-           Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet
-           roll. Toffee sugar
-           plum sugar plum jelly-o jujubes bonbon dessert carrot cake. Cookie
-           dessert tart muffin topping
-           donut icing fruitcake. Sweet roll cotton candy dragée danish Candy canes
-           chocolate bar cookie.
-           Gingerbread apple pie oat cake. Carrot cake fruitcake bear claw. Pastry
-           gummi bears
-           marshmallow jelly-o.
+            <div id="bukti"></div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-light-secondary"
@@ -96,3 +76,14 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 </div>
 
 @endsection
+<script>
+    function bukti(id)
+    {
+        $.get("{{ url('pengunjung/detailhistory') }}/" + id, {}, function(data, status) {
+                // jQuery.noConflict();
+                // $("#exampleModalLabel").html('Edit Product')
+                $("#bukti").html(`<img src="{{asset('/bukti/'.`+bukti+`)}}" alt="" width="200px">`);
+                $("#exampleModalCenter").modal('show');
+            });
+    }
+</script>
