@@ -33,7 +33,7 @@
                             <td style="width:25%">{{ $historis->tanggal_pembayaran }}</td>
                             <td>{{ $historis->hbalance }}</td>
                             <td>
-                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Lihat Bukti</a>
+                                <a href="#" class="btn btn-primary" onclick="bukti({{ $historis->id_balance }})">Lihat Bukti</a>
                             </td>
                         </tr>
                         @endforeach
@@ -58,7 +58,10 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             </button>
         </div>
         <div class="modal-body">
-            <div id="bukti"></div>
+            <center>
+                <div id="bukti"></div>
+            </center>
+            
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-light-secondary"
@@ -68,7 +71,8 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             </button>
             <button type="button" class="btn btn-success ml-1" data-bs-dismiss="modal">
                 <i class="bx bx-check d-block d-sm-none"></i>
-                <span class="d-none d-sm-block"> <i class="bi bi-cloud-download"></i> Download</span>
+                <div id="dld"></div>
+               
             </button>
         </div>
     </div>
@@ -79,11 +83,12 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <script>
     function bukti(id)
     {
-        $.get("{{ url('pengunjung/detailhistory') }}/" + id, {}, function(data, status) {
-                // jQuery.noConflict();
-                // $("#exampleModalLabel").html('Edit Product')
-                $("#bukti").html(`<img src="{{asset('/bukti/'.`+bukti+`)}}" alt="" width="200px">`);
-                $("#exampleModalCenter").modal('show');
+        $("#exampleModalCenter").modal('show');
+        $.get("{{ url('pengunjung/detailhistori') }}/" + id, {}, function(data, status) {
+                
+                $("#bukti").html(`<img width="200px" alt="Profile" src="{{asset('/bukti/`+data+`')}}" >`);
+                $("#dld").html(`<a style="color:white; text-decoration:none" href="{{asset('/bukti/`+data+`')}}" download> <span class="d-none d-sm-block"> <i class="bi bi-cloud-download"></i> Download</span></a>`);
+               
             });
     }
 </script>

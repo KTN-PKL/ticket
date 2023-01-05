@@ -16,7 +16,7 @@ class hbalance extends Model
     }
     public function detailData($id_balance)
     {
-        return DB::table('hbalances')->where('id_balance', $id_balance)->get();
+        return DB::table('hbalances')->where('id_balance', $id_balance)->first();
     }
     public function addData($data)
     {
