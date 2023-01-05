@@ -24,7 +24,7 @@
         height: 50px;
         position: absolute;
         right:0px;
-        bottom: 75px;
+        bottom: 135px;
 
     }
     .lingkaran3{
@@ -46,7 +46,7 @@
         height: 50px;
         position: absolute;
         left:0px;
-        bottom: 75px;
+        bottom: 135px;
 
     }
     .img-fluid{
@@ -60,10 +60,14 @@
     .judul{
         color: rgb(191, 191, 191)
     }
+    .judul2{
+        color: #5B5E6C
+    }
     .column{
         margin-left:0,5em;
         color:white;
         border-right:1px solid grey;
+        
     }
     .column1{
         margin-left:4em;
@@ -73,6 +77,26 @@
     .detail{
         margin-left:4em;
     }
+    .badge{
+        background-color: #F28F1A;
+        font-size: 16px;
+    }
+    .badge2{
+        background-color: #FFB75E;
+        font-size: 16px;
+    }
+    th,td{
+        padding:5px;
+    }
+    #tombol{
+        margin-bottom:1em;
+    }
+    a.btn{
+        background-color: #2CF940;
+        color: white;
+    }
+    
+   
 
     
 </style>
@@ -111,7 +135,8 @@
                                 <div class="col col-md-3">
                                     <div class="column1">
                                         <h6 class="judul">Jadwal</h6>
-                                        <h6>Senin, 30 Feb 2022</h6>
+                                        <h6>Senin, 30</h6>
+                                        <h6>Februari 2023</h6>
                                     </div>
                                 </div>
                                 <div class="col col-md-3">
@@ -141,24 +166,46 @@
                         </div>
                         <div style="height:150px" class="tiketbawah"> 
                             <br>
-                            <div class="detail">
-                                <table >
-                                    <tr>
-                                        <td style="vertical-align: top"><h6>Kode Tiket</h6></td>
-                                        <td style="vertical-align: top">:</td>
-                                        <td style="vertical-align: top"><span class="badge bg-primary">ET-XX-XXXX-XXXX</span></td>
-                                    </tr>
-                                </table>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="detail">
+                                        <table >
+                                            <tr>
+                                                <td style="width:50%;vertical-align: top;"><h6 class="judul2">Kode Tiket</h6></td>
+                                                <td style="vertical-align: top"><h6 style="font-size: 16px">:</h6></td>
+                                                <td style="vertical-align: top"><span style="font-size: 20px" class="badge2">ET-XX-XXXX-XXXX</span></td>
+                                            </tr>
+                    
+                                            <tr>
+                                                <td style="width:50%;vertical-align: top;"><h6 class="judul2">Status</h6></td>
+                                                <td style="vertical-align: top"><h6 style="font-size: 16px">:</h6></td>
+                                                <td style="vertical-align: top"><span class="badge">Proces Refund</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    QR CODE
+                                </div>
+
                             </div>
+                           
                             
                           
                         </div>
 
                     </div>
                 </div>
+                <center>
+                    <div class="mt-2" id="tombol">
+                        <a href="#" class="btn"> <i class="bi bi-cloud-download"></i> Download</a>
+                    </div>
+                </center>
+                
             </div> 
         </div>
        
+    
 
     </section>
     
