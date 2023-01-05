@@ -29,7 +29,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     
-
+{{-- CKeditor --}}
+<script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
 
 </head>
 
@@ -108,8 +109,8 @@ integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0Ec
 <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 
 {{-- CKEDITOR --}}
-<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
-<script src="{{asset('template')}}/dist/assets/js/pages/ckeditor.js"></script>
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+<script src="{{asset('template')}}/dist/assets/js/pages/ckeditor.js"></script> --}}
 </body>
 
 </html>

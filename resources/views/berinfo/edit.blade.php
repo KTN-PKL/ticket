@@ -10,7 +10,7 @@
             <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;border-radius:0%"> 
                 <div class="card-body">
                     <center>
-                    <h5>Create Berita & Informasi</h5>
+                    <h5>Edit Berita & Informasi</h5>
                     </center>
                     <br>
                     <form enctype="multipart/form-data" method="POST" action="#" class="form" data-parsley-validate>
@@ -49,7 +49,7 @@
                             <div class="col-md-12">
                                 <div class="form-group mandatory">
                                     <label for="alamat" class="form-label">Isi</label>
-                                <textarea id="editor1" name="" data-parsley-required="true"></textarea>
+                                <textarea id="editor1" data-parsley-required="true"></textarea>
                                 <script>
                                   CKEDITOR.replace( 'editor1' );
                                 </script>
@@ -59,7 +59,7 @@
 
                         <center>
                         <div class="mt-4" id="tombol_create">
-                            <input class="btn btn-primary" type="submit" value="Create">
+                            <input class="btn btn-primary" type="submit" value="Edit">
                         </div>
                         </center>
                     </form>        

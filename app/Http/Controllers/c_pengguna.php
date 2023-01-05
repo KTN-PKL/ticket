@@ -26,17 +26,12 @@ class c_pengguna extends Controller
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'password' => 'required',
-        //     'username' => 'required',
-        //     'email' => 'required',
-        //     'kontak' => 'required',
-        //     'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
-        // ],[
-        //     'name.required'=>'Nama pengguna Wajib terisi',
-           
-        // ]);
+        $request->validate([
+            'password' => 'confirmed',
+            'username' => 'required',
+            'email' => 'required',
+            'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
+        ]);
         $file  = $request->foto;
         $filename = $request->email.'.'.$file->extension();
         $file->move(public_path('foto'),$filename);

@@ -30,12 +30,12 @@
             </li>
             
             <li
-                class="sidebar-item  has-sub ">
+                class="sidebar-item  {{request()->routeIs('mitra*') ? 'active' : ''}} has-sub ">
                 <a href="#" class='sidebar-link '>
                     <i class="bi bi-stack"></i>
                     <span>Mitra</span>
                 </a>
-                <ul class="submenu {{request()->routeIs('mitra.*') ? 'active' : ''}}">
+                <ul class="submenu">
                     <li class="submenu-item">
                         <a href="{{route('mitra.akun')}}">Akun</a>
                     </li>
@@ -45,7 +45,7 @@
                 </ul>
             </li>
             <li
-                class="sidebar-item {{request()->routeIs('pengunjung') ? 'active' : ''}} ">
+                class="sidebar-item {{request()->routeIs('pengunjung*') ? 'active' : ''}} ">
                 <a href="{{route('pengunjung')}}" class='sidebar-link'>
                     <i class="bi bi-person-lines-fill"></i>
                     <span>Pengunjung</span>
@@ -76,10 +76,10 @@
                     <span>Admin</span>
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+            <li class="sidebar-item {{request()->routeIs('pengguna*') ? 'active' : ''}}">
+                <a href="{{route('pengguna')}}" class='sidebar-link'>
                     <i class="bi bi-people-fill"></i>
-                    <span>Users</span>
+                    <span>Pengguna</span>
                 </a>
             </li>
             <li class="sidebar-item">

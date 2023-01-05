@@ -27,19 +27,19 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/test1', function () {
-    return view('informasi.index');
-});
+// Route::get('/test1', function () {
+//     return view('user.index');
+// });
 
-Route::get('/test2', function () {
-    return view('berinfo.create');
-});
-Route::get('/test3', function () {
-    return view('informasi.edit');
-});
-Route::get('/test4', function () {
-    return view('informasi.detail');
-});
+// Route::get('/test2', function () {
+//     return view('user.create');
+// });
+// Route::get('/test3', function () {
+//     return view('user.edit');
+// });
+// Route::get('/test4', function () {
+//     return view('user.detail');
+// });
 
 
 // Route::get('/test3', function () {
