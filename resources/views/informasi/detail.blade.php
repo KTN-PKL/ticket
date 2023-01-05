@@ -8,58 +8,24 @@
     <section class="section">
         <div class="col-md-12">
             <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;"> 
-                <div class="card-header">
+                <div class="card-body">
                     <center>
-                    <h4>Detail Mitra</h4>
-                  
-                    <img class="img-fluid mt-2" width="200px" height="200px" src="{{asset('/foto/'.$mitra->foto)}}" alt="" style="border-radius: 50%">
+                    <h4>Informasi</h4>
+                    <img class="img-fluid mt-2" width="200px" height="200px" src="#" alt="">
+                    <h6>Diskon Besar Besaran </h6>
                     </center>
+                    <br>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever 
+                        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has 
+                        survived not only five centuries but also the leap into electronic typesetting, remaining essentially unchanged.
+                        It was popularised in the 1960s with the release 
+                        of Letraset sheets
+                        containing Lorem Ipsum passages, 
+                        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
                 </div>
-                <div class="card-body" style="margin-left:3em;margin-right:3em;">
-                    <div class="row">
-                        <div  class="col-md-5">  
-                            <table>
-                                <tr>
-                                    <td style="width:50%"><h6>Nama</h6></td>
-                                    <td><h6>:</h6></td>
-                                    <td><h6 style="color: black">{{$mitra->name}}</h6></td>
-                                </tr>
-                                <tr>
-                                    <td><h6>Email</h6></td>
-                                    <td><h6>:</h6></td>
-                                    <td><h6 style="color: black">{{$mitra->email}}</h6></td>
-                                </tr>
-                                <tr>
-                                    <td><h6>Username</h6></td>
-                                    <td><h6>:</h6></td>
-                                    <td><h6 style="color: black">{{$mitra->username}}</h6></td>
-                                </tr>
-                                <tr>
-                                    <td><h6>Whatsapp</h6></td>
-                                    <td><h6>:</h6></td>
-                                    <td><h6 style="color: black">{{$mitra->kontak}}</h6></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="col-md-2">
-                            <center>
-                                <div style="border:1px solid black;height:250px;width:0px;"></div>
-                            </center>
-                            
-                        </div>
-                        <div class="col-md-5">
-                            <div>
-                                <center>
-                                    <h6>Deskripsi</h6>
-                                </center>
-                                <p class="text-justify" style="font-size: 12px">{{$mitra->deskripsi_mitra}}</p>
-                            </div>
-                           
-                        </div>
-
-                    </div>
-
-                </div>
+    
                
 
 
