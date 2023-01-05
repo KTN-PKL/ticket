@@ -72,14 +72,11 @@ Route::controller(c_pengguna::class)->group(function () {
 
 Route::controller(c_pengunjung::class)->group(function () {
     Route::get('/pengunjung', 'index')->name('pengunjung');
-    Route::post('/pengunjung/store', 'store')->name('pengunjung.store');
-    Route::get('/pengunjung/create', 'create')->name('pengunjung.create');
-    Route::get('/pengunjung/edit/{id}', 'edit')->name('pengunjung.edit');
-    Route::post('/pengunjung/update/{id}', 'update')->name('pengunjung.update');
-    Route::get('/pengunjung/destroy/{id}', 'destroy')->name('pengunjung.destroy');
+    Route::get('/pengunjung/pengunjung/{id}', 'pengunjung')->name('pengunjung.pengunjung');
+    Route::post('/pengunjung/bayar/{id}', 'bayar')->name('pengunjung.bayar');
+    Route::get('/pengunjung/histori/{id}', 'histori')->name('pengunjung.histori');
     Route::get('/pengunjung/detail/{id}', 'detail')->name('pengunjung.detail');
-    Route::get('/pengunjung/active/{id}', 'active')->name('pengunjung.active');
-    Route::get('/pengunjung/inactive/{id}', 'inactive')->name('pengunjung.inactive');
+    Route::get('/pengunjung/detailhistori/{id}', 'detailhistori')->name('pengunjung.detailhistori');
 });
 
 Route::controller(c_postingan::class)->group(function () {
