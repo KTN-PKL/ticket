@@ -16,9 +16,9 @@
         </div>
     </div>
     <div class="sidebar-menu">
-        {{-- <div class="logo">
-            <a style="margin-left:4em" href="#"><img width="150px" height="75px" src="{{('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
-        </div> --}}
+        <div class="logo">
+            <a style="margin-left:4em" href="#"><img width="150px" height="75px" src="{{asset('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
+        </div>
         <ul class="menu">
             
             <li
@@ -82,8 +82,8 @@
                     <span>Pengguna</span>
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+            <li class="sidebar-item {{request()->routeIs('feedback*') ? 'active' : ''}}">
+                <a href="{{route('feedback')}}" class='sidebar-link'>
                     <i class="bi bi-envelope-fill"></i>
                     <span>Feedback</span>
                 </a>

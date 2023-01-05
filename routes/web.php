@@ -7,6 +7,7 @@ use App\Http\Controllers\c_fasilitas;
 use App\Http\Controllers\c_postingan;
 use App\Http\Controllers\c_pengguna;
 use App\Http\Controllers\c_pengunjung;
+use App\Http\Controllers\c_feedback;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,25 +27,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-
-// Route::get('/test1', function () {
-//     return view('user.index');
-// });
-
-// Route::get('/test2', function () {
-//     return view('user.create');
-// });
-// Route::get('/test3', function () {
-//     return view('user.edit');
-// });
-// Route::get('/test4', function () {
-//     return view('user.detail');
-// });
-
-
-// Route::get('/test3', function () {
-//     return view('mitra.postingan.edit');
-// });
 
 Route::controller(c_mitra::class)->group(function () {
     Route::get('/mitra/akun', 'index')->name('mitra.akun');
@@ -108,4 +90,11 @@ Route::controller(c_fasilitas::class)->group(function () {
     Route::get('/fasilitas/edit/{id}', 'edit')->name('fasilitas.edit');
     Route::post('/fasilitas/update/{id}', 'update')->name('fasilitas.update');
     Route::get('/fasilitas/destroy/{id}', 'destroy')->name('fasilitas.destroy');
+});
+
+Route::controller(c_feedback::class)->group(function () {
+    Route::get('/feedback', 'index')->name('feedback');
+    Route::get('/feedback/detail/{id}', 'detail')->name('feedback.detail');
+    Route::get('/feedback/balas/{id}', 'balas')->name('feedback.balas');
+   
 });
