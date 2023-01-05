@@ -3,8 +3,17 @@
         padding: 15px;      /* jarak dari tepi lingkaran ke icon */
         border:1px solid black;   /* warna lingkaran */
         color: #aaa;        /* warna icon */
+        border-radius: 40%; /* agar div menjadi lingkaran */
+        width:65px;
+
+    }
+    .pembungkus{
+        padding: 15px;      /* jarak dari tepi lingkaran ke icon */
+        border:3px solid black;   /* warna lingkaran */
+        color: #aaa;        /* warna icon */
         border-radius: 100%; /* agar div menjadi lingkaran */
         width:100px;
+        margin-top:1em;
 
     }
 </style>
@@ -18,11 +27,13 @@
     <section class="section">
         <div class="col-md-12">
             <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;"> 
-                <div class="card-header">
+                <div class="card-body">
                     <center>
                     <h4>Detail Pemesanan Tiket Masif</h4>
-                    <div class="lingkaran">
-                        <i  class="bi bi-ticket-detailed-fill" style="font-size:72px;color:#292D32"></i>
+                    <div class="pembungkus">
+                        <div class="lingkaran">
+                            <i  class="bi bi-ticket-detailed-fill" style="font-size:32px;color:#292D32"></i>
+                        </div>
                     </div>
                     
                     </center>
