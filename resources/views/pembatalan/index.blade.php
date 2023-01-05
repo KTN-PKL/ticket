@@ -20,15 +20,15 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>PJ Sari Ater</td>
+                            <td style="width:25%">PJ Sari Ater</td>
                             <td>082249021212</td>
                             <td>
                                <h6 style="color: #FF9900">Process Refund</h6> 
                             </td>
                             <td>
                                 <a href="#" class="btn btn-primary"><i class="bi bi-eye"></i></a>
-                                <a href="#" class="btn btn-success"><i class="bi bi-whatsapp"></i></a>
-                                <a href="#" class="btn btn-danger"> <i class="bi bi-x-circle"></i> Batalkan Tiket</a>
+                                <a href="#" class="btn btn-success"><i class="bi bi-whatsapp"></i> Hubungi</a>
+                                <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"> <i class="bi bi-x-circle"></i> Batalkan Tiket</a>
                             </td>
                         </tr>
                         <tr>
@@ -39,8 +39,8 @@
                                <h6 style="color: red">Refund</h6> 
                             </td>
                             <td>
-                                <a href="#" class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                <a href="#" class="btn btn-success"><i class="bi bi-receipt"></i>Bukti</a>
+                                <a href="#" class="btn btn-primary"><i class="bi bi-eye"></i></a>
+                                <a href="#" class="btn btn-success"><i class="bi bi-receipt"></i> Bukti</a>
                             </td>
                         </tr>
                     </tbody>
@@ -50,6 +50,49 @@
 
     </section>
     
+</div>
+
+<!-- Vertically Centered modal Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+    role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+            </h5>
+            <button type="button" class="close" data-bs-dismiss="modal"
+                aria-label="Close">
+                <i data-feather="x"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+          <form enctype="multipart/form-data" action="">
+            @csrf
+            <div class="form-group">
+                <center>
+                    <label for="foto" class="form-label">Upload Bukti Refund</label>
+                </center>
+                    <div class="card">
+                        <div style="border:1px solid grey;border-style:dashed;" class="card-body">
+                            <center>
+                                <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
+                            </center>
+                            <!-- File uploader with multiple files upload -->
+                            <input type="file" name="#" >
+                        </div>
+                    </div>  
+            </div> 
+            <div class="mt-4" id="tombol_create">
+                <center>
+                    <input style="background-color: #FF0000;width:200px;" class="btn btn-danger"  type="submit" value="Refund">
+                </center>
+               
+            </div>
+          </form>
+        </div>
+    </div>
+</div>
 </div>
 
 @endsection

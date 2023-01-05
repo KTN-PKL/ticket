@@ -28,14 +28,14 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/test1', function () {
-    return view('masif.index');
+    return view('pembatalan.index');
 });
 
 Route::get('/test2', function () {
-    return view('masif.detail');
+    return view('pembatalan.detail');
 });
 Route::get('/test3', function () {
-    return view('masif.edit');
+    return view('pembatalan.edit');
 });
 Route::get('/test4', function () {
     return view('pengunjung.history');
