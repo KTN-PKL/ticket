@@ -6,6 +6,7 @@ use App\Http\Controllers\c_kategori;
 use App\Http\Controllers\c_fasilitas;
 use App\Http\Controllers\c_postingan;
 use App\Http\Controllers\c_pengguna;
+use App\Http\Controllers\c_pengunjung;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,18 @@ Route::controller(c_pengguna::class)->group(function () {
     Route::get('/pengguna/detail/{id}', 'detail')->name('pengguna.detail');
     Route::get('/pengguna/active/{id}', 'active')->name('pengguna.active');
     Route::get('/pengguna/inactive/{id}', 'inactive')->name('pengguna.inactive');
+});
+
+Route::controller(c_pengunjung::class)->group(function () {
+    Route::get('/pengunjung', 'index')->name('pengunjung');
+    Route::post('/pengunjung/store', 'store')->name('pengunjung.store');
+    Route::get('/pengunjung/create', 'create')->name('pengunjung.create');
+    Route::get('/pengunjung/edit/{id}', 'edit')->name('pengunjung.edit');
+    Route::post('/pengunjung/update/{id}', 'update')->name('pengunjung.update');
+    Route::get('/pengunjung/destroy/{id}', 'destroy')->name('pengunjung.destroy');
+    Route::get('/pengunjung/detail/{id}', 'detail')->name('pengunjung.detail');
+    Route::get('/pengunjung/active/{id}', 'active')->name('pengunjung.active');
+    Route::get('/pengunjung/inactive/{id}', 'inactive')->name('pengunjung.inactive');
 });
 
 Route::controller(c_postingan::class)->group(function () {
