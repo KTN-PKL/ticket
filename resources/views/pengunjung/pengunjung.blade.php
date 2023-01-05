@@ -28,18 +28,26 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach ($pengunjung as $pengunjungs)
                         <tr>
-                            <td>1</td>
-                            <td style="width:25%">Aji Santoso</td>
-                            <td style="width:25%">Sari Ater Hotel & Resort</td>
-                            <td>0822490254144</td>
+                            <td>@php
+                                $i = $i + 1;
+                                echo $i;
+                            @endphp</td>
+                            <td style="width:25%">{{ $pengunjungs->atas_nama }}</td>
+                            <td style="width:25%">{{ $pengunjungs->wisata }}</td>
+                            <td>{{ $pengunjungs->whatsapp }}</td>
                             <td>
-                                <span class="badge bg-success"><i class="bi bi-patch-check" style="font-size: 18px"></i> Check-in</span>
+                                <span class="badge bg-success"><i class="bi bi-patch-check" style="font-size: 18px"></i> {{ $pengunjungs->status }}</span>
                             </td>
                             <td>
                                 <a href="#" class="btn btn-primary"><i class="bi bi-eye"></i></a>
                             </td>
                         </tr>
+                        @endforeach
                         <tr>
                             <td>1</td>
                             <td style="width:25%">Aji Santoso</td>
@@ -92,22 +100,6 @@
                             </td>
                         </tr>
                         <tr>
-                        {{-- @php
-                        $i=0;
-                        @endphp
-                        @foreach($mitra as $mitras)
-                        @php
-                        $i=$i+1
-                        @endphp
-                        <tr>
-                            <td>{{$i}}</td>
-                            <td style="width:75%">{{$mitras->name}}</td>
-                            <td>
-                                <a href="{{route('mitra.postingan', $mitras->id_mitra)}}" class="btn btn-primary">Lihat Postingan</a>
-                            </td>
-                        </tr>
-                        @endforeach --}}
-                       {{-- @endforeach --}}
                     </tbody>
                 </table>
             </div>
