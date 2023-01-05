@@ -47,12 +47,7 @@
                                 </div>
                                  <div class="form-group mandatory">
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
-                                    <input type="number" id="kontak" class="form-control @error('kontak') is-invalid @enderror" placeholder="Masukkan Nomor Whatsapp Mitra" name="kontak" value="{{old('kontak')}}">
-                                 @error('kontak')
-                                    <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                    </span>
-                                  @enderror
+                                    <input type="number" id="kontak" class="form-control" placeholder="Masukkan Nomor Whatsapp Penanggung Jawab" name="kontak" value="{{old('kontak')}}"  data-parsley-required="true">
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
@@ -66,7 +61,7 @@
                                 </select>    
                             </div>
                             <div class="form-group mandatory">
-                              <label for="kategori" class="form-label">Wisata Alam</label>
+                              <label for="kategori" class="form-label">Tujuan Wisata</label>
                               <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="id_kategori" data-parsley-required="true">
                                 {{-- <option selected>--Pilih Kategori--</option>
                                 @foreach ($kategori as $kategoris)
@@ -85,12 +80,7 @@
                         </div>
                         <div class="form-group mandatory">
                           <label for="username" class="form-label">Harga</label>
-                          <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan Harga Satuan" name="username" value="#">
-                       @error('username')
-                          <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                          </span>
-                        @enderror
+                          <input type="number" id="username" class="form-control" placeholder="Masukkan Harga Satuan" name="username" value="#"  data-parsley-required="true">
                       </div>
                             </div>
                         </div>
