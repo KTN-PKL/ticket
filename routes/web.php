@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/test1', function () {
-    return view('pengunjung.index');
+    return view('masif.index');
 });
 
 Route::get('/test2', function () {

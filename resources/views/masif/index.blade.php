@@ -21,14 +21,26 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td style="width:25%">PJ Sari Ater</td>
-                            <td style="width:30%">Sari Ater Hotel </td>
+                            <td style="width:20%">PJ Sari Ater</td>
+                            <td style="width:20%">Sari Ater Hotel </td>
                             <td>082249025455</td>
                             <td><h6 style="color: yellow">Request</h6></td>
                             <td>
-                                <a href="#" class="btn btn-primary">Lihat Pengunjung</a>
-                                <a href="#" class="btn btn-warning"><i class="bi bi-clock-history"></i>History</a>
-                                <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Bayar</a>
+                                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-whatsapp"></i>Hubungi</a>
+                                <a href="#" class="btn btn-primary"> <i class="bi bi-pencil-square"></i>Edit</a>
+                                <a href="" class="btn btn-success">Terima</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td style="width:20%">PJ Sari Ater</td>
+                            <td style="width:20%">Sari Ater Hotel </td>
+                            <td>082249025455</td>
+                            <td><h6 style="color: yellow">Process</h6></td>
+                            <td>
+                                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-whatsapp"></i>Hubungi</a>
+                                <a href="#" class="btn btn-primary"> <i class="bi bi-pencil-square"></i>Edit</a>
+                                <a href="" class="btn btn-success">Terima</a>
                             </td>
                         </tr>
                         {{-- @php
