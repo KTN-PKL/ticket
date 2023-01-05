@@ -49,7 +49,7 @@
                             <div class="col-md-12">
                               <div class="form-group mandatory">
                                 <label for="alamat" class="form-label">Isi</label>
-                                <textarea style="height:150px" type="text" id="lokasi" class="form-control" placeholder="Masukkan Isi" name="lokasi" data-parsley-required="true"></textarea>
+                                <textarea id="my-editor" type="text" id="lokasi" class="my-editor form-control" placeholder="Masukkan Isi" name="lokasi" data-parsley-required="true"></textarea>
                             </div>   
                             </div>
                         </div>
@@ -78,3 +78,10 @@
   
 
 @endsection
+
+@push('scripts')
+<script src="https:://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('my-editor');
+    </script>
+@endpush
