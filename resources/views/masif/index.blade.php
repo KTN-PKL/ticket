@@ -13,7 +13,6 @@
                             <th>No</th>
                             <th>Nama PJ</th>
                             <th>Tempat Wisata</th>
-                            <th>Whatsapp</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -23,7 +22,6 @@
                             <td>1</td>
                             <td style="width:20%">PJ Sari Ater</td>
                             <td style="width:20%">Sari Ater Hotel </td>
-                            <td>082249025455</td>
                             <td><h6 style="color: yellow">Request</h6></td>
                             <td>
                                 <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-whatsapp"></i>Hubungi</a>
@@ -35,12 +33,21 @@
                             <td>1</td>
                             <td style="width:20%">PJ Sari Ater</td>
                             <td style="width:20%">Sari Ater Hotel </td>
-                            <td>082249025455</td>
-                            <td><h6 style="color: yellow">Process</h6></td>
+                            <td><h6 style="color: #2CE0F9">Process</h6></td>
                             <td>
-                                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-whatsapp"></i>Hubungi</a>
-                                <a href="#" class="btn btn-primary"> <i class="bi bi-pencil-square"></i>Edit</a>
-                                <a href="" class="btn btn-success">Terima</a>
+                                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Buat Invoice</a>
+                                <a href="#" class="btn btn-warning"> <i class="bi bi-pencil-square"></i>Edit</a>
+                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td style="width:20%">PJ Sari Ater</td>
+                            <td style="width:20%">Sari Ater Hotel </td>
+                            <td><h6 style="color: red">Paid Off</h6></td>
+                            <td>
+                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i></a>
+                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                         {{-- @php
@@ -76,7 +83,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Upload Bukti Pembayaran
+            <h5 class="modal-title" id="exampleModalCenterTitle">Invoice Pembayaran
             </h5>
             <button type="button" class="close" data-bs-dismiss="modal"
                 aria-label="Close">
@@ -84,27 +91,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             </button>
         </div>
         <div class="modal-body">
-          <form enctype="multipart/form-data" action="">
-            @csrf
-            <div class="form-group">
-                <label for="foto" class="form-label">Upload Foto</label>
-                    <div class="card">
-                        <div style="border:1px solid grey;border-style:dashed;" class="card-body">
-                            <center>
-                                <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
-                            </center>
-                            <!-- File uploader with multiple files upload -->
-                            <input type="file" name="#" >
-                        </div>
-                    </div>  
-            </div> 
-            <div class="mt-4" id="tombol_create">
-                <center>
-                    <input style="background-color: #FF0000;width:200px;" class="btn btn-danger"  type="submit" value="Bayar">
-                </center>
-               
-            </div>
-          </form>
+         ssss
         </div>
     </div>
 </div>
