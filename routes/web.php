@@ -33,6 +33,12 @@ Route::get('/test1', function () {
 Route::get('/test2', function () {
     return view('pengunjung.pengunjung');
 });
+Route::get('/test3', function () {
+    return view('pengunjung.detail');
+});
+Route::get('/test4', function () {
+    return view('pengunjung.history');
+});
 
 
 // Route::get('/test3', function () {

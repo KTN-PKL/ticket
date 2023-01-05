@@ -9,6 +9,9 @@
 <h3>Daftar Postingan Mitra {{$mitra->name}} </h3>
 <div class="col mt-4">
     <a href="{{route('mitra.postingan.create', $mitra->id_mitra)}}" class="btn btn-primary">Create Postingan</a>
+    <a href="{{route('kategori')}}" class="btn btn-success">Kategori</a>
+    <a href="{{route('fasilitas')}}" class="btn btn-success">Fasilitas</a>
+    
 </div>
     <br>
     <section class="section">

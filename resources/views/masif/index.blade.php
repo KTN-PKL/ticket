@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-<h3>Daftar Pengunjung Mitra</h3>
+<h3>Daftar Tiket Masif</h3>
     <br>
     <section class="section">
         <div class="card">
@@ -11,16 +11,20 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Mitra</th>
-                            <th>Balance</th>
+                            <th>Nama PJ</th>
+                            <th>Tempat Wisata</th>
+                            <th>Whatsapp</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td style="width:35%">Sari Ater Corp</td>
-                            <td style="width:25%">Balance</td>
+                            <td style="width:25%">PJ Sari Ater</td>
+                            <td style="width:30%">Sari Ater Hotel </td>
+                            <td>082249025455</td>
+                            <td><h6 style="color: yellow">Request</h6></td>
                             <td>
                                 <a href="#" class="btn btn-primary">Lihat Pengunjung</a>
                                 <a href="#" class="btn btn-warning"><i class="bi bi-clock-history"></i>History</a>

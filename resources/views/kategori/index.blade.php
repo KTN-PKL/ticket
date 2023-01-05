@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('content')
-
+<a href="#"> <i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 <div class="container">
 <h3>Daftar Kategori Postingan</h3>
     <div class="col mt-4">
