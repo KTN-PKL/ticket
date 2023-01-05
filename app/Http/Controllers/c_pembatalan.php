@@ -26,6 +26,16 @@ class c_pembatalan extends Controller
             'status' => "refund",
             'bukti' => "filename",
         ];
-        $this->pembatalan;
+        $this->pembatalan->editData($kode_tiket, $data);
+    }
+    public function detail($kode_tiket)
+    {
+        $data = [ 'pembatalan' => $this->pembatalan->detailData($kode_tiket),];
+        return view('pembatalan.detail', $data);
+    }
+    public function bukti($kode_tiket)
+    {
+        $data = [ 'pembatalan' => $this->pembatalan->detailData($kode_tiket),];
+        return view('pembatalan.bukti', $data);
     }
 }
