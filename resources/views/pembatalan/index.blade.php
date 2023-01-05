@@ -40,7 +40,7 @@
                             </td>
                             <td>
                                 <a href="#" class="btn btn-primary"><i class="bi bi-eye"></i></a>
-                                <a href="#" class="btn btn-success"><i class="bi bi-receipt"></i> Bukti</a>
+                                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2"><i class="bi bi-receipt"></i> Bukti</a>
                             </td>
                         </tr>
                     </tbody>
@@ -86,6 +86,41 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="mt-4" id="tombol_create">
                 <center>
                     <input style="background-color: #FF0000;width:200px;" class="btn btn-danger"  type="submit" value="Refund">
+                </center>
+               
+            </div>
+          </form>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Vertically Centered modal Modal -->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+    role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+            </h5>
+            <button type="button" class="close" data-bs-dismiss="modal"
+                aria-label="Close">
+                <i data-feather="x"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <center>
+                <h4>Bukti Refund</h4>
+            </center>
+            <div class="gambar">
+                <img src="" alt="xx" width="200px" height="200px">
+            </div>
+          
+            <div class="mt-4" id="tombol_create">
+                <center>
+                    <input style="background-color: green;width:200px;" class="btn btn-secondary"  type="submit" value="Download">
                 </center>
                
             </div>
