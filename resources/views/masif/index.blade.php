@@ -20,8 +20,8 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td style="width:20%">PJ Sari Ater</td>
-                            <td style="width:20%">Sari Ater Hotel </td>
+                            <td style="width:25%" >PJ Sari Ater</td>
+                            <td style="width:25%" >Sari Ater Hotel </td>
                             <td><h6 style="color: yellow">Request</h6></td>
                             <td>
                                 <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-whatsapp"></i>Hubungi</a>
@@ -31,8 +31,8 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td style="width:20%">PJ Sari Ater</td>
-                            <td style="width:20%">Sari Ater Hotel </td>
+                            <td >PJ Sari Ater</td>
+                            <td >Sari Ater Hotel </td>
                             <td><h6 style="color: #2CE0F9">Process</h6></td>
                             <td>
                                 <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Buat Invoice</a>
@@ -42,8 +42,18 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td style="width:20%">PJ Sari Ater</td>
-                            <td style="width:20%">Sari Ater Hotel </td>
+                            <td >PJ Sari Ater</td>
+                            <td >Sari Ater Hotel </td>
+                            <td><h6 style="color:#2CF940">Accepted</h6></td>
+                            <td>
+                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i></a>
+                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td >PJ Sari Ater</td>
+                            <td >Sari Ater Hotel </td>
                             <td><h6 style="color: red">Paid Off</h6></td>
                             <td>
                                 <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i></a>

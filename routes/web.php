@@ -31,7 +31,7 @@ Route::get('/test1', function () {
 });
 
 Route::get('/test2', function () {
-    return view('pengunjung.pengunjung');
+    return view('masif.detail');
 });
 Route::get('/test3', function () {
     return view('pengunjung.detail');
