@@ -52,23 +52,20 @@
                             </div>
                             <div class="col-md-6 col-12">
                               <div class="form-group mandatory">
-                                <label for="kategori" class="form-label">Kategori</label>
-                                <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="id_kategori" data-parsley-required="true">
-                                  {{-- <option selected>--Pilih Kategori--</option>
-                                  @foreach ($kategori as $kategoris)
-                                  <option value="{{ $kategoris->id_kategori }}">{{ $kategoris->kategori }}</option>
+                                <label for="kategori">Kategori</label>
+                                <select name="kategori" type="text" class="form-select" value="{{ old('prov') }}"  onchange="readwisata()" id="kategori">
+                                  {{-- <option selected disabled>-- Pilih Provinsi --</option>
+                                  @foreach($Province as $provinces)
+                                  <option value="{{$provinces->id}}">{{$provinces->name}}</option>
                                   @endforeach --}}
-                                </select>    
+                                </select>
                             </div>
-                            <div class="form-group mandatory">
-                              <label for="kategori" class="form-label">Tujuan Wisata</label>
-                              <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="id_kategori" data-parsley-required="true">
-                                {{-- <option selected>--Pilih Kategori--</option>
-                                @foreach ($kategori as $kategoris)
-                                <option value="{{ $kategoris->id_kategori }}">{{ $kategoris->kategori }}</option>
-                                @endforeach --}}
-                              </select>    
-                          </div>
+                            <div id="tampilwisata" class="form-group mandatory">
+                            
+                            </div>
+                            <div id="tampilpaket" class="form-group mandatory">
+                            
+                            </div>
                           <div class="form-group mandatory">
                             <label for="kategori" class="form-label">Pilih Paket</label>
                             <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="id_kategori" data-parsley-required="true">
@@ -101,5 +98,14 @@
     </section>
     
 </div>
+
+<script>
+  function readwisata(){ 
+        var id = $("#kategori").val();
+        $.get("{{ url('readwisata') }}/" + id, {}, function(data, status) {
+          $("#tampilwisata").html(data);
+      });
+    }
+</script>
 
 @endsection

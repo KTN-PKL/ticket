@@ -122,7 +122,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <section class="section">
                 <div class="col-md-12">
                     <div class="card mt-2" style="margin-left:2em;margin-right:2em;"> 
-                        <div class="card-header">
+                        <div class="card-body">
                             <center>
                             <h4>Invoice Pembayaran</h4>
                             <div class="pembungkus">
@@ -201,7 +201,12 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         </tr>
                                     </table>
                                 </div>
-        
+                            </div>
+                            <div class="mt-4" id="tombol_bayar">
+                                <center>
+                                    <input style="background-color: #2CF940;width:200px;" class="btn btn-success"  type="submit" value="Buat Invoice">
+                                </center>
+                               
                             </div>
                         </div>
                     </div> 
