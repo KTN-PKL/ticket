@@ -106,7 +106,7 @@ class c_postingan extends Controller
             ];
             $this->paket->addData($data);
         }
-        return redirect()->route('mitra.postingan')->with('create', 'Mitra Berhasil Dibuat');
+        return redirect()->route('mitra.postingan', $id_mitra)->with('create', 'Mitra Berhasil Dibuat');
     }
 
     public function edit($id_wisata)
@@ -205,10 +205,12 @@ class c_postingan extends Controller
         }
         $i = $i + 1;
         }
-        return redirect()->route('mitra.postingan')->with('create', 'Mitra Berhasil Dibuat');
+        $id = $this->wisata->detailData($id_wisata);
+        return redirect()->route('mitra.postingan', $id->id_mitra)->with('create', 'Mitra Berhasil Dibuat');
     }
     public function destroy($id_wisata)
     {
+        $id = $this->wisata->detailData($id_wisata);
         $fw = $this->fotowisata->wisataData($id_wisata);
         foreach ($fw as $fotow) {
             unlink(public_path('fotowisata'). '/' .$fotow->fotowisata);
@@ -218,5 +220,6 @@ class c_postingan extends Controller
         $this->jam_buka->deleteData($id_wisata);
         $this->paket->deleteData2($id_wisata);
         $this->wisata->deleteData($id_wisata);
+        return redirect()->route('mitra.postingan', $id->id_mitra)->with('create', 'Mitra Berhasil Dibuat');
     }
 }
