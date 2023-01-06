@@ -20,13 +20,19 @@ use App\Http\Controllers\c_feedback;
 |
 */
 
+Route::get('/', [App\Http\Controllers\c_login::class, 'index']);
+Route::get('/dashboard', [App\Http\Controllers\c_login::class, 'dashboard'] );
+Route::post('/check', [App\Http\Controllers\c_login::class, 'check'])->name('login.check');
+Route::post('/', [App\Http\Controllers\c_login::class, 'logout'])->name('user.logout');
+
 Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+
+Route::get('/dashboard', [App\Http\Controllers\c_login::class, 'dashboard'] );
+Route::post('/check', [App\Http\Controllers\c_login::class, 'check'])->name('login.check');
+Route::post('/', [App\Http\Controllers\c_login::class, 'logout'])->name('user.logout');
 
 Route::controller(c_mitra::class)->group(function () {
     Route::get('/mitra/akun', 'index')->name('mitra.akun');

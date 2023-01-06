@@ -96,7 +96,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+                <a href="{{route('user.logout')}}" class='sidebar-link'>
                     <i class="bi bi-power" style="color: red"></i>
                     <span style="color: red">Keluar</span>
                 </a>
