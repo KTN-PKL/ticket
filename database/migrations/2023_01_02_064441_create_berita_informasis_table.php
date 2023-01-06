@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('judul');
             $table->string('gambar');
             $table->string('jenis');
+            $table->string('statusbi');
             $table->text('isi');
             $table->timestamps();
         });
