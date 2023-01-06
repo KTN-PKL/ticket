@@ -104,7 +104,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="#"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
+    <a href="{{route('pembatalan')}}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -129,32 +129,31 @@
                                 </div>
                             </div>
                             <div class="header">
-                             <img class="img-fluid" src="{{('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
+                             <img class="img-fluid" src="{{asset('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
                             </div>
                             <div class="row">
                                 <div class="col col-md-3">
                                     <div class="column1">
                                         <h6 class="judul">Jadwal</h6>
-                                        <h6>Senin, 30</h6>
-                                        <h6>Februari 2023</h6>
+                                        <h6>{{$pembatalan->waktu_kunjungan}}</h6>
                                     </div>
                                 </div>
                                 <div class="col col-md-3">
                                     <div class="column">
                                         <h6 class="judul">Atas Nama</h6>
-                                        <h6>Aji Santoso</h6>
+                                        <h6>{{$pembatalan->atas_nama}}</h6>
                                     </div>
                                 </div>
                                 <div class="col col-md-3">
                                     <div class="column">
                                         <h6 class="judul">Wisata</h6>
-                                        <h6 style="color: #FFB75E">Sari Ater Hotels</h6>
+                                        <h6 style="color: #FFB75E">{{$pembatalan->wisata}}</h6>
                                     </div>
                                 </div>
                                 <div class="col col-md-3">
                                     <div class="column">
                                         <h6 class="judul">Pengunjung</h6>
-                                        <h6>1 Orang</h6>
+                                        <h6>{{$pembatalan->qty}} Orang</h6>
                                     </div>
                                 </div>
                                
@@ -173,13 +172,19 @@
                                             <tr>
                                                 <td style="width:50%;vertical-align: top;"><h6 class="judul2">Kode Tiket</h6></td>
                                                 <td style="vertical-align: top"><h6 style="font-size: 16px">:</h6></td>
-                                                <td style="vertical-align: top"><span style="font-size: 20px" class="badge2">ET-XX-XXXX-XXXX</span></td>
+                                                <td style="vertical-align: top"><span style="font-size: 20px" class="badge2">{{$pembatalan->kode_tiket}}</span></td>
                                             </tr>
                     
                                             <tr>
                                                 <td style="width:50%;vertical-align: top;"><h6 class="judul2">Status</h6></td>
                                                 <td style="vertical-align: top"><h6 style="font-size: 16px">:</h6></td>
-                                                <td style="vertical-align: top"><span class="badge">Proces Refund</span></td>
+                                                <td style="vertical-align: top">
+                                                    @if($pembatalan->status == "Process Refund")
+                                                    <span class="badge">Proces Refund</span>
+                                                    @else
+                                                    <span class="badge bg-danger">Refund</span>
+                                                    @endif
+                                                </td>
                                             </tr>
                                         </table>
                                     </div>

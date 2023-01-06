@@ -130,8 +130,9 @@ Route::controller(c_profil::class)->group(function () {
 
 Route::controller(c_pembatalan::class)->group(function () {
     Route::get('/pembatalan', 'index')->name('pembatalan');
-    Route::get('/pembatalan/edit', 'edit')->name('pembatalan.edit');
-    Route::post('/pembatalan/update/{id}', 'update')->name('pembatalan.update');
+    Route::get('/pembatalan/detail/{id}', 'detail')->name('pembatalan.detail');
+    Route::post('/pembatalan/batalkan/{id}', 'batalkan')->name('pembatalan.batalkan');
+    Route::get('/pembatalan/bukti/{id}', 'bukti')->name('pembatalan.bukti');
    
    
 });

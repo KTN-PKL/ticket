@@ -12,7 +12,7 @@ class pembatalan extends Model
 
     public function allData()
     {
-        return DB::table('tikets')->where('satus', "Process Refund")->orwhere('satus', "Refund")->get();
+        return DB::table('tikets')->where('status', "Process Refund")->orwhere('status', "Refund")->get();
     }
     public function editData($kode_tiket, $data)
     {
@@ -20,6 +20,6 @@ class pembatalan extends Model
     }
     public function detailData($kode_tiket)
     {
-        return DB::table('tikets')->where('kode_tiket', $kode_tiket)->first();
+        return DB::table('tikets')->join('pakets','tikets.id_paket','=','pakets.id_paket')->join('wisatas','pakets.id_wisata','=','wisatas.id_wisata')->where('kode_tiket', $kode_tiket)->first();
     }
 }

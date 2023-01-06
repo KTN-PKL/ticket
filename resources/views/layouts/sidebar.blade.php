@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/main/app.css">
+<link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/main/app-dark.css">
 <div class="sidebar-wrapper active">
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
@@ -58,8 +60,8 @@
                     <span>Tiket Masif</span>
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+            <li class="sidebar-item {{request()->routeIs('pembatalan*') ? 'active' : ''}}">
+                <a href="{{route('pembatalan')}}" class='sidebar-link'>
                     <i class="bi bi-clipboard2-x-fill"></i>
                     <span>Pembatalan</span>
                 </a>

@@ -17,16 +17,17 @@ class c_pembatalan extends Controller
         $data = ['pembatalan' => $this->pembatalan->allData(),];
         return view('pembatalan.index', $data);
     }
-    public function batalkan($kode_tiket)
+    public function batalkan(Request $request, $kode_tiket)
     {
         $file  = $request->bukti;
         $filename = $kode_tiket.'.'.$file->extension();
         $file->move(public_path('bukti'),$filename);
         $data = [
             'status' => "refund",
-            'bukti' => "filename",
+            'bukti' => $filename,
         ];
         $this->pembatalan->editData($kode_tiket, $data);
+        return redirect()->route('pembatalan')->with('success', 'Pembatalan Tiket Telah Berhasil');
     }
     public function detail($kode_tiket)
     {
@@ -35,7 +36,7 @@ class c_pembatalan extends Controller
     }
     public function bukti($kode_tiket)
     {
-        $data = [ 'pembatalan' => $this->pembatalan->detailData($kode_tiket),];
-        return view('pembatalan.bukti', $data);
+        $data = $this->pembatalan->detailData($kode_tiket);
+        return $data->bukti;
     }
 }

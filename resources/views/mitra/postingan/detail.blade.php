@@ -2,7 +2,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="{{route('mitra.postingan', $wisata->id_mitra)}}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
+    <a href="{{route('mitra')}}"> <i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -18,15 +18,21 @@
                     @endphp
                     
                     <img class="img-fluid mt-2" width="200px" src="{{asset('/fotowisata/'. $fotowisata[0]->fotowisata)}}" alt="">
+                    <div>
+                        @if($jml > 1)
+                        <a href="#"><h6 class="badge bg-primary">Lihat Foto Lainnya</h6></a>
+                        @endif
+                    </div>
+                    
                    </center>
-                   <center>
+                   {{-- <center>
                     @for ($i = 1; $i < $jml; $i++)
                     <img  class="img-fluid mt-2" width="100px" height="50px" src="{{asset('/fotowisata/'. $fotowisata[$i]->fotowisata)}}" alt="">
                     @endfor
                     @if($jumlahfoto > 4)
                     <a style="position: absolute;right:30%;"  href=""><i class="bi bi-arrow-right-circle-fill"></i></a>
                     @endif
-                   </center>
+                   </center> --}}
                   
                     {{-- @foreach($fotowisata as $fotowisatas)
                         <img class="img-fluid mt-2" width="100px" height="100px" src="{{asset('/fotowisata/'. $fotowisatas->fotowisata)}}" alt="" style="border-radius: 25%">

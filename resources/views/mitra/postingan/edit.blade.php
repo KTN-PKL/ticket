@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="{{route('mitra.postingan', $wisata->id_mitra)}}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
+  <a href="{{route('mitra')}}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>

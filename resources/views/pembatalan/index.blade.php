@@ -1,6 +1,5 @@
 @extends('layouts.template')
 @section('content')
-<a href="#"> <i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 <div class="container">
 <h3>Daftar Pembatalan Tiket</h3>
     <br>
@@ -18,31 +17,35 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php 
+                        $i=0;
+                        @endphp
+                        @foreach($pembatalan as $pembatalans)
+                        @php 
+                        $i=$i+1;
+                        @endphp
                         <tr>
-                            <td>1</td>
-                            <td style="width:25%">PJ Sari Ater</td>
-                            <td>082249021212</td>
+                            <td>{{$i}}</td>
+                            <td>{{$pembatalans->atas_nama}}</td>
+                            <td>{{$pembatalans->whatsapp}}</td>
                             <td>
-                               <h6 style="color: #FF9900">Process Refund</h6> 
+                                @if($pembatalans->status == "refund")
+                                <span class="badge bg-danger">Refund</span>
+                                @else
+                                <span class="badge bg-warning">Process Refund</span>
+                                @endif
                             </td>
                             <td>
-                                <a href="#" class="btn btn-primary"><i class="bi bi-eye"></i></a>
-                                <a href="#" class="btn btn-success"><i class="bi bi-whatsapp"></i> Hubungi</a>
-                                <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"> <i class="bi bi-x-circle"></i> Batalkan Tiket</a>
+                                <a href="{{route('pembatalan.detail', $pembatalans->kode_tiket)}}" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                @if($pembatalans->status == "Process Refund")
+                                <a href="" class="btn btn-primary">Hubungi</a>
+                                <a href="#" class="btn btn-danger" onclick="batalkan({{ $pembatalans->kode_tiket }})">Batalkan</a>
+                                @else
+                                <a href="#" class="btn btn-success" onclick="bukti({{ $pembatalans->kode_tiket }})">Bukti Refund</a>
+                                @endif
                             </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>PJ Sari Ater</td>
-                            <td>082249021212</td>
-                            <td>
-                               <h6 style="color: red">Refund</h6> 
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-primary"><i class="bi bi-eye"></i></a>
-                                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2"><i class="bi bi-receipt"></i> Bukti</a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -67,67 +70,77 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             </button>
         </div>
         <div class="modal-body">
-          <form enctype="multipart/form-data" action="">
-            @csrf
-            <div class="form-group">
-                <center>
-                    <label for="foto" class="form-label">Upload Bukti Refund</label>
-                </center>
-                    <div class="card">
-                        <div style="border:1px solid grey;border-style:dashed;" class="card-body">
-                            <center>
-                                <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
-                            </center>
-                            <!-- File uploader with multiple files upload -->
-                            <input type="file" name="#" >
-                        </div>
-                    </div>  
-            </div> 
-            <div class="mt-4" id="tombol_create">
-                <center>
-                    <input style="background-color: #FF0000;width:200px;" class="btn btn-danger"  type="submit" value="Refund">
-                </center>
-               
+            <div id="form">
+            
             </div>
-          </form>
-        </div>
-    </div>
-</div>
-</div>
-
-
-<!-- Modal Bukti -->
-<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-    role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">
-            </h5>
-            <button type="button" class="close" data-bs-dismiss="modal"
-                aria-label="Close">
-                <i data-feather="x"></i>
-            </button>
-        </div>
-        <div class="modal-body">
             <center>
-                <h4>Bukti Refund</h4>
+                <button type="button" class="btn btn-success mt-4" data-bs-dismiss="modal">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <div id="dld"></div>
+                   
+                </button>
             </center>
-            <div class="gambar">
-                <img class="img-fluid" src="{{('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset="" width="99%"></a>
-            </div>
-          
-            <div class="mt-4" id="tombol_create">
-                <center>
-                    <input style="background-color: green;width:200px;" class="btn btn-secondary"  type="submit" value="Download">
-                </center>
-               
-            </div>
-          </form>
+           
+         
         </div>
     </div>
 </div>
 </div>
+
+
+
+
+
+<script>
+    // function batalkan(id)
+    // {
+    //     var action = "{{ url('pembatalan/batalkan') }}/" + id
+        
+    //     $("#exampleModalCenter").modal('show');
+    //     $("#form").html(` <form enctype="multipart/form-data" method="post" action="`+action+`">
+    //         @csrf
+    //         <div class="form-group">
+    //             <center>
+    //                 <label for="foto" class="form-label">Upload Bukti Refund</label>
+    //             </center>
+    //                 <div class="card">
+    //                     <div style="border:1px solid grey;border-style:dashed;" class="card-body">
+    //                         <center>
+    //                             <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
+    //                         </center>
+    //                         <!-- File uploader with multiple files upload -->
+    //                         <input type="file" name="bukti" >
+    //                     </div>
+    //                 </div>  
+    //         </div> 
+    //         <div class="mt-4" id="tombol_create">
+    //             <center>
+    //                 <input style="background-color: #FF0000;width:200px;" class="btn btn-danger"  type="submit" value="Refund">
+    //             </center>
+               
+    //         </div>
+    //       </form>`)
+    // }
+
+    function bukti(id)
+    {
+        $("#exampleModalCenter").modal('show');
+        $.get("{{ url('pembatalan/bukti') }}/" + id, {}, function(data, status) {
+                
+                $("#form").html(`
+                <center>
+                <h4>Bukti Refund</h4>
+           
+            <div class="gambar">
+                <img width="200px" alt="Profile" src="{{asset('/bukti/`+data+`')}}" >
+            </div>
+        </center>
+
+                `);
+                $("#dld").html(`<a style="color:white; text-decoration:none" href="{{asset('/bukti/`+data+`')}}" download> <span class="d-none d-sm-block"> <i class="bi bi-cloud-download"></i> Download</span></a>`);
+               
+            });
+    }
+</script>
 
 @endsection

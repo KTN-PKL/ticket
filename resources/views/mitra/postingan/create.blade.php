@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="{{route('mitra.postingan', $mitra->id_mitra)}}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
+    <a href="{{route('mitra')}}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -122,8 +122,8 @@
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
-                                    <label for="lokasi" class="form-label">Link Lokasi</label>
-                                    <input type="text" id="lokasi" class="form-control" placeholder="Masukkan link lokasi" name="lokasi" data-parsley-required="true">
+                                    <label for="maps" class="form-label">Link maps</label>
+                                    <input type="text" id="maps" class="form-control" placeholder="Masukkan link maps" name="maps" data-parsley-required="true">
                                 </div>
                                 
                                 <div class="form-group mandatory">
