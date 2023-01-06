@@ -64,18 +64,18 @@
                     <span>Pembatalan</span>
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+            <li class="sidebar-item {{request()->routeIs('berinfo*') ? 'active' : ''}} ">
+                <a href="{{route('berinfo')}}" class='sidebar-link'>
                     <i class="bi bi-newspaper"></i>
                     <span>Berita & Informasi</span>
                 </a>
             </li>
-            <li class="sidebar-item">
+            {{-- <li class="sidebar-item">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-person-check-fill"></i>
                     <span>Admin</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="sidebar-item {{request()->routeIs('pengguna*') ? 'active' : ''}}">
                 <a href="{{route('pengguna')}}" class='sidebar-link'>
                     <i class="bi bi-people-fill"></i>

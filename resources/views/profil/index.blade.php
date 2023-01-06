@@ -59,7 +59,7 @@
                                 <br>
                                 <div class="tombol">
                                     <a href="{{route('profil.edit')}}" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit Profil</a>
-                                    <a href="" class="btn btn-danger"> <i class="bi bi-key"></i> Password & Keamanan</a>    
+                                    <a href="{{route('profil.keamanan')}}" class="btn btn-danger"> <i class="bi bi-key"></i> Password & Keamanan</a>    
                                 </div>
                               
                                 

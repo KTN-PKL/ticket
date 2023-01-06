@@ -23,7 +23,7 @@ class berita_informasi extends Model
     }
     public function editData($id_beritainformasi, $data)
     {
-        DB::table('berita_informasis')->where('id_beritainformasi', $id_beritainformasi)->edit($data);
+        DB::table('berita_informasis')->where('id_beritainformasi', $id_beritainformasi)->update($data);
     }
     public function deleteData($id_beritainformasi)
     {

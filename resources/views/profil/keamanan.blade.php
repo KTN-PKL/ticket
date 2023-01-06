@@ -19,9 +19,9 @@
                         <div class="row">
                             <div class="col-md-6 col-12">
                               <div class="form-group">
-                                <label for="password" class="form-label">Password</label>
-                                <small class="text-muted"><i>Inputkan password jika ingin mengubah</i></small>
-                                <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password " name="password">
+                                <label for="password" class="form-label">Password Baru</label>
+                                <small class="text-muted"><i>Inputkan password baru jika ingin mengubah</i></small>
+                                <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password Baru" name="password">
                              @error('password')
                                 <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -29,8 +29,8 @@
                               @enderror
                             </div>
                             <div class="form-group">
-                                <label for="password-confirmation" class="form-label">Password Konfirmasi</label>
-                                <input type="password" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Masukkan Password-confirmation " name="password_confirmation">
+                                <label for="password-confirmation" class="form-label">Konfirmasi Password Baru</label>
+                                <input type="password" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Masukkan Konfirmasi Password Baru" name="password_confirmation">
                              @error('password_confirmation')
                                 <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>

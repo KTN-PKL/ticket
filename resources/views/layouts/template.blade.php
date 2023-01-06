@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="{{asset('template')}}/dist/assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('template')}}/dist/assets/images/logo/favicon.png" type="image/png">
     
-<link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/shared/iconly.css">
+{{-- <link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/shared/iconly.css"> --}}
 
 {{-- datatable --}}
 <link rel="stylesheet" href="{{asset('template')}}/dist/assets/extensions/simple-datatables/style.css">
@@ -74,9 +74,9 @@
     <script src="{{asset('template')}}/dist/assets/js/bootstrap.js"></script>
     <script src="{{asset('template')}}/dist/assets/js/app.js"></script>
     
-<!-- Need: Apexcharts -->
+{{-- <!-- Need: Apexcharts -->
 <script src="{{asset('template')}}/dist/assets/extensions/apexcharts/apexcharts.min.js"></script>
-<script src="{{asset('template')}}/dist/assets/js/pages/dashboard.js"></script>
+<script src="{{asset('template')}}/dist/assets/js/pages/dashboard.js"></script> --}}
 
 {{-- Parsley Form --}}
 <script src="{{asset('template')}}/dist/assets/extensions/jquery/jquery.min.js"></script>

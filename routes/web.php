@@ -8,8 +8,9 @@ use App\Http\Controllers\c_postingan;
 use App\Http\Controllers\c_pengguna;
 use App\Http\Controllers\c_pengunjung;
 use App\Http\Controllers\c_feedback;
-use App\Http\Controllers\c_berita_informasi;
+use App\Http\Controllers\c_beritainformasi;
 use App\Http\Controllers\c_profil;
+use App\Http\Controllers\c_pembatalan;
 
 
 /*
@@ -49,7 +50,7 @@ Route::controller(c_mitra::class)->group(function () {
     Route::get('/mitra/akun/inactive/{id}', 'inactive')->name('mitra.akun.inactive');
 });
 
-Route::controller(c_berita_informasi::class)->group(function () {
+Route::controller(c_beritainformasi::class)->group(function () {
     Route::get('/berinfo', 'index')->name('berinfo');
     Route::post('/berinfo/store', 'store')->name('berinfo.store');
     Route::get('/berinfo/create', 'create')->name('berinfo.create');
@@ -57,8 +58,8 @@ Route::controller(c_berita_informasi::class)->group(function () {
     Route::post('/berinfo/update/{id}', 'update')->name('berinfo.update');
     Route::get('/berinfo/destroy/{id}', 'destroy')->name('berinfo.destroy');
     Route::get('/berinfo/detail/{id}', 'detail')->name('berinfo.detail');
-    Route::get('/berinfo/active/{id}', 'aktiv')->name('berinfo.aktiv');
-    Route::get('/berinfo/inaktiv/{id}', 'nonaktiv')->name('berinfo.nonaktiv');
+    Route::get('/berinfo/active/{id}', 'active')->name('berinfo.active');
+    Route::get('/berinfo/inactive/{id}', 'inactive')->name('berinfo.inactive');
 });
 
 Route::controller(c_pengguna::class)->group(function () {
@@ -124,7 +125,13 @@ Route::controller(c_profil::class)->group(function () {
     Route::get('/profil/keamanan', 'keamanan')->name('profil.keamanan');
     Route::post('/profil/update/{id}', 'update')->name('profil.update');
     Route::post('/profil/update2/{id}', 'update2')->name('profil.update2');
-    // Route::get('/profil/detail/{id}', 'detail')->name('profil.detail');
-    // Route::get('/profil/balas/{id}', 'balas')->name('profil.balas');
+   
+});
+
+Route::controller(c_pembatalan::class)->group(function () {
+    Route::get('/pembatalan', 'index')->name('pembatalan');
+    Route::get('/pembatalan/edit', 'edit')->name('pembatalan.edit');
+    Route::post('/pembatalan/update/{id}', 'update')->name('pembatalan.update');
+   
    
 });

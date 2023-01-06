@@ -1,13 +1,18 @@
 @extends('layouts.template')
 @section('content')
-<a href="#"> <i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 <div class="container">
 <h3>Daftar Berita & Informasi</h3>
 <div class="col mt-4">
-    <a href="#" class="btn btn-primary">Create</a>
+    <a href="{{route('berinfo.create')}}" class="btn btn-primary">Create</a>
 </div>
     <br>
     <section class="section">
+        @if(session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{session('success')}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <div class="card">
             <div class="card-body">
                 <table class="table table-striped" id="table1">
@@ -21,21 +26,36 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php 
+                        $i=0
+                        @endphp
+                        @foreach($berinfo as $berinfos)
+                        @php 
+                        $i=$i+1;
+                        @endphp
                         <tr>
-                            <td><h6>1</h6></td>
-                            <td style="width:25%"><h6>Diskon Besar - Besaran</h6></td>
-                            <td><h6>Berita</h6></td>
+                            <td><h6>{{$i}}</h6></td>
+                            <td style="width:25%"><h6>{{$berinfos->judul}}</h6></td>
+                            <td><h6>{{$berinfos->jenis}}</h6></td>
                             <td>
-                               <h6 style="color: red">Tidak Aktif</h6> 
+                                @if($berinfos->statusbi == "Inactive")
+                               <span class="badge bg-danger">Inactive</span> 
+                               @else
+                               <span class="badge bg-success">Active</span> 
+                               @endif
                             </td>
                             <td>
-                                <a href="#" class="btn btn-primary"><i class="bi bi-eye"></i></a>
-                                <a href="#" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a>
-                                <a href="#" class="btn btn-success">Aktifkan</a>
+                                <a href="{{route('berinfo.detail', $berinfos->id_beritainformasi)}}" class="btn btn-primary"><i class="bi bi-eye"></i></a>
+                                <a href="{{route('berinfo.edit', $berinfos->id_beritainformasi)}}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{route('berinfo.destroy', $berinfos->id_beritainformasi)}}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                @if($berinfos->statusbi == "Inactive")
+                                <a href="{{route('berinfo.active', $berinfos->id_beritainformasi)}}" class="btn btn-success">Active</a>
+                                @else
+                                <a href="{{route('berinfo.inactive', $berinfos->id_beritainformasi)}}" class="btn btn-danger">Inactive</a>
+                                @endif
                             </td>
                         </tr>
-                      
+                      @endforeach
                     </tbody>
                 </table>
             </div>

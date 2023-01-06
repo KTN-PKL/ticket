@@ -26,49 +26,76 @@ class c_beritainformasi extends Controller
         $filename = $request->judul.'.'.$file->extension();
         $file->move(public_path('gambar'),$filename);
         $data = [
-           'judsul' => $request->judul,
+           'judul' => $request->judul,
            'isi' => $request->isi,
            'gambar' => $filename,
            'jenis' => $request->jenis,
-           'statusbi' => "aktiv",
+           'statusbi' => "Active",
         ];
         $this->berita_informasi->addData($data);
-        return redirect()->route('berinfo.index');
+        return redirect()->route('berinfo')->with('success', 'Berita & Informasi Berhasil Dibuat.');;
     }
     public function edit($id_beritainformasi)
     {
         $data = ['berinfo' => $this->berita_informasi->detailData($id_beritainformasi),];
-        return view('berinfo.create', $data);
+        return view('berinfo.edit', $data);
+    }
+
+    public function detail($id_beritainformasi)
+    {
+        $data = [
+            'berinfo' => $this->berita_informasi->detailData($id_beritainformasi,)
+        ];
+        return view('berinfo.detail', $data);
     }
     public function update(Request $request, $id_beritainformasi)
     {
-        $file  = $request->gambar;
-        $filename = $request->judul.'.'.$file->extension();
-        $file->move(public_path('gambar'),$filename);
-        $data = [
-           'judsul' => $request->judul,
-           'isi' => $request->isi,
-           'gambar' => $filename,
-           'jenis' => $request->jenis,
-           'statusbi' => "aktiv",
-        ];
-        $this->berita_informasi->editData($data, $id_beritainformasi);
-        return redirect()->route('berinfo.index');
+        if ($request->gambar <> null){
+            $file  = $request->gambar;
+            $filename = $request->judul.'.'.$file->extension();
+            $file->move(public_path('gambar'),$filename);
+            $data = [
+               'judul' => $request->judul,
+               'isi' => $request->isi,
+               'gambar' => $filename,
+               'jenis' => $request->jenis,
+               'statusbi' => "Active",
+            ];
+            $this->berita_informasi->editData($id_beritainformasi ,$data );
+        }
+        else{
+            $data = [
+                'judul' => $request->judul,
+                'isi' => $request->isi,
+                'jenis' => $request->jenis,
+                'statusbi' => "Active",
+             ];
+             $this->berita_informasi->editData($id_beritainformasi ,$data );
+        }
+       
+        return redirect()->route('berinfo')->with('success','Berita & Informasi Berhasil Diupdate.');
     }
-    public function aktiv($id_beritainformasi)
+
+    public function destroy($id_beritainformasi)
+    {
+        $this->berita_informasi->deleteData($id_beritainformasi);
+        return redirect()->route('berinfo')->with('success', 'Berita & Informasi Berhasil Dihapus.');
+    }
+
+    public function active($id_beritainformasi)
     {
         $data = [
-           'statusbi' => "aktiv",
+           'statusbi' => "Active",
         ];
-        $this->berita_informasi->editData($data, $id_beritainformasi);
-        return redirect()->route('berinfo.index');
+        $this->berita_informasi->editData($id_beritainformasi, $data);
+        return redirect()->route('berinfo')->with('success', 'Berita & Informasi Diaktifkan.');;
     }
-    public function nonaktiv($id_beritainformasi)
+    public function inactive($id_beritainformasi)
     {
         $data = [
-           'statusbi' => "nonaktiv",
+           'statusbi' => "Inactive",
         ];
-        $this->berita_informasi->editData($data, $id_beritainformasi);
-        return redirect()->route('berinfo.index');
+        $this->berita_informasi->editData($id_beritainformasi, $data);
+        return redirect()->route('berinfo')->with('success', 'Berita & Informasi Berhasil Dimatikan.');;
     }
 }
