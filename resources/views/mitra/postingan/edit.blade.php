@@ -14,7 +14,7 @@
                     </center>
                 </div>
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST" action="#" class="form" data-parsley-validate>
+                    <form enctype="multipart/form-data" method="POST" action="{{ route('mitra.postingan.update', $wisata->id_wisata) }}" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">
@@ -171,51 +171,100 @@
 
                                 @php
                                     $jp = count($paket);
+                                    $a = 0;
                                 @endphp
                                 <input type="text" name="jp" hidden value="{{ $jp }}" id="jp">
-                                @foreach ($paket as $item)
-                                    
-                                @endforeach
+                                @foreach ($paket as $pkt)
+                                @if ($a <> 0)
+                                <div id="paket{{ $a }}">
+                                @endif
                                 <div class="form-group">
                                   <label for="paket" class="form-label">Paket Wisata</label>
-                                    <input type="text" id="paket" class="form-control" placeholder="Masukkan Nama Paket" name="paket0" data-parsley-required="true">
+                                    <input type="text" id="paket" class="form-control" placeholder="Masukkan Nama Paket" name="paket{{ $a }}" data-parsley-required="true" value="{{ $pkt->paket }}">
                                     <div class="row mt-2">
                                         <div class="col col-6 col-md-6">
                                             <label for="weekday" class="form-label">Harga Weekday</label>
-                                            <input type="text" id="weekday" class="form-control" placeholder="Harga Weekday" name="harga_wday0" data-parsley-required="true">
+                                            <input type="text" id="weekday" class="form-control" placeholder="Harga Weekday" name="harga_wday{{ $a }}" data-parsley-required="true"  value="{{ $pkt->harga_wday }}">
                                         </div>
                                         <div class="col col-6 col-md-6">
                                             <label for="weekend" class="form-label">Harga Weekend</label>
-                                            <input type="text" id="weekend" class="form-control" placeholder="Harga Weekend" name="harga_wend0" data-parsley-required="true">
+                                            <input type="text" id="weekend" class="form-control" placeholder="Harga Weekend" name="harga_wend{{ $a }}" data-parsley-required="true" value="{{ $pkt->harga_wend }}">
                                         </div>
                                     </div>
                                     
                                         <div class="mb-3">
                                             <label class="form-label">Fitur Paket</label>
-                                            <input type="text" name="jftr0" value="1" id="jftr0" hidden>
+                                            @php
+                                                $fitur = explode("+" , $pkt->fitur);
+                                                $jftr = count($fitur);
+                                            @endphp
+                                            <input type="text" name="jftr{{ $a }}" value="{{ $jftr }}" id="jftr{{ $a }}" hidden>
+                                            @php
+                                            $a = $a + 1;
+                                            $b = 0;
+                                        @endphp
+                              
+                                            @foreach ($fitur as $fiturs)
+                                            @if ($b <> 0)
+                                            <div id="plus{{ $a }}0{{ $b }}">
+                                            @endif
+                                            @php
+                                                $b = $b +1;
+                                            @endphp
                                             <div class="input-group col-md-12">
-                                            <input type="text" class="form-control  @error('fitur0') is-invalid @enderror" value="{{ old('fitur0') }}" name="fitur0" placeholder="Masukkan Fitur ...">
-                                            <span class="input-group-text" id="T101" type = "button" onclick="plus(101)"><i class="bi bi-plus"></i></span>
+                                            <input type="text" class="form-control  @error('fitur0') is-invalid @enderror" name="fitur{{ $a }}" value="{{ $fiturs }}">
+                                            <span class="input-group-text" id="T{{ $a }}0{{ $b }}" type = "button" onclick="plus({{ $a }}0{{ $b }})" @if ($b <> $jftr)
+                                              style="display: none"
+                                            @endif><i class="bi bi-plus"></i></span>
+                                            @if ($b <> 1)
+                                            <span class="input-group-text" id="M{{ $a }}0{{ $b }}" type = "button" onclick="mins({{ $a }}0{{ $b }})" @if ($b <> $jftr)
+                                              style="display: none"
+                                            @endif><i class="bi bi-x"></i></span>
                                             </div>
-                                            <div id="M101"></div>
-                                            <div id="plus101"></div>
+                                            @else
+                                            </div>
+                                            <div id="M{{ $a }}0{{ $b }}"></div>
+                                            @endif
+                                            @if ($b == $jftr)
+                                            <div id="plus{{ $a }}0{{ $b }}"></div>
+                                            @else
+                                            @if ($b <> 1)
+                                          </div> 
+                                            @endif
+                                            @endif
+                                            @endforeach
                                              @error('fitur')
                                                   <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                   </span>
                                              @enderror
-                                      
-
                                     </div>
                                     <center>
-                                    <div id="mp1"></div>
                                     <div class="col-md-4">
-                                    <a id="tp1" class="btn btn-success" onclick="tambahpaket(1)">Tambah Paket</a>
+                                    <a id="tp{{ $a }}" class="btn btn-success" onclick="tambahpaket({{ $a }})" @if ($a <> $jp)
+                                      style="display: none"
+                                    @endif>Tambah Paket</a>
                                     </div>
+                                    @if ($a == 1)
+                                    <div id="mp1"></div>
+                                    @else
+                                    <div class="col-md-4">
+                                      <a id="mp{{ $a }}" class="btn btn-warning" onclick="minpaket({{ $a }})" @if ($a <> $jp)
+                                        style="display: none"
+                                      @endif>Hapus Paket</a>
+                                    </div>   
+                                    @endif
                                   </center>
                                 </div>
-                                <div id="paket1"></div>
-                                
+                                @if ($a == $jp)
+                                <div id="paket{{ $a }}"></div>  
+                                @else
+                                @if ($a <> 1)
+                              </div>
+                                @endif
+                               
+                                @endif  
+                                @endforeach
 
                                 
                             </div>
