@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="page-heading">
-    <h3>Selamat Datang, Admin</h3>
+    <h3>Selamat Datang, {{Auth::user()->name}}</h3>
 </div>
 <div class="row">
     <div class="col-md-3">

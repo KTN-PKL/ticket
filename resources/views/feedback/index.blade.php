@@ -1,8 +1,15 @@
 @extends('layouts.template')
 @section('content')
 {{-- <a href="{{route('mitra.postingan', $)}}"> <i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a> --}}
+@if(session()->has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{session('success')}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 <div class="container">
 <h3>Daftar Feedback</h3>
+
    
     <br>
     <section class="section">

@@ -52,7 +52,8 @@ class c_login extends Controller
     
             return view('dashboard');
         } else {
-            return redirect()->route('welcome');
+            session()->flash('error', 'Masukkan Akun Admin');
+            return redirect()->back();
         }
        
     }
