@@ -320,7 +320,7 @@
       $("#jp").val(x)
       $("#paket"+ x).html(`  `);
     }
-  </script> 
+</script> 
 
   
 

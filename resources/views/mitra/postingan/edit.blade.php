@@ -26,30 +26,59 @@
                                     <label for="kategori" class="form-label">Kategori</label>
                                     <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="id_kategori" data-parsley-required="true">
                                       @foreach ($kategori as $kategoris)
-                                      <option value="{{ $kategoris->id_kategori }}" @if($kategoris->id_kategori == $kategoris->id_kategori ) selected @endif>
+                                      <option value="{{ $kategoris->id_kategori }}" @if($kategoris->id_kategori == $wisata->id_kategori ) selected @endif>
                                         {{ $kategoris->kategori }}
                                       </option>
                                       @endforeach
                                     </select>    
                                 </div>
                                 <div class="form-group mandatory">
-                                  <input type="text" hidden value="1" name="jf" id="jf">
+                                  @php
+                                      $jf = count($fasilitas_wisata);
+                                  @endphp
+                                  <input type="text" hidden value="{{ $jf }}" name="jf" id="jf">
                                   <label for="kategori" class="form-label">Fasilitas</label>
+                                  @php
+                                    $i = 0;
+                                  @endphp
+                                  @foreach ($fasilitas_wisata as $item)
+                                  @if ($i <> 0)
+                                    <div id="plusf{{ $i }}">
+                                  @endif
                                   <div class="input-group col-md-12"> 
-                                  <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="0id_fasilitas" data-parsley-required="true">
-                                    <option selected>--Pilih Fasilitas--</option>
-                                    @foreach ($fasilitas as $fasilitass)
-                                    <option value="{{ $fasilitass->id_fasilitas }}">{{ $fasilitass->fasilitas }}</option>
-                                    @endforeach
-                                  </select> 
-                                  <span class="input-group-text" id="Tf1" type = "button" onclick="plusf(1)"><i class="bi bi-plus"></i></span>   
+                                    <select type="text" id="fasilitas" class="form-select" placeholder="Masukkan fasilitas Wisata" name="{{ $i }}id_fasilitas" data-parsley-required="true">
+                                      <option selected>--Pilih Fasilitas--</option>
+                                      @foreach ($fasilitas as $fasilitass)
+                                      <option value="{{ $fasilitass->id_fasilitas }}" @if($fasilitass->id_fasilitas == $item->id_fasilitas ) selected @endif>{{ $fasilitass->fasilitas }}</option>
+                                      @endforeach
+                                    </select> 
+                                    @php
+                                    $i = $i+1;
+                                    @endphp
+                                    <span class="input-group-text" id="Tf{{ $i }}" type = "button" onclick="plusf({{ $i }})" @if ($i <> $jf)
+                                      style="display: none"
+                                    @endif><i class="bi bi-plus"></i></span>   
+                                    @if ($i <> 1)
+                                    <span class="input-group-text" id="Mf{{ $i }}" type = "button" onclick="minsf({{ $i }})" @if ($i <> $jf)
+                                      style="display: none"
+                                    @endif><i class="bi bi-x"></i></span>
                                   </div>
-                                  <div id="Mf1"></div>
-                                  <div id="plusf1"></div>
+                                    @else
+                                  </div> 
+                                  <div id="Mf1"></div>   
+                                    @endif
+                                    @if ($i == $jf)
+                                    <div id="plusf{{ $jf }}"></div>
+                                    @else
+                                      @if ($i <> 1)
+                                    </div>  
+                                      @endif
+                                    @endif
+                                  @endforeach
                               </div>
                                 <div class="form-group mandatory">
                                     <label for="alamat" class="form-label">Alamat</label>
-                                    <input type="text" id="lokasi" class="form-control" placeholder="Masukkan alamat Wisata" name="lokasi" data-parsley-required="true">
+                                    <input type="text" id="lokasi" class="form-control" placeholder="Masukkan alamat Wisata" name="lokasi" data-parsley-required="true" value="{{ $wisata->lokasi }}">
                                 </div>
                                 <div class="row">
                                     <label for="jam" class="form-label">Jam Operasional</label>
@@ -60,60 +89,60 @@
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Senin</span>
                                           </div>
-                                          <input type="time" class="form-control" name="0jam_buka"/>
-                                          <input type="time" class="form-control" name="0jam_tutup"/>
+                                          <input value="{{ $jam_buka[0]->jam_buka }}" type="time" class="form-control" name="0jam_buka"/>
+                                          <input value="{{ $jam_buka[0]->jam_tutup }}" type="time" class="form-control" name="0jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="selasa"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Selasa</span>
                                           </div>
-                                          <input type="time" class="form-control" name="1jam_buka"/>
-                                          <input type="time" class="form-control" name="1jam_tutup"/>
+                                          <input value="{{ $jam_buka[1]->jam_buka }}" type="time" class="form-control" name="1jam_buka"/>
+                                          <input value="{{ $jam_buka[1]->jam_tutup }}" type="time" class="form-control" name="1jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="rabu"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Rabu</span>
                                           </div>
-                                          <input type="time" class="form-control" name="2jam_buka"/>
-                                          <input type="time" class="form-control" name="2jam_tutup"/>
+                                          <input value="{{ $jam_buka[2]->jam_buka }}" type="time" class="form-control" name="2jam_buka"/>
+                                          <input value="{{ $jam_buka[2]->jam_tutup }}" type="time" class="form-control" name="2jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="kamis"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Kamis</span>
                                           </div>
-                                          <input type="time" class="form-control" name="3jam_buka"/>
-                                          <input type="time" class="form-control" name="3jam_tutup"/>
+                                          <input value="{{ $jam_buka[3]->jam_buka }}" type="time" class="form-control" name="3jam_buka"/>
+                                          <input value="{{ $jam_buka[3]->jam_tutup }}" type="time" class="form-control" name="3jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2 ">
                                             <label style="font-size:8px" for="Jumat"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Jumat</span>
                                           </div>
-                                          <input type="time" class="form-control" name="4jam_buka"/>
-                                          <input type="time" class="form-control" name="4jam_tutup"/>
+                                          <input value="{{ $jam_buka[4]->jam_buka }}" type="time" class="form-control" name="4jam_buka"/>
+                                          <input value="{{ $jam_buka[4]->jam_tutup }}" type="time" class="form-control" name="4jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="Sabtu"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Sabtu</span>
                                           </div>
-                                          <input type="time" class="form-control" name="5jam_buka"/>
-                                          <input type="time" class="form-control" name="5jam_tutup"/>
+                                          <input value="{{ $jam_buka[5]->jam_buka }}" type="time" class="form-control" name="5jam_buka"/>
+                                          <input value="{{ $jam_buka[5]->jam_tutup }}" type="time" class="form-control" name="5jam_tutup"/>
                                         </div>
                                         <div class="input-group mt-2">
                                             <label style="font-size:8px" for="Minggu"></label>
                                           <div style="width:20%" class="input-group-prepend">
                                             <span class="input-group-text">Minggu</span>
                                           </div>
-                                          <input type="time" class="form-control" name="6jam_buka"/>
-                                          <input type="time" class="form-control" name="6jam_tutup"/>
+                                          <input value="{{ $jam_buka[6]->jam_buka }}" type="time" class="form-control" name="6jam_buka"/>
+                                          <input value="{{ $jam_buka[6]->jam_tutup }}" type="time" class="form-control" name="6jam_tutup"/>
                                         </div>
                                         <div class="form-group mandatory">
                                           <label for="name" class="form-label">Deskripsi</label>
-                                          <input type="text" id="deskripsi" class="form-control" placeholder="Masukkan Deskripsi" name="deskripsi" data-parsley-required="true">
+                                          <input type="text" id="deskripsi" class="form-control" placeholder="Masukkan Deskripsi" name="deskripsi" data-parsley-required="true" value="{{ $wisata->deskripsi }}">
                                       </div>
                                       </fieldset>  
                                       
@@ -139,8 +168,14 @@
                                             </div>
                                         </div>  
                                 </div> 
-                                <input type="text" name="jp" hidden value="1" id="jp">
-                                
+
+                                @php
+                                    $jp = count($paket);
+                                @endphp
+                                <input type="text" name="jp" hidden value="{{ $jp }}" id="jp">
+                                @foreach ($paket as $item)
+                                    
+                                @endforeach
                                 <div class="form-group">
                                   <label for="paket" class="form-label">Paket Wisata</label>
                                     <input type="text" id="paket" class="form-control" placeholder="Masukkan Nama Paket" name="paket0" data-parsley-required="true">
@@ -205,123 +240,123 @@
 
 
 <script>
-    function plus(id)
-    {
-      var x = id + 1;
-      document.getElementById("T" + id).style.display="none";
-      document.getElementById("M" + id).style.display="none";
-      var y = x % 100;
-      var v = id % 100;
-      var z = (id-v) / 100;
-      var w = z - 1;
-      $("#jftr" + w).val(y)
-      $("#plus" + id).html(`
-      <div class="input-group col-md-12">
-      <input type="text" class="form-control" name="fitur`+w+`-`+v+`" placeholder="Skill ...">
-      <span class="input-group-text" id="T`+x+`" type = "button" onclick="plus(`+x+`)"><i class="bi bi-plus"></i></span>
-      <span class="input-group-text" id="M`+x+`" type = "button" onclick="mins(`+x+`)"><i class="bi bi-x"></i></span>
-      </div>
-      <div id="plus`+x+`"></div>
-      `);
-    }
-    function mins(id)
-    {
-      var x = id - 1;
-      var y = x % 100;
-      var v = id % 100;
-      var z = (id-v) / 100;
-      var w = z - 1;
-      $("#jftr" + w).val(y)
-      document.getElementById("T" + x).style.display="block";
-      document.getElementById("M" + x).style.display="block";
-      
-      $("#plus"+ x).html(`  `);
-    }
-    function plusf(id)
-    {
-      var x = id + 1;
-      document.getElementById("Tf" + id).style.display="none";
-      document.getElementById("Mf" + id).style.display="none";
-      $("#jf").val(x)
-      $("#plusf" + id).html(`
-      <div class="input-group col-md-12"> 
-      <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="`+id+`id_fasilitas" data-parsley-required="true">
-      <option selected>--Pilih Fasilitas--</option>
-      @foreach ($fasilitas as $fasilitass)
-      <option value="{{ $fasilitass->id_fasilitas }}">{{ $fasilitass->fasilitas }}</option>
-      @endforeach
-      </select> 
-      <span class="input-group-text" id="Tf`+x+`" type = "button" onclick="paket(`+x+`)"><i class="bi bi-plus"></i></span>   
-      <span class="input-group-text" id="Mf`+x+`" type = "button" onclick="minsf(`+x+`)"><i class="bi bi-x"></i></span>
-      </div>
-      <div id="paket`+x+`"></div>
-      `);
-    }
-    function minsf(id)
-    {
-      var x = id - 1;
-      document.getElementById("Tf" + x).style.display="block";
-      document.getElementById("Mf" + x).style.display="block";
-      $("#jf").val(x)
-      $("#plusf"+ x).html(`  `);
-    }
-    function tambahpaket(id)
-    {
-      var x = id + 1;
-      document.getElementById("tp" + id).style.display="none";
-      document.getElementById("mp" + id).style.display="none";
-      $("#jp").val(x)
-      $("#paket" + id).html(`
-      <div class="form-group">
-      <label for="paket" class="form-label">Paket Wisata</label>
-      <input type="text" id="paket" class="form-control" placeholder="Masukkan Nama Paket" name="paket`+id+`" data-parsley-required="true">
-        <div class="row mt-2">
-          <div class="col col-6 col-md-6">
-            <label for="weekday" class="form-label">Harga Weekday</label>
-            <input type="text" id="weekday" class="form-control" placeholder="Harga Weekday" name="harga_wday`+id+`" data-parsley-required="true">
+  function plus(id)
+  {
+    var x = id + 1;
+    document.getElementById("T" + id).style.display="none";
+    document.getElementById("M" + id).style.display="none";
+    var y = x % 100;
+    var v = id % 100;
+    var z = (id-v) / 100;
+    var w = z - 1;
+    $("#jftr" + w).val(y)
+    $("#plus" + id).html(`
+    <div class="input-group col-md-12">
+    <input type="text" class="form-control" name="fitur`+w+`-`+v+`" placeholder="Skill ...">
+    <span class="input-group-text" id="T`+x+`" type = "button" onclick="plus(`+x+`)"><i class="bi bi-plus"></i></span>
+    <span class="input-group-text" id="M`+x+`" type = "button" onclick="mins(`+x+`)"><i class="bi bi-x"></i></span>
+    </div>
+    <div id="plus`+x+`"></div>
+    `);
+  }
+  function mins(id)
+  {
+    var x = id - 1;
+    var y = x % 100;
+    var v = id % 100;
+    var z = (id-v) / 100;
+    var w = z - 1;
+    $("#jftr" + w).val(y)
+    document.getElementById("T" + x).style.display="block";
+    document.getElementById("M" + x).style.display="block";
+    
+    $("#plus"+ x).html(`  `);
+  }
+  function plusf(id)
+  {
+    var x = id + 1;
+    document.getElementById("Tf" + id).style.display="none";
+    document.getElementById("Mf" + id).style.display="none";
+    $("#jf").val(x)
+    $("#plusf" + id).html(`
+    <div class="input-group col-md-12"> 
+    <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="`+id+`id_fasilitas" data-parsley-required="true">
+    <option selected>--Pilih Fasilitas--</option>
+    @foreach ($fasilitas as $fasilitass)
+    <option value="{{ $fasilitass->id_fasilitas }}">{{ $fasilitass->fasilitas }}</option>
+    @endforeach
+    </select> 
+    <span class="input-group-text" id="Tf`+x+`" type = "button" onclick="plusf(`+x+`)"><i class="bi bi-plus"></i></span>   
+    <span class="input-group-text" id="Mf`+x+`" type = "button" onclick="minsf(`+x+`)"><i class="bi bi-x"></i></span>
+    </div>
+    <div id="plusf`+x+`"></div>
+    `);
+  }
+  function minsf(id)
+  {
+    var x = id - 1;
+    document.getElementById("Tf" + x).style.display="block";
+    document.getElementById("Mf" + x).style.display="block";
+    $("#jf").val(x)
+    $("#plusf"+ x).html(`  `);
+  }
+  function tambahpaket(id)
+  {
+    var x = id + 1;
+    document.getElementById("tp" + id).style.display="none";
+    document.getElementById("mp" + id).style.display="none";
+    $("#jp").val(x)
+    $("#paket" + id).html(`
+    <div class="form-group">
+    <label for="paket" class="form-label">Paket Wisata</label>
+    <input type="text" id="paket" class="form-control" placeholder="Masukkan Nama Paket" name="paket`+id+`" data-parsley-required="true">
+      <div class="row mt-2">
+        <div class="col col-6 col-md-6">
+          <label for="weekday" class="form-label">Harga Weekday</label>
+          <input type="text" id="weekday" class="form-control" placeholder="Harga Weekday" name="harga_wday`+id+`" data-parsley-required="true">
+          </div>
+            <div class="col col-6 col-md-6">
+            <label for="weekend" class="form-label">Harga Weekend</label>
+            <input type="text" id="weekend" class="form-control" placeholder="Harga Weekend" name="harga_wend`+id+`" data-parsley-required="true">
             </div>
-              <div class="col col-6 col-md-6">
-              <label for="weekend" class="form-label">Harga Weekend</label>
-              <input type="text" id="weekend" class="form-control" placeholder="Harga Weekend" name="harga_wend`+id+`" data-parsley-required="true">
-              </div>
-            </div>
-            <div class="row mt-2">
-              <div class="mb-3">
-                <label class="form-label">Fitur Paket</label>
-                <input type="text" name="jftr`+id+`" value="1" id="jftr`+id+`" hidden>
-                  <div class="input-group col-md-12">
-                    <input type="text" class="form-control" value="{{ old('fitur`+id+`') }}" name="fitur`+id+`" placeholder="Masukkan Fitur ...">
-                    <span class="input-group-text" id="T`+x+`01" type = "button" onclick="plus(`+x+`01)"><i class="bi bi-plus"></i></span>
-                  </div>
-                  <div id="M`+x+`01"></div>
-                  <div id="plus`+x+`01"></div>
+          </div>
+          <div class="row mt-2">
+            <div class="mb-3">
+              <label class="form-label">Fitur Paket</label>
+              <input type="text" name="jftr`+id+`" value="1" id="jftr`+id+`" hidden>
+                <div class="input-group col-md-12">
+                  <input type="text" class="form-control" value="{{ old('fitur`+id+`') }}" name="fitur`+id+`" placeholder="Masukkan Fitur ...">
+                  <span class="input-group-text" id="T`+x+`01" type = "button" onclick="plus(`+x+`01)"><i class="bi bi-plus"></i></span>
                 </div>
+                <div id="M`+x+`01"></div>
+                <div id="plus`+x+`01"></div>
               </div>
-              <div class="row">
-              <center>
-              
-              <div class="col-md-4">
-              <a id="tp`+x+`" class="btn btn-success" onclick="tambahpaket(`+x+`)">Tambah Paket</a>
-              </div>
-              <div class="col-md-4">
-              <a id="mp`+x+`" class="btn btn-warning" onclick="minpaket(`+x+`)">Hapus Paket</a>
-              </div>
+            </div>
+            <div class="row">
+            <center>
             
-              </center>
+            <div class="col-md-4">
+            <a id="tp`+x+`" class="btn btn-success" onclick="tambahpaket(`+x+`)">Tambah Paket</a>
             </div>
+            <div class="col-md-4">
+            <a id="mp`+x+`" class="btn btn-warning" onclick="minpaket(`+x+`)">Hapus Paket</a>
             </div>
-      <div id="paket`+x+`"></div>
-      `);
-    }
-    function minpaket(id)
-    {
-      var x = id - 1;
-      document.getElementById("tp" + x).style.display="block";
-      document.getElementById("mp" + x).style.display="block";
-      $("#jp").val(x)
-      $("#paket"+ x).html(`  `);
-    }
-  </script> 
+          
+            </center>
+          </div>
+          </div>
+    <div id="paket`+x+`"></div>
+    `);
+  }
+  function minpaket(id)
+  {
+    var x = id - 1;
+    document.getElementById("tp" + x).style.display="block";
+    document.getElementById("mp" + x).style.display="block";
+    $("#jp").val(x)
+    $("#paket"+ x).html(`  `);
+  }
+</script> 
 
   
 
