@@ -23,15 +23,19 @@
             <h1 class="auth-title">Log in.</h1>
             <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
 
-            <form action="index.html">
+            <form id="login-form" class="form" action="{{route('login.check')}}" method="POST">
+                @if(session()->has('error'))
+                <div id="login-alert" class="alert alert-danger custom-alert col-md-12"><b>Warning!</b> {{session('error')}}</div>
+                @endif
+                @csrf
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Username">
+                    <input type="email" class="form-control form-control-xl" placeholder="Email" name="email">
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="password" class="form-control form-control-xl" placeholder="Password">
+                    <input type="password" class="form-control form-control-xl" placeholder="Password" name="password">
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
