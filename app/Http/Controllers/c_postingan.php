@@ -137,8 +137,9 @@ class c_postingan extends Controller
         return view('mitra.postingan.detail', $data);
     }
 
-    public function update($id_wisata)
+    public function update(Request $request, $id_wisata)
     {
+        dd($request->all());
         $data = [
             'wisata' => $request->wisata,
             'id_kategori' => $request->id_kategori,
@@ -162,9 +163,9 @@ class c_postingan extends Controller
                 'jam_tutup' => $request->{$i."jam_tutup"},
             ];
             $i = $i +1;
-            $this->jam_buka->addData($jamb->id_jambuka, $data);
+            $this->jam_buka->editData($jamb->id_buka, $data);
         }
-        if ($request->fotowisata[0] <> null) {
+        if ($request->fotowisata <> null) {
             $fw = $this->jfotowisata->wisataData($id_wisata);
             foreach ($fw as $fotow) {
                 unlink(public_path('fotowisata'). '/' .$fotow->fotowisata);
@@ -185,7 +186,7 @@ class c_postingan extends Controller
         }
         $paket= $this->paket->wisataData($id_wisata);
         $i = 0;
-        foreach ($variable as $key => $value) {  
+        foreach ($paket as $pkt) {  
         if ($i < $request->jp) {
             $fitur = $request->{"fitur".$i};
             if ($request->{"jftr".$i} <> 1) {
@@ -199,9 +200,9 @@ class c_postingan extends Controller
                 'harga_wday' => $request->{"harga_wday".$i},
                 'harga_wend' => $request->{"harga_wend".$i},
             ];
-            $this->paket->edirData($id_paket, $data);
+            $this->paket->editData($pkt->id_paket, $data);
         } else {
-            $this->paket->deleteData($id_paket);
+            $this->paket->deleteData($pkt->id_paket);
         }
         $i = $i + 1;
         }

@@ -25,6 +25,6 @@ class jam_buka extends Model
     }
     public function editData($id_jambuka, $data)
     {
-        DB::table('jam_bukas')->where('id_jambuka', $id_jambuka)->update($data);
+        DB::table('jam_bukas')->where('id_buka', $id_jambuka)->update($data);
     }
 }
