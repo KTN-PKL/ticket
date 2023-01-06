@@ -14,10 +14,10 @@
                     <h3>Detail Postingan</h3>
                     @php
                     $jumlahfoto = count($fotowisata);
-                    $jml = $jumlahfoto = 4;
+                    $jml = $jumlahfoto;
                     @endphp
                     
-                    <img class="img-fluid mt-2" width="400px" height="100px" src="{{asset('/fotowisata/'. $fotowisata[0]->fotowisata)}}" alt="">
+                    <img class="img-fluid mt-2" width="200px" src="{{asset('/fotowisata/'. $fotowisata[0]->fotowisata)}}" alt="">
                    </center>
                    <center>
                     @for ($i = 1; $i < $jml; $i++)
