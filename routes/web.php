@@ -9,6 +9,8 @@ use App\Http\Controllers\c_pengguna;
 use App\Http\Controllers\c_pengunjung;
 use App\Http\Controllers\c_feedback;
 use App\Http\Controllers\c_berita_informasi;
+use App\Http\Controllers\c_profil;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -113,5 +115,16 @@ Route::controller(c_feedback::class)->group(function () {
     Route::get('/feedback', 'index')->name('feedback');
     Route::get('/feedback/detail/{id}', 'detail')->name('feedback.detail');
     Route::get('/feedback/balas/{id}', 'balas')->name('feedback.balas');
+   
+});
+
+Route::controller(c_profil::class)->group(function () {
+    Route::get('/profil', 'index')->name('profil');
+    Route::get('/profil/edit', 'edit')->name('profil.edit');
+    Route::get('/profil/keamanan', 'keamanan')->name('profil.keamanan');
+    Route::post('/profil/update/{id}', 'update')->name('profil.update');
+    Route::post('/profil/update2/{id}', 'update2')->name('profil.update2');
+    // Route::get('/profil/detail/{id}', 'detail')->name('profil.detail');
+    // Route::get('/profil/balas/{id}', 'balas')->name('profil.balas');
    
 });

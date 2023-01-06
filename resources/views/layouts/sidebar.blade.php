@@ -89,8 +89,8 @@
                 </a>
             </li>
             <hr>
-            <li class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+            <li class="sidebar-item {{request()->routeIs('profil*') ? 'active' : ''}}">
+                <a href="{{route('profil')}}" class='sidebar-link'>
                     <i class="bi bi-gear-fill"></i>
                     <span>Profil</span>
                 </a>

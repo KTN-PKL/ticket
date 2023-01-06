@@ -17,13 +17,7 @@ class c_feedback extends Controller
 
     public function index()
     {
-        // $data_email=[
-        //     'subject'=>'Test',
-        //     'sender_name'=>'nebengerspolsub@gmail.com',
-        //     'isi'=>'hayuk main',
-        // ];
-        // Mail::to("bagaas86@gmail.com")->send(new kirimEmail($data_email));
-        // return redirect()->route('feedback')->with('create', 'Feedback Berhasil dibalas');
+    
         $data = ['feedback' => $this->feedback->feedbackData(),];
         return view('feedback.index', $data);
     }
