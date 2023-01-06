@@ -8,6 +8,7 @@ use App\Http\Controllers\c_postingan;
 use App\Http\Controllers\c_pengguna;
 use App\Http\Controllers\c_pengunjung;
 use App\Http\Controllers\c_feedback;
+use App\Http\Controllers\c_berita_informasi;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,18 @@ Route::controller(c_mitra::class)->group(function () {
     Route::get('/mitra/akun/inactive/{id}', 'inactive')->name('mitra.akun.inactive');
 });
 
+Route::controller(c_berita_informasi::class)->group(function () {
+    Route::get('/berinfo', 'index')->name('berinfo');
+    Route::post('/berinfo/store', 'store')->name('berinfo.store');
+    Route::get('/berinfo/create', 'create')->name('berinfo.create');
+    Route::get('/berinfo/edit/{id}', 'edit')->name('berinfo.edit');
+    Route::post('/berinfo/update/{id}', 'update')->name('berinfo.update');
+    Route::get('/berinfo/destroy/{id}', 'destroy')->name('berinfo.destroy');
+    Route::get('/berinfo/detail/{id}', 'detail')->name('berinfo.detail');
+    Route::get('/berinfo/active/{id}', 'aktiv')->name('berinfo.aktiv');
+    Route::get('/berinfo/inaktiv/{id}', 'nonaktiv')->name('berinfo.nonaktiv');
+});
+
 Route::controller(c_pengguna::class)->group(function () {
     Route::get('/pengguna', 'index')->name('pengguna');
     Route::post('/pengguna/store', 'store')->name('pengguna.store');
@@ -76,8 +89,6 @@ Route::controller(c_postingan::class)->group(function () {
     Route::post('/mitra/postingan/update/{id}', 'update')->name('mitra.postingan.update');
     Route::get('/mitra/postingan/destroy/{id}', 'destroy')->name('mitra.postingan.destroy');
     Route::get('/mitra/postingan/detail/{id}', 'detail')->name('mitra.postingan.detail');
-    // Route::get('/mitra/postingan/active/{id}', 'active')->name('mitra.postingan.active');
-    // Route::get('/mitra/postingan/inactive/{id}', 'inactive')->name('mitra.postingan.inactive');
 });
 
 Route::controller(c_kategori::class)->group(function () {
