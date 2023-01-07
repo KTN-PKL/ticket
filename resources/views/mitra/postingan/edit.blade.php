@@ -202,17 +202,22 @@
                                             @php
                                             $a = $a + 1;
                                             $b = 0;
-                                        @endphp
+                                           @endphp
                               
                                             @foreach ($fitur as $fiturs)
                                             @if ($b <> 0)
                                             <div id="plus{{ $a }}0{{ $b }}">
                                             @endif
+                                            
+                                            <div class="input-group col-md-12">
+                                            @if ($b == 0)
+                                                <input type="text" class="form-control  @error('fitur0') is-invalid @enderror" name="fitur{{ $a }}" value="{{ $fiturs }}">  
+                                                @else
+                                                  <input type="text" class="form-control" name="fitur{{ $a }}-{{ $b }}" placeholder="Skill ..." value="{{ $fiturs }}">   
+                                            @endif
                                             @php
                                                 $b = $b +1;
                                             @endphp
-                                            <div class="input-group col-md-12">
-                                            <input type="text" class="form-control  @error('fitur0') is-invalid @enderror" name="fitur{{ $a }}" value="{{ $fiturs }}">
                                             <span class="input-group-text" id="T{{ $a }}0{{ $b }}" type = "button" onclick="plus({{ $a }}0{{ $b }})" @if ($b <> $jftr)
                                               style="display: none"
                                             @endif><i class="bi bi-plus"></i></span>
@@ -301,7 +306,7 @@
     $("#jftr" + w).val(y)
     $("#plus" + id).html(`
     <div class="input-group col-md-12">
-    <input type="text" class="form-control" name="fitur`+w+`-`+v+`" placeholder="Skill ...">
+    <input type="text" class="form-control" name="fitur`+z+`-`+v+`" placeholder="Skill ...">
     <span class="input-group-text" id="T`+x+`" type = "button" onclick="plus(`+x+`)"><i class="bi bi-plus"></i></span>
     <span class="input-group-text" id="M`+x+`" type = "button" onclick="mins(`+x+`)"><i class="bi bi-x"></i></span>
     </div>
