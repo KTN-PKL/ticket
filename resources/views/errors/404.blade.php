@@ -22,7 +22,12 @@
             <img class="img-error" src="{{asset('template')}}/dist/assets/images/samples/error-404.svg" width="1px" alt="Not Found">
             <h1 class="error-title">NOT FOUND</h1>
             <p class='fs-5 text-gray-600'>The page you are looking not found.</p>
+            {{-- @auth
+            <a href="{{route('dashboard')}}" class="btn btn-lg btn-outline-primary mt-3">Go Home</a>
+            @endauth
+            @guest
             <a href="{{route('login')}}" class="btn btn-lg btn-outline-primary mt-3">Go Home</a>
+            @endguest --}}
         </div>
     </div>
 </div>

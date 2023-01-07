@@ -36,7 +36,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                        $i=0;
+                        @endphp
+                        @foreach($masif as $masifs)
+                        @php
+                        $i=$i+1
+                        @endphp
                         <tr>
+                            <td>{{$i}}</td>
+                            <td>{{$masifs->atas_nama}}</td>
+                        </tr>
+                        @endforeach
+                        {{-- <tr>
                             <td>1</td>
                             <td style="width:25%" >PJ Sari Ater</td>
                             <td style="width:25%" >Sari Ater Hotel </td>
@@ -77,23 +89,9 @@
                                 <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i></a>
                                 <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i></a>
                             </td>
-                        </tr>
-                        {{-- @php
-                        $i=0;
-                        @endphp
-                        @foreach($mitra as $mitras)
-                        @php
-                        $i=$i+1
-                        @endphp
-                        <tr>
-                            <td>{{$i}}</td>
-                            <td style="width:75%">{{$mitras->name}}</td>
-                            <td>
-                                <a href="{{route('mitra.postingan', $mitras->id_mitra)}}" class="btn btn-primary">Lihat Postingan</a>
-                            </td>
-                        </tr>
-                        @endforeach --}}
-                       {{-- @endforeach --}}
+                        </tr> --}}
+                      
+                    
                     </tbody>
                 </table>
             </div>
