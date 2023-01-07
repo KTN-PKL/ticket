@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="{{ route('kategori') }}" class="btn btn-primary">Kembali</a>
+    <a href="{{ route('datamaster.kategori') }}" class="btn btn-primary">Kembali</a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -14,7 +14,7 @@
                     </center>
                 </div>
                 <div class="card-body">
-                    <form  method="POST" action="{{ route('kategori.store') }}" class="form" data-parsley-validate>
+                    <form  method="POST" action="{{ route('datamaster.kategori.store') }}" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">

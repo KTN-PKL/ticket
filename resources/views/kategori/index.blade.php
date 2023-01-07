@@ -4,7 +4,7 @@
 <div class="container">
 <h3>Daftar Kategori Postingan</h3>
     <div class="col mt-4">
-        <a href="{{route('kategori.create')}}" class="btn btn-primary">Create Kategori</a>
+        <a href="{{route('datamaster.kategori.create')}}" class="btn btn-primary">Create Kategori</a>
     </div>
     <br>
     <section class="section">
@@ -22,8 +22,8 @@
                         <tr>
                             <td>{{$kategoris->kategori}}</td>
                             <td>
-                                <a href="{{route('kategori.edit', $kategoris->id_kategori) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
-                                <a href="{{route('kategori.destroy', $kategoris->id_kategori) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                <a href="{{route('datamaster.kategori.edit', $kategoris->id_kategori) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{route('datamaster.kategori.destroy', $kategoris->id_kategori) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                             </td>
                           
                         </tr>

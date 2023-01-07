@@ -108,21 +108,21 @@ Route::controller(c_postingan::class)->group(function () {
 });
 
 Route::controller(c_kategori::class)->group(function () {
-    Route::get('/kategori', 'index')->name('kategori');
-    Route::post('/kategori/store', 'store')->name('kategori.store');
-    Route::get('/kategori/create', 'create')->name('kategori.create');
-    Route::get('/kategori/edit/{id}', 'edit')->name('kategori.edit');
-    Route::post('/kategori/update/{id}', 'update')->name('kategori.update');
-    Route::get('/kategori/destroy/{id}', 'destroy')->name('kategori.destroy');
+    Route::get('/datamaster/kategori', 'index')->name('datamaster.kategori');
+    Route::post('/datamaster/kategori/store', 'store')->name('datamaster.kategori.store');
+    Route::get('/datamaster/kategori/create', 'create')->name('datamaster.kategori.create');
+    Route::get('/datamaster/kategori/edit/{id}', 'edit')->name('datamaster.kategori.edit');
+    Route::post('/datamaster/kategori/update/{id}', 'update')->name('datamaster.kategori.update');
+    Route::get('/datamaster/kategori/destroy/{id}', 'destroy')->name('datamaster.kategori.destroy');
 });
 
 Route::controller(c_fasilitas::class)->group(function () {
-    Route::get('/fasilitas', 'index')->name('fasilitas');
-    Route::post('/fasilitas/store', 'store')->name('fasilitas.store');
-    Route::get('/fasilitas/create', 'create')->name('fasilitas.create');
-    Route::get('/fasilitas/edit/{id}', 'edit')->name('fasilitas.edit');
-    Route::post('/fasilitas/update/{id}', 'update')->name('fasilitas.update');
-    Route::get('/fasilitas/destroy/{id}', 'destroy')->name('fasilitas.destroy');
+    Route::get('/datamaster/fasilitas', 'index')->name('datamaster.fasilitas');
+    Route::post('/datamaster/fasilitas/store', 'store')->name('datamaster.fasilitas.store');
+    Route::get('/datamaster/fasilitas/create', 'create')->name('datamaster.fasilitas.create');
+    Route::get('/datamaster/fasilitas/edit/{id}', 'edit')->name('datamaster.fasilitas.edit');
+    Route::post('/datamaster/fasilitas/update/{id}', 'update')->name('datamaster.fasilitas.update');
+    Route::get('/datamaster/fasilitas/destroy/{id}', 'destroy')->name('datamaster.fasilitas.destroy');
 });
 
 Route::controller(c_feedback::class)->group(function () {
