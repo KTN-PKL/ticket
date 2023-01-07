@@ -4,7 +4,7 @@
 <div class="container">
 <h3>Daftar Fasilitas Postingan</h3>
     <div class="col mt-4">
-        <a href="{{route('fasilitas.create')}}" class="btn btn-primary">Create Fasilitas</a>
+        <a href="{{route('datamaster.fasilitas.create')}}" class="btn btn-primary">Create Fasilitas</a>
     </div>
     <br>
     <section class="section">
@@ -22,8 +22,8 @@
                         <tr>
                             <td>{{$fst->fasilitas}}</td>
                             <td>
-                                <a href="{{route('fasilitas.edit', $fst->id_fasilitas) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
-                                <a href="{{route('fasilitas.destroy', $fst->id_fasilitas) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                <a href="{{route('datamaster.fasilitas.edit', $fst->id_fasilitas) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{route('datamaster.fasilitas.destroy', $fst->id_fasilitas) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                             </td>
                           
                         </tr>

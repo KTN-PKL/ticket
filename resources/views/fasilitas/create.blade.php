@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="{{ route('fasilitas') }}"> <i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
+    <a href="{{ route('datamaster.fasilitas') }}"> <i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -14,7 +14,7 @@
                     </center>
                 </div>
                 <div class="card-body">
-                    <form  method="POST" action="{{ route('fasilitas.store') }}" class="form" data-parsley-validate>
+                    <form  method="POST" action="{{ route('datamaster.fasilitas.store') }}" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">
