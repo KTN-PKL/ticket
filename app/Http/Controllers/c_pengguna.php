@@ -31,6 +31,9 @@ class c_pengguna extends Controller
             'username' => 'required',
             'email' => 'required',
             'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
+        ],[
+            'foto.max' => 'Maksimal ukuran foto 2048 MB',
+            'foto.mimes' => 'Format Foto jpg, png, atau jpeg',
         ]);
         $file  = $request->foto;
         $filename = $request->email.'.'.$file->extension();

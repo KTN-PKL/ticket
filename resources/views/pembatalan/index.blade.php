@@ -38,7 +38,7 @@
                             <td>
                                 <a href="{{route('pembatalan.detail', $pembatalans->kode_tiket)}}" class="btn btn-success"><i class="bi bi-eye"></i></a>
                                 @if($pembatalans->status == "Process Refund")
-                                <a href="" class="btn btn-primary">Hubungi</a>
+                                <a href="https://api.whatsapp.com/send?phone=62{{$pembatalans->whatsapp}}&text=Kami%20dari%20admin%20ulinyuk.com" class="btn btn-primary" target="_blank">Hubungi</a>
                                 <a href="#" class="btn btn-danger" onclick="batalkan({{ $pembatalans->kode_tiket }})">Batalkan</a>
                                 @else
                                 <a href="#" class="btn btn-success" onclick="bukti({{ $pembatalans->kode_tiket }})">Bukti Refund</a>
@@ -74,9 +74,9 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             
             </div>
             <center>
-                <button type="button" class="btn btn-success mt-4" data-bs-dismiss="modal">
-                    <i class="bx bx-check d-block d-sm-none"></i>
-                    <div id="dld"></div>
+                <button id="dld" type="button" class="btn btn-success mt-4" data-bs-dismiss="modal" style="display: none">
+                    {{-- <i class="bx bx-check d-block d-sm-none"></i> --}}
+                    {{-- <div id="dld"></div> --}}
                    
                 </button>
             </center>
@@ -92,39 +92,40 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
 
 <script>
-    // function batalkan(id)
-    // {
-    //     var action = "{{ url('pembatalan/batalkan') }}/" + id
+    function batalkan(id)
+    {
+        var action = "{{ url('pembatalan/batalkan') }}/" + id
         
-    //     $("#exampleModalCenter").modal('show');
-    //     $("#form").html(` <form enctype="multipart/form-data" method="post" action="`+action+`">
-    //         @csrf
-    //         <div class="form-group">
-    //             <center>
-    //                 <label for="foto" class="form-label">Upload Bukti Refund</label>
-    //             </center>
-    //                 <div class="card">
-    //                     <div style="border:1px solid grey;border-style:dashed;" class="card-body">
-    //                         <center>
-    //                             <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
-    //                         </center>
-    //                         <!-- File uploader with multiple files upload -->
-    //                         <input type="file" name="bukti" >
-    //                     </div>
-    //                 </div>  
-    //         </div> 
-    //         <div class="mt-4" id="tombol_create">
-    //             <center>
-    //                 <input style="background-color: #FF0000;width:200px;" class="btn btn-danger"  type="submit" value="Refund">
-    //             </center>
+        $("#exampleModalCenter").modal('show');
+        $("#form").html(` <form enctype="multipart/form-data" method="post" action="`+action+`">
+            @csrf
+            <div class="form-group">
+                <center>
+                    <label for="foto" class="form-label">Upload Bukti Refund</label>
+                </center>
+                    <div class="card">
+                        <div style="border:1px solid grey;border-style:dashed;" class="card-body">
+                            <center>
+                                <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
+                            </center>
+                            <!-- File uploader with multiple files upload -->
+                            <input type="file" name="bukti" >
+                        </div>
+                    </div>  
+            </div> 
+            <div class="mt-4" id="tombol_create">
+                <center>
+                    <input style="background-color: #FF0000;width:200px;" class="btn btn-danger"  type="submit" value="Refund">
+                </center>
                
-    //         </div>
-    //       </form>`)
-    // }
+            </div>
+          </form>`)
+    }
 
     function bukti(id)
     {
         $("#exampleModalCenter").modal('show');
+        document.getElementById("dld").style.display = "block";
         $.get("{{ url('pembatalan/bukti') }}/" + id, {}, function(data, status) {
                 
                 $("#form").html(`
@@ -137,7 +138,9 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         </center>
 
                 `);
-                $("#dld").html(`<a style="color:white; text-decoration:none" href="{{asset('/bukti/`+data+`')}}" download> <span class="d-none d-sm-block"> <i class="bi bi-cloud-download"></i> Download</span></a>`);
+                $("#dld").html(`
+                <i class="bx bx-check d-block d-sm-none"></i>
+                <a style="color:white; text-decoration:none" href="{{asset('/bukti/`+data+`')}}" download> <span class="d-none d-sm-block"> <i class="bi bi-cloud-download"></i> Download</span></a>`);
                
             });
     }

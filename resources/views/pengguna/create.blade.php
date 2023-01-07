@@ -83,7 +83,12 @@
                                                   <i class="bi bi-cloud-upload bi-5x" style="font-size:48px"></i>
                                               </center>
                                               <!-- File uploader with multiple files upload -->
-                                              <input type="file" name="foto" data-parsley-required="true" >
+                                              <input type="file" name="foto" class="form-control @error('foto') is-invalid @enderror" data-parsley-required="true" >
+                                              @error('foto')
+                                                <span class="invalid-feedback" role="alert">
+                                                  <strong>{{ $message }}</strong>
+                                                </span>
+                                              @enderror
                                           </div>
                                       </div>  
                               </div> 
