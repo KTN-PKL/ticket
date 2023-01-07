@@ -10,7 +10,7 @@
             <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;border-radius:0%"> 
                 <div class="card-header">
                     <center>
-                    <h5>Edits Postingan</h5>
+                    <h5>Edit Postingan</h5>
                     </center>
                 </div>
                 <div class="card-body">
@@ -151,10 +151,7 @@
                                 </div>       
                             </div>
                             <div class="col-md-6 col-12">
-                                {{-- <div class="form-group mandatory">
-                                    <label for="lokasi" class="form-label">Link Lokasi</label>
-                                    <input type="text" id="lokasi" class="form-control" placeholder="Masukkan link lokasi" name="lokasi" data-parsley-required="true">
-                                </div> --}}
+                              
                                 
                                 <div class="form-group mandatory">
                                     <label for="foto" class="form-label">Upload Foto</label>
