@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('id_pengguna');
             $table->string('nik');
             $table->string('id_paket');
-            $table->string('waktu_kunjungan');
+            $table->date('waktu_kunjungan');
             $table->string('qty');
-            $table->string('haga');
+            $table->string('harga')->nullabel();
+            $table->string('stat');
             $table->timestamps();
         });
     }
