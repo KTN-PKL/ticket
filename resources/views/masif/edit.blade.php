@@ -42,17 +42,19 @@
                                 </div>
                                  <div class="form-group mandatory">
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
-                                    <input type="number" id="kontak" class="form-control" placeholder="Masukkan Nomor Whatsapp Penanggung Jawab" name="kontak" value="{{old('kontak')}}"  data-parsley-required="true">
+                                    <input type="number" class="form-control" placeholder="Masukkan Nomor Whatsapp Penanggung Jawab" value="{{$masif->kontak}}"  data-parsley-required="true" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                               <div class="form-group mandatory">
                                 <label for="kategori">Kategori</label>
-                                <select name="kategori" type="text" class="form-select" value="{{ old('prov') }}"  onchange="readwisata()" id="kategori">
-                                  {{-- <option selected disabled>-- Pilih Provinsi --</option>
-                                  @foreach($Province as $provinces)
-                                  <option value="{{$provinces->id}}">{{$provinces->name}}</option>
-                                  @endforeach --}}
+                                <select name="kategori" type="text" class="form-select" onchange="readwisata()" id="kategori">
+                                  <option selected disabled>-- Pilih Kategori --</option>
+                                  @foreach($kategori as $kategoris)
+                                  <option value="{{$kategoris->id_kategori}}" @if ($kategoris->id_kategori == $masif->id_kategori)   
+                                    selected
+                                  @endif>{{$kategoris->kategori}}</option>
+                                  @endforeach
                                 </select>
                             </div>
                             <div id="tampilwisata" class="form-group mandatory">
