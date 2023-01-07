@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Mazer Admin Dashboard</title>
+    <title>Login - Ulinyuk.com</title>
     <link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/main/app.css">
     <link rel="stylesheet" href="{{asset('template')}}/dist/assets/css/pages/auth.css">
     <link rel="shortcut icon" href="{{asset('template')}}/dist/assets/images/logo/favicon.svg" type="image/x-icon">

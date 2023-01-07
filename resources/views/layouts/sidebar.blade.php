@@ -69,8 +69,8 @@
                 </a>
             </li>
             <li
-                class="sidebar-item  ">
-                <a href="#" class='sidebar-link'>
+                class="sidebar-item {{request()->routeIs('masif*') ? 'active' : ''}} ">
+                <a href="{{route('masif')}}" class='sidebar-link'>
                     <i class="bi bi-ticket"></i>
                     <span>Tiket Masif</span>
                 </a>
