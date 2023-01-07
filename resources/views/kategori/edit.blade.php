@@ -10,7 +10,7 @@
             <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;border-radius:0%"> 
                 <div class="card-header">
                     <center>
-                    <h5>Create Kategori</h5>
+                    <h5>Edit Kategori</h5>
                     </center>
                 </div>
                 <div class="card-body">

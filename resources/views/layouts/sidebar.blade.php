@@ -41,7 +41,7 @@
                     <a href="{{route('datamaster.kategori')}}">Kategori</a>
                 </li>
                 <li class="submenu-item ">
-                    <a href="{{route('datamaster.fasilitas')}}">Fasilitias</a>
+                    <a href="{{route('datamaster.fasilitas')}}">Fasilitas</a>
                 </li>
             </ul>
         </li>
