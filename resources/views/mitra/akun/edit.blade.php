@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="{{ route('mitra.akun') }}" class="btn btn-primary">Kembali</a>
+  <a href="{{route('mitra.akun')}}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -64,15 +64,14 @@
                                     </span>
                                   @enderror
                                 </div>
-                                 <div class="form-group mandatory">
-                                    <label for="whatsapp" class="form-label">Whatsapp</label>
-                                    <input type="number" id="kontak" class="form-control @error('kontak') is-invalid @enderror" placeholder="Masukkan Nomor Whatsapp Mitra" name="kontak"  value="{{$mitra->kontak}}">
-                                 @error('kontak')
-                                    <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                    </span>
-                                  @enderror
+                                <div class="form-group mandatory">
+                                  <label for="whatsapp" class="form-label">Whatsapp</label>
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">+62</span>
+                                    <input type="number" name="kontak" class="form-control @error('kontak') is-invalid @enderror" placeholder="81286216470" value="{{$mitra->kontak}}">
                                 </div>
+                                
+                              </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">

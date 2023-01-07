@@ -30,6 +30,21 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+            <li
+            class="sidebar-item  {{request()->routeIs('datamaster*') ? 'active' : ''}} has-sub ">
+            <a href="#" class='sidebar-link '>
+                <i class="bi bi-stack"></i>
+                <span>Data Master</span>
+            </a>
+            <ul class="submenu">
+                <li class="submenu-item">
+                    <a href="{{route('datamaster.kategori')}}">Kategori</a>
+                </li>
+                <li class="submenu-item ">
+                    <a href="{{route('datamaster.fasilitas')}}">Fasilitias</a>
+                </li>
+            </ul>
+        </li>
             
             <li
                 class="sidebar-item  {{request()->routeIs('mitra*') ? 'active' : ''}} has-sub ">

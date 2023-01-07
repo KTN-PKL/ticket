@@ -1,3 +1,20 @@
+<style>
+    .badge-refund {
+  color: #ebeef0;
+  background-color: #F96A2C;
+  font-size:16px;
+}
+   .badge-process {
+  color: #ebeef0;
+  background-color: #F28F1A;
+  font-size:16px;
+}
+.badge-available {
+  color: #ebeef0;
+  background-color: #25D977;
+  font-size:16px;
+}
+</style>
 
 @extends('layouts.template')
 @section('content')
@@ -68,7 +85,19 @@
                                 <tr>
                                     <td valign="top"><h6>Status</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><span class="badge bg-success"><i class="bi bi-patch-check" style="font-size: 14px"></i> {{ $pengunjung->status }}</span></td>
+                                    <td valign="top">
+                                        @if($pengunjung->status == "checkin")
+                                        <span class="badge bg-success"><i class="bi bi-patch-check" style="font-size: 18px"></i> Check-in</span>
+                                        @elseif($pengunjung->status == "expired")
+                                        <span class="badge bg-danger"><iconify-icon style="font-size: 12px" icon="mdi:clock-remove-outline"></iconify-icon> Expired</span>
+                                        @elseif($pengunjung->status == "refund")
+                                        <span class="badge badge-refund"><iconify-icon icon="mdi:cash-refund"></iconify-icon> Refund</span>
+                                        @elseif($pengunjung->status == "process refund")
+                                        <span class="badge badge-process"><iconify-icon icon="mdi:cash-refund"></iconify-icon> Process Refund</span>
+                                        @elseif($pengunjung->status == "available")
+                                        <span class="badge badge-available"><iconify-icon style="font-size:14px" icon="mdi:clock-check-outline"></iconify-icon> Available</span>
+                                        @endif
+                                    </td>
                                 </tr>
                             </table>
                         </div>
