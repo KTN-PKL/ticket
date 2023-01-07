@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="username" class="form-label">Email</label>
-                                    <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan Email Penanggung Jawab" name="username" value="{{old('username')}}">
+                                    <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan Email Penanggung Jawab"  value="{{ $masif->email }}" readonly>
                                  @error('username')
                                     <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
