@@ -45,53 +45,38 @@
                         @endphp
                         <tr>
                             <td>{{$i}}</td>
-                            <td>{{$masifs->atas_nama}}</td>
-                        </tr>
-                        @endforeach
-                        {{-- <tr>
-                            <td>1</td>
-                            <td style="width:25%" >PJ Sari Ater</td>
-                            <td style="width:25%" >Sari Ater Hotel </td>
-                            <td><h6 style="color: yellow">Request</h6></td>
+                            <td style="width:20%">{{$masifs->name}}</td>
+                            <td style="width:30%">{{$masifs->wisata}}</td>
                             <td>
+                                @if($masifs->stat == "request")
+                                <span class="badge bg-warning">Request</span>
+                                @elseif($masifs->stat == "process")
+                                <span class="badge bg-primary">Process</span>
+                                @elseif($masifs->stat == "accepted")
+                                <span class="badge bg-success">Accepted</span>
+                                @else
+                                <span class="badge bg-danger">Paid off</span>
+                                @endif
+                            </td>
+                            <td style="width:30%">
+                                @if($masifs->stat == "request")
                                 <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-whatsapp"></i>Hubungi</a>
                                 <a href="#" class="btn btn-primary"> <i class="bi bi-pencil-square"></i>Edit</a>
                                 <a href="" class="btn btn-success">Terima</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td >PJ Sari Ater</td>
-                            <td >Sari Ater Hotel </td>
-                            <td><h6 style="color: #2CE0F9">Process</h6></td>
-                            <td>
+                                @elseif($masifs->stat == "process")
                                 <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Buat Invoice</a>
                                 <a href="#" class="btn btn-warning"> <i class="bi bi-pencil-square"></i>Edit</a>
-                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i></a>
+                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
+                                @elseif($masifs->stat == "accepted")
+                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
+                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus</a>
+                                @else
+                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
+                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus</a>
+                                 @endif
                             </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td >PJ Sari Ater</td>
-                            <td >Sari Ater Hotel </td>
-                            <td><h6 style="color:#2CF940">Accepted</h6></td>
-                            <td>
-                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i></a>
-                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td >PJ Sari Ater</td>
-                            <td >Sari Ater Hotel </td>
-                            <td><h6 style="color: red">Paid Off</h6></td>
-                            <td>
-                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i></a>
-                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i></a>
-                            </td>
-                        </tr> --}}
-                      
-                    
+                        @endforeach
                     </tbody>
                 </table>
             </div>
