@@ -38,11 +38,17 @@ class c_login extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
+        // Auth::logout();
+        // $request->session()->flush();
         Auth::logout();
-        $request->session()->flush();
-        return redirect()->route('user.login');
+ 
+        $request->session()->invalidate();
+     
+        $request->session()->regenerateToken();
+     
+        return redirect()->route('user.logout');
     }
 
     // Login multiuser

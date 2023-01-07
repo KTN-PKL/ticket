@@ -113,9 +113,14 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="{{route('user.logout')}}" class='sidebar-link'>
-                    <i class="bi bi-power" style="color: red"></i>
-                    <span style="color: red">Keluar</span>
+                <form action="{{route('user.logout')}}" method="POST">
+                    @csrf
+                <button style="border: none;" href="#" type="submit" class='sidebar-link'>
+                        <i class="bi bi-power" style="color: red"></i>
+                        <span style="color: red">Keluar</span>
+                </button>
+                </form>
+                   
                 </a>
             </li>
             
