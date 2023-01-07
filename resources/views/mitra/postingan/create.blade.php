@@ -25,7 +25,7 @@
                                 <div class="form-group mandatory">
                                     <label for="kategori" class="form-label">Kategori</label>
                                     <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="id_kategori" data-parsley-required="true">
-                                      <option selected>--Pilih Kategori--</option>
+                                      <option value="" selected>--Pilih Kategori--</option>
                                       @foreach ($kategori as $kategoris)
                                       <option value="{{ $kategoris->id_kategori }}">{{ $kategoris->kategori }}</option>
                                       @endforeach
@@ -36,7 +36,7 @@
                                   <label for="kategori" class="form-label">Fasilitas</label>
                                   <div class="input-group col-md-12"> 
                                   <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="0id_fasilitas" data-parsley-required="true">
-                                    <option selected>--Pilih Fasilitas--</option>
+                                    <option value="" selected>--Pilih Fasilitas--</option>
                                     @foreach ($fasilitas as $fasilitass)
                                     <option value="{{ $fasilitass->id_fasilitas }}">{{ $fasilitass->fasilitas }}</option>
                                     @endforeach
