@@ -62,7 +62,7 @@
                            
 
                             <div class="col col-12 col-md-12">
-                                <table style="width:65%;height:5px">
+                                <table style="width:100%;height:5px">
                                     <tr>
                                         <td><i class="bi bi-geo-alt-fill"></i></td>
                                     </tr>

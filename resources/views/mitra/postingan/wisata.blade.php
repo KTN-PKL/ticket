@@ -8,10 +8,7 @@
    
 <h3>Daftar Postingan Mitra {{$mitra->name}} </h3>
 <div class="col mt-4">
-    <a href="{{route('mitra.postingan.create', $mitra->id_mitra)}}" class="btn btn-primary">Create Postingan</a>
-    <a href="{{route('kategori')}}" class="btn btn-success">Kategori</a>
-    <a href="{{route('fasilitas')}}" class="btn btn-success">Fasilitas</a>
-    
+    <a href="{{route('mitra.postingan.create', $mitra->id_mitra)}}" class="btn btn-primary">Create Postingan</a>    
 </div>
     <br>
     <section class="section">
@@ -40,10 +37,10 @@
                         <tr>
                             <td style="width:7%">{{$i}}</td>
                             <td style="width:25%">{{$wisatas->wisata}}</td>
-                            <td >{{$wisatas->kategori}}</td>
+                            <td style="width:20%">{{$wisatas->kategori}}</td>
                             <td >{{$wisatas->lokasi}}</td>
                             <td >5,0</td>
-                            <td>
+                            <td style="width:20%">
                                 <a href="{{route('mitra.postingan.detail', $wisatas->id_wisata)}}" class="btn btn-success"><i class="bi bi-eye"></i></a>
                                 <a href="{{route('mitra.postingan.edit', $wisatas->id_wisata) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                                 <a href="{{route('mitra.postingan.destroy', $wisatas->id_wisata) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
