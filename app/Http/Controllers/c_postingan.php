@@ -139,7 +139,6 @@ class c_postingan extends Controller
 
     public function update(Request $request, $id_wisata)
     {
-        dd($request->all());
         $data = [
             'wisata' => $request->wisata,
             'id_kategori' => $request->id_kategori,
@@ -166,7 +165,7 @@ class c_postingan extends Controller
             $this->jam_buka->editData($jamb->id_buka, $data);
         }
         if ($request->fotowisata <> null) {
-            $fw = $this->jfotowisata->wisataData($id_wisata);
+            $fw = $this->fotowisata->wisataData($id_wisata);
             foreach ($fw as $fotow) {
                 unlink(public_path('fotowisata'). '/' .$fotow->fotowisata);
             }
@@ -177,7 +176,7 @@ class c_postingan extends Controller
                 $filename = $request->wisata.$i.'.'.$file->extension();
                 $file->move(public_path('fotowisata'),$filename);
                 $data = [
-                    'id_wisata' => $id,
+                    'id_wisata' => $id_wisata,
                     'fotowisata' => $filename,
                 ];
                 $this->fotowisata->addData($data);
@@ -188,10 +187,11 @@ class c_postingan extends Controller
         $i = 0;
         foreach ($paket as $pkt) {  
         if ($i < $request->jp) {
-            $fitur = $request->{"fitur".$i};
+            $k = $i + 1;
+            $fitur = $request->{"fitur".$k};
             if ($request->{"jftr".$i} <> 1) {
             for ($j=1; $j < $request->{"jftr".$i} ; $j++) { 
-                $fitur = $fitur."+".$request->{"fitur".$i."-".$j};
+                $fitur = $fitur."+".$request->{"fitur".$k."-".$j};
             }
             }
             $data = [
