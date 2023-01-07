@@ -60,6 +60,7 @@
                                 $d = strtotime($masif->waktu_kunjungan);
                                 $N = date('l' ,$d);
                             @endphp
+                            <input type="text" hidden value="{{ $N }}" id="tgl">
                               <div class="form-group mandatory">
                                 <label for="kategori">Kategori</label>
                                 <select name="kategori" type="text" class="form-select" onchange="readwisata({{ $masif->id_masif }})" id="kategori">
