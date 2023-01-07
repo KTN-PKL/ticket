@@ -65,9 +65,9 @@ Route::controller(c_beritainformasi::class)->group(function () {
 
 Route::controller(c_tiket_masif::class)->group(function () {
     Route::get('/masif', 'index')->name('masif');
-    Route::post('/masif/store', 'store')->name('masif.store');
-    Route::get('/masif/create', 'create')->name('masif.create');
     Route::get('/masif/edit/{id}', 'edit')->name('masif.edit');
+    Route::get('/masif/wisata/{id}/{idm}', 'wisata')->name('masif.wisata');
+    Route::get('/masif/paket/{id}/{idm}', 'paket')->name('masif.paket');
     Route::post('/masif/update/{id}', 'update')->name('masif.update');
     Route::get('/masif/destroy/{id}', 'destroy')->name('masif.destroy');
     Route::get('/masif/detail/{id}', 'detail')->name('masif.detail');

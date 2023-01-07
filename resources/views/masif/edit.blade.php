@@ -48,7 +48,7 @@
                             <div class="col-md-6 col-12">
                               <div class="form-group mandatory">
                                 <label for="kategori">Kategori</label>
-                                <select name="kategori" type="text" class="form-select" onchange="readwisata()" id="kategori">
+                                <select name="kategori" type="text" class="form-select" onchange="readwisata({{ $masif->id_masif }})" id="kategori">
                                   <option selected disabled>-- Pilih Kategori --</option>
                                   @foreach($kategori as $kategoris)
                                   <option value="{{$kategoris->id_kategori}}" @if ($kategoris->id_kategori == $masif->id_kategori)   
@@ -57,24 +57,15 @@
                                   @endforeach
                                 </select>
                             </div>
-                            <div id="tampilwisata" class="form-group mandatory">
+                            <div id="wisata" class="form-group mandatory">
                             
                             </div>
-                            <div id="tampilpaket" class="form-group mandatory">
+                            <div id="paket" class="form-group mandatory">
                             
                             </div>
-                          <div class="form-group mandatory">
-                            <label for="kategori" class="form-label">Pilih Paket</label>
-                            <select type="text" id="kategori" class="form-select" placeholder="Masukkan Kategori Wisata" name="id_kategori" data-parsley-required="true">
-                              {{-- <option selected>--Pilih Kategori--</option>
-                              @foreach ($kategori as $kategoris)
-                              <option value="{{ $kategoris->id_kategori }}">{{ $kategoris->kategori }}</option>
-                              @endforeach --}}
-                            </select>    
-                        </div>
                         <div class="form-group mandatory">
                           <label for="username" class="form-label">Harga</label>
-                          <input type="number" id="username" class="form-control" placeholder="Masukkan Harga Satuan" name="username" value="#"  data-parsley-required="true">
+                          <input type="number" id="username" class="form-control" placeholder="Masukkan Harga Satuan" name="username" value="{{ $masif->harga_wday }}"  data-parsley-required="true">
                       </div>
                             </div>
                         </div>
@@ -97,12 +88,16 @@
 </div>
 
 <script>
-  function readwisata(){ 
+   $(document).ready(function() {
+    readwisata({{ $masif->id_masif }})
+        });
+  function readwisata(idm){ 
         var id = $("#kategori").val();
-        $.get("{{ url('readwisata') }}/" + id, {}, function(data, status) {
-          $("#tampilwisata").html(data);
+        $.get("{{ url('masif/wisata') }}/"+id+"/" + idm, {}, function(data, status) {
+          $("#wisata").html(data);
       });
     }
+    
 </script>
 
 @endsection

@@ -22,6 +22,10 @@ class wisata extends Model
     {
         return DB::table('wisatas')->join('kategoris', 'wisatas.id_kategori', '=', 'kategoris.id_kategori')->where('id_mitra', $id_mitra)->get();
     }
+    public function kategoriData($id_kategori)
+    {
+        return DB::table('wisatas')->where('id_kategori', $id_kategori)->get();
+    }
     public function detailData($id_wisata)
     {
         return DB::table('wisatas')->join('kategoris', 'wisatas.id_kategori', '=', 'kategoris.id_kategori')->where('id_wisata', $id_wisata)->first();

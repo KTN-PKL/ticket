@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\pesan_masif;
 use App\Models\kategori;
+use App\Models\wisata;
+use App\Models\paket;
 
 class c_tiket_masif extends Controller
 {
     public function __construct()
     {
-        $this->kategori = new kategori();
+        $this->paket = new paket();
         $this->pesan_masif = new pesan_masif();
+        $this->kategori = new kategori();
+        $this->wisata = new wisata();
     }
     public function index()
     {
@@ -24,6 +28,20 @@ class c_tiket_masif extends Controller
                  'kategori' => $this->kategori->allData(),];
         
         return view('masif.edit', $data);
+    }
+    public function wisata($id_kategori, $id_masif)
+    {
+        $data = ['masif' => $this->pesan_masif->detailData($id_masif),
+            'wisata' => $this->wisata->kategoriData($id_kategori),];
+        
+        return view('masif.wisata', $data);
+    }
+    public function paket($id_wisata, $id_masif)
+    {
+        $data = ['masif' => $this->pesan_masif->detailData($id_masif),
+            'paket' => $this->paket->wisataData($id_wisata),];
+        
+        return view('masif.paket', $data);
     }
     public function update(Request $request, $id_masif)
     {
