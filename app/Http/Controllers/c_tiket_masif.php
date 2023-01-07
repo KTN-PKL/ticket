@@ -19,6 +19,7 @@ class c_tiket_masif extends Controller
     public function edit($id_masif)
     {
         $data = ['masif' => $this->pesan_masif->detailData($id_masif),];
+        
         return view('masif.edit', $data);
     }
     public function update(Request $request, $id_masif)

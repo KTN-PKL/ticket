@@ -20,17 +20,12 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
                                     <label for="name" class="form-label">Nama Penanggung Jawab</label>
-                                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" value="#" placeholder="Masukkan Nama Penanggung Jawab" name="name" readonly>
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                    </span>
-                                  @enderror
+                                    <input type="text" id="name" value="{{ $masif->name }}" placeholder="Masukkan Nama Penanggung Jawab" readonly class="form-control">
                                 </div>
                                 <div class="form-group mandatory">
                                     <label for="nik" class="form-label">NIK</label>
-                                    <input type="text" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan NIK Penanggung Jawab" name="email" value="#">
-                                 @error('email')
+                                    <input type="text" id="nik" class="form-control @error('nik') is-invalid @enderror" placeholder="Masukkan NIK Penanggung Jawab" name="nik" value="{{ $masif->nik }}">
+                                 @error('nik')
                                     <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                     </span>
