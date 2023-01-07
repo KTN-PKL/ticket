@@ -11,6 +11,7 @@ use App\Http\Controllers\c_feedback;
 use App\Http\Controllers\c_beritainformasi;
 use App\Http\Controllers\c_profil;
 use App\Http\Controllers\c_pembatalan;
+use App\Http\Controllers\c_tiket_masif;
 
 
 /*
@@ -60,6 +61,18 @@ Route::controller(c_beritainformasi::class)->group(function () {
     Route::get('/berinfo/detail/{id}', 'detail')->name('berinfo.detail');
     Route::get('/berinfo/active/{id}', 'active')->name('berinfo.active');
     Route::get('/berinfo/inactive/{id}', 'inactive')->name('berinfo.inactive');
+});
+
+Route::controller(c_tiket_masif::class)->group(function () {
+    Route::get('/masif', 'index')->name('masif');
+    Route::post('/masif/store', 'store')->name('masif.store');
+    Route::get('/masif/create', 'create')->name('masif.create');
+    Route::get('/masif/edit/{id}', 'edit')->name('masif.edit');
+    Route::post('/masif/update/{id}', 'update')->name('masif.update');
+    Route::get('/masif/destroy/{id}', 'destroy')->name('masif.destroy');
+    Route::get('/masif/detail/{id}', 'detail')->name('masif.detail');
+    Route::get('/masif/active/{id}', 'active')->name('masif.active');
+    Route::get('/masif/inactive/{id}', 'inactive')->name('masif.inactive');
 });
 
 Route::controller(c_pengguna::class)->group(function () {
