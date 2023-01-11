@@ -52,7 +52,7 @@ class c_pengguna extends Controller
         $user = $this->pengguna->id($request->email);
         $data = ['id_pengguna' => $user->id,];
         $this->pengguna->addDatapengguna($data);
-        return redirect()->route('pengguna')->with('create', 'pengguna Berhasil Dibuat');
+        return redirect()->route('pengguna')->with('success', 'Pengguna Berhasil Dibuat');
     }
 
     public function edit($id_pengguna)
@@ -79,14 +79,14 @@ class c_pengguna extends Controller
             'kontak' => $request->kontak,
         ];
         $this->pengguna->editUser($id_pengguna, $data);
-        return redirect()->route('pengguna')->with('create', 'pengguna Berhasil Dibuat');
+        return redirect()->route('pengguna')->with('success', 'Pengguna Berhasil Diupdate');
     }
 
     public function inactive($id_pengguna)
     {
         $data = ['status' => "inactive"];
         $this->pengguna->editUser($id_pengguna, $data);
-        return redirect()->route('pengguna')->with('create', 'pengguna Berhasil Dibuat');
+        return redirect()->route('pengguna')->with('success', 'Status Pengguna Dimatikan');
     }
 
     public function detail($id_pengguna)
@@ -99,7 +99,7 @@ class c_pengguna extends Controller
     {
         $data = ['status' => "active"];
         $this->pengguna->editUser($id_pengguna, $data);
-        return redirect()->route('pengguna')->with('create', 'pengguna Berhasil Dibuat');
+        return redirect()->route('pengguna')->with('success', 'Status Pengguna Diaktifkan');
     }
 
     public function destroy($id_pengguna)
@@ -108,6 +108,6 @@ class c_pengguna extends Controller
         unlink(public_path('foto'). '/' .$cek->foto);
         $this->pengguna->deleteUser($id_pengguna);
         $this->pengguna->deletepengguna($id_pengguna);
-        return redirect()->route('pengguna')->with('create', 'pengguna Berhasil Dibuat');
+        return redirect()->route('pengguna')->with('success', 'pengguna Berhasil Dihapus');
     }
 }

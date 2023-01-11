@@ -58,9 +58,9 @@
                                 <span class="badge bg-danger">Paid off</span>
                                 @endif
                             </td>
-                            <td style="width:30%">
+                            <td style="width:40%">
                                 @if($masifs->stat == "request")
-                                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-whatsapp"></i>Hubungi</a>
+                                <a href="#" class="btn btn-success"><i class="bi bi-whatsapp"></i>{{$masifs->kontak}}</a>
                                 <a href="#" class="btn btn-primary"> <i class="bi bi-pencil-square"></i>Edit</a>
                                 <a href="" class="btn btn-success">Terima</a>
                                 @elseif($masifs->stat == "process")
@@ -104,7 +104,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-body">
             <section class="section">
                 <div class="col-md-12">
-                    <div id="invoice" class="card mt-2" style="margin-left:2em;margin-right:2em;"> 
+                    <div id="form" class="card mt-2" style="margin-left:2em;margin-right:2em;"> 
                         
                        
                     </div> 
@@ -124,8 +124,19 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         $("#exampleModalCenter").modal('show');
         $.get("{{ url('masif/invoice') }}/" + id, {}, function(data, status) {
                 
-                $("#invoice").html(data);
+                $("#form").html(data);
                
             });
     }
+
+    function bu(id)
+    {
+        $("#exampleModalCenter").modal('show');
+        $.get("{{ url('masif/invoice') }}/" + id, {}, function(data, status) {
+                
+                $("#form").html(data);
+               
+            });
+    }
+
 </script>
