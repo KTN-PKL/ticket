@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('hbalances', function (Blueprint $table) {
             $table->id('id_balance');
             $table->string('id_mitra');
-            $table->string('jadwal_pembayaran');
             $table->date('tanggal_pembayaran');
             $table->string('hbalance');
             $table->string('hjumlahchekin');
