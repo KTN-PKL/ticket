@@ -66,11 +66,9 @@ Route::controller(c_tiket_masif::class)->middleware('auth')->group(function () {
     Route::get('/masif/edit/{id}', 'edit')->name('masif.edit');
     Route::get('/masif/wisata/{id}/{idm}', 'wisata')->name('masif.wisata');
     Route::get('/masif/paket/{id}/{idm}', 'paket')->name('masif.paket');
+    Route::get('/masif/harga/{id}/{tgl}', 'harga')->name('masif.harga');
     Route::post('/masif/update/{id}', 'update')->name('masif.update');
-    Route::get('/masif/destroy/{id}', 'destroy')->name('masif.destroy');
     Route::get('/masif/detail/{id}', 'detail')->name('masif.detail');
-    Route::get('/masif/active/{id}', 'active')->name('masif.active');
-    Route::get('/masif/inactive/{id}', 'inactive')->name('masif.inactive');
 });
 
 Route::controller(c_pengguna::class)->middleware('auth')->group(function () {

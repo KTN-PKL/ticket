@@ -19,6 +19,10 @@ class paket extends Model
     {
         DB::table('pakets')->insert($data);
     }
+    public function detailData($id_paket)
+    {
+        return DB::table('pakets')->where('id_paket', $id_paket)->first();
+    }
     public function deleteData($id_paket)
     {
         DB::table('pakets')->where('id_paket', $id_paket)->delete();
