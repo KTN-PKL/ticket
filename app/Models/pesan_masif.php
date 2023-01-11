@@ -18,8 +18,8 @@ class pesan_masif extends Model
     {
         return DB::table('pesan_masifs')->join('pakets', 'pesan_masifs.id_paket', '=', 'pakets.id_paket')->join('wisatas', 'pakets.id_wisata', '=', 'wisatas.id_wisata')->join('users', 'pesan_masifs.id_pengguna', '=', 'users.id')->where('id_masif', $id_masif)->first();
     }
-    public function editlData($id_masif, $data)
+    public function editData($id_masif, $data)
     {
-        DB::table('pesan_masifs')->where('id_masif', $id_masif)->updatet($data);
+        DB::table('pesan_masifs')->where('id_masif', $id_masif)->update($data);
     }
 }

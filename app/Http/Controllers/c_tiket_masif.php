@@ -43,6 +43,16 @@ class c_tiket_masif extends Controller
         
         return view('masif.paket', $data);
     }
+    public function harga($id_paket, $tgl)
+    {
+        $paket = $this->paket->detailData($id_paket);
+        if ($tgl == "Saturday" || $tgl == "Sunday") {
+            $harga = $paket->harga_wend;
+        } else {
+            $harga = $paket->harga_wday;
+        }
+        return $harga;
+    }
     public function update(Request $request, $id_masif)
     {
         $data = [
@@ -53,6 +63,6 @@ class c_tiket_masif extends Controller
             'harga' => $request->harga,
         ];
         $this->pesan_masif->editData($id_masif, $data);
-        return redirect()->route('masif.index');
+        return redirect()->route('masif');
     }
 }
