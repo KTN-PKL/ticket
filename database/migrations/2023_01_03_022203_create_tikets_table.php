@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('status');
             $table->date('waktu_kunjungan');
             $table->string('id_paket');
-            $table->string('id_user');
             $table->string('harga');
             $table->string('bukti')->nullable();
             $table->timestamps();

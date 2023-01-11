@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('jadwal_pembayaran');
             $table->date('tanggal_pembayaran');
             $table->string('hbalance');
+            $table->string('hjumlahchekin');
             $table->string('buktibalance');
             $table->timestamps();
         });

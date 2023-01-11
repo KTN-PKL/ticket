@@ -30,7 +30,7 @@
                                 echo $i;
                             @endphp</td>
                             <td style="width:35%">{{ $historis->tanggal_pembayaran }}</td>
-                            <td style="width:25%">40<i class="bi bi-people"></i></td>
+                            <td style="width:25%">{{ $historis->hjumlahchekin }}<i class="bi bi-people"></i></td>
                             <td>{{ $historis->hbalance }}</td>
                             <td>
                                 <a href="#" class="btn btn-primary" onclick="bukti({{ $historis->id_balance }})">Lihat Bukti</a>

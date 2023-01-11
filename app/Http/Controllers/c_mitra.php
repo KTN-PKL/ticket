@@ -66,6 +66,7 @@ class c_mitra extends Controller
             'id_mitra' => $user->id,
             'deskripsi_mitra' => $request->deskripsi_mitra,
             'balance' => 0,
+            'jumlahchekin' => 0,
         ];
         $this->mitra->addDataMitra($data);
         return redirect()->route('mitra.akun')->with('create', 'Mitra Berhasil Dibuat');
