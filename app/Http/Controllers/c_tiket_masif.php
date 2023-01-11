@@ -67,11 +67,27 @@ class c_tiket_masif extends Controller
         return redirect()->route('masif');
     }
 
+    public function detail($id_masif)
+    {
+        $data = ['masif' => $this->pesan_masif->detailData($id_masif),
+                ];
+        
+        return view ('masif.detail', $data);
+    }
+
     public function invoice($id_masif)
     {
         $data = ['masif' => $this->pesan_masif->detailData($id_masif),
                  'kategori' => $this->kategori->allData(),];
         
         return view ('masif.invoice', $data);
+    }
+
+    public function hubungi($id_masif)
+    {
+        $data = ['masif' => $this->pesan_masif->hubungiData($id_masif),
+                ];
+        
+        return view ('masif.hubungi', $data);
     }
 }

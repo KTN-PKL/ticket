@@ -70,6 +70,7 @@ Route::controller(c_tiket_masif::class)->middleware('auth')->group(function () {
     Route::post('/masif/update/{id}', 'update')->name('masif.update');
     Route::get('/masif/detail/{id}', 'detail')->name('masif.detail');
     Route::get('/masif/invoice/{id}', 'invoice')->name('masif.invoice');
+    Route::get('/masif/hubungi/{id}', 'hubungi')->name('masif.hubungi');
 });
 
 Route::controller(c_pengguna::class)->middleware('auth')->group(function () {

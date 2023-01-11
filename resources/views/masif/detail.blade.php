@@ -20,7 +20,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
-    <a href="#" class="btn btn-primary">Kembali</a>
+    <a href="{{ route('masif') }}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container mt-2" style="background-color: white">
     <br>
@@ -45,22 +45,22 @@
                                 <tr>
                                     <td valign="top" style="width:50%"><h6>Nama PJ</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">Aji Santoso</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{$masif->name}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>NIK</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">3216212222010004</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{$masif->nik}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Whatsapp</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">0822490253533</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{$masif->kontak}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Email</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">pengunjung@gmail</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{$masif->email}}</h6></td>
                                 </tr>
                             </table>
                         </div>
@@ -76,27 +76,27 @@
                                 <tr>
                                     <td valign="top" valign="top"><h6>Wisata</h6></td>
                                     <td valign="top" valign="top"><h6>:</h6></td>
-                                    <td valign="top" valign="top"><h6 style="color: black">Sari Ater Hotel & Resort</h6></td>
+                                    <td valign="top" valign="top"><h6 style="color: black">{{$masif->wisata}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Jadwal Kunjungan</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">24 Desember 2022</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{$masif->waktu_kunjungan}}</h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top" style="width:50%"><h6>Jumlah Pengunjung</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">40 <i class="bi bi-people"></i></h6></td>
+                                    <td valign="top"><h6 style="color: black">{{$masif->qty}} <i class="bi bi-people"></i></h6></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Paket</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><span class="badge bg-success" style="font-size: 14px"> Paket A</span></td>
+                                    <td valign="top"><span class="badge bg-success" style="font-size: 14px"> {{$masif->paket}}</span></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><h6>Harga Satuan</h6></td>
                                     <td valign="top"><h6>:</h6></td>
-                                    <td valign="top"><h6 style="color: black">75000</h6></td>
+                                    <td valign="top"><h6 style="color: black">{{$masif->harga}}</h6></td>
                                 </tr>
                             </table>
                         </div>
