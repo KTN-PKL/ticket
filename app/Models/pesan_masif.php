@@ -12,7 +12,7 @@ class pesan_masif extends Model
 
     public function allData()
     {
-        return DB::table('pesan_masifs')->join('pakets', 'pesan_masifs.id_paket', '=', 'pakets.id_paket')->join('wisatas', 'pakets.id_wisata', '=', 'wisatas.id_wisata')->get();
+        return DB::table('pesan_masifs')->join('pakets', 'pesan_masifs.id_paket', '=', 'pakets.id_paket')->join('wisatas', 'pakets.id_wisata', '=', 'wisatas.id_wisata')->join('users', 'pesan_masifs.id_pengguna', '=', 'users.id')->get();
     }
     public function detailData($id_masif)
     {

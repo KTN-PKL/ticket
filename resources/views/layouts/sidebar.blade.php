@@ -19,7 +19,7 @@
     </div>
     <div class="sidebar-menu">
         <div class="logo">
-            <a style="margin-left:4em" href="#"><img width="150px" height="75px" src="{{asset('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
+            <a style="margin-left:4em" href="#"><img width="150px" height="60px" src="{{asset('template')}}/dist/assets/images/logo/logoulinyuk.png" alt="Logo" srcset=""></a>
         </div>
         <ul class="menu">
             
