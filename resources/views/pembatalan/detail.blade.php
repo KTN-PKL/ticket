@@ -179,7 +179,7 @@
                                                 <td style="width:50%;vertical-align: top;"><h6 class="judul2">Status</h6></td>
                                                 <td style="vertical-align: top"><h6 style="font-size: 16px">:</h6></td>
                                                 <td style="vertical-align: top">
-                                                    @if($pembatalan->status == "Process Refund")
+                                                    @if($pembatalan->status == "process refund")
                                                     <span class="badge">Proces Refund</span>
                                                     @else
                                                     <span class="badge bg-danger">Refund</span>

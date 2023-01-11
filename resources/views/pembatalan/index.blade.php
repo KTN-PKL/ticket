@@ -37,7 +37,7 @@
                             </td>
                             <td>
                                 <a href="{{route('pembatalan.detail', $pembatalans->kode_tiket)}}" class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                @if($pembatalans->status == "Process Refund")
+                                @if($pembatalans->status == "process refund")
                                 <a href="https://api.whatsapp.com/send?phone=62{{$pembatalans->whatsapp}}&text=Kami%20dari%20admin%20ulinyuk.com" class="btn btn-primary" target="_blank">Hubungi</a>
                                 <a href="#" class="btn btn-danger" onclick="batalkan({{ $pembatalans->kode_tiket }})">Batalkan</a>
                                 @else
