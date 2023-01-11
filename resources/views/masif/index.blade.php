@@ -64,7 +64,7 @@
                                 <a href="#" class="btn btn-primary"> <i class="bi bi-pencil-square"></i>Edit</a>
                                 <a href="" class="btn btn-success">Terima</a>
                                 @elseif($masifs->stat == "process")
-                                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Buat Invoice</a>
+                                <a href="#" class="btn btn-success" onclick="invoice({{ $masifs->id_masif }})">Buat Invoice</a>
                                 <a href="#" class="btn btn-warning"> <i class="bi bi-pencil-square"></i>Edit</a>
                                 <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
                                 @elseif($masifs->stat == "accepted")
@@ -104,20 +104,40 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-body">
             <section class="section">
                 <div class="col-md-12">
-                    <div class="card mt-2" style="margin-left:2em;margin-right:2em;"> 
-                        <div class="card-body">
-                            <center>
-                            <h4>Invoice Pembayaran</h4>
-                            <div class="pembungkus">
-                                <div class="lingkaran">
-                                    <i  class="bi bi-ticket-detailed-fill" style="font-size:32px;color:#292D32"></i>
-                                </div>
-                            </div>
-                           
-                            
-                            </center>
+                    <div id="form" class="card mt-2" style="margin-left:2em;margin-right:2em;"> 
+                        
+                       
+                    </div> 
+                </div>
+               
+        
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+@endsection
+
+<script>
+      function invoice(id)
+    {
+        $("#exampleModalCenter").modal('show');
+        document.getElementById("dld").style.display = "block";
+        $.get("{{ url('masif/detail') }}/" + id, {}, function(data, status) {
+                
+                $("#form").html(`
+                <div class="card-body">
+                    <center>
+                    <h4>Invoice Pembayaran</h4>
+                    <div class="pembungkus">
+                        <div class="lingkaran">
+                            <i  class="bi bi-ticket-detailed-fill" style="font-size:32px;color:#292D32"></i>
                         </div>
-                        <div class="card-body" style="margin-left:1em;margin-right:1em;">
+                    </div>
+                    </center>
+                </div>
+
+                <div class="card-body" style="margin-left:1em;margin-right:1em;">
                             <div class="row">
                                 <div class="col-md-5 mt-4">  
                                     <table>
@@ -192,13 +212,8 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                
                             </div>
                         </div>
-                    </div> 
-                </div>
+                `);
                
-        
-            </section>
-        </div>
-    </div>
-</div>
-</div>
-@endsection
+            });
+    }
+</script>

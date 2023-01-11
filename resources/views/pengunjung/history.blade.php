@@ -13,8 +13,8 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Jadwal Pembayaran</th>
                             <th>Tanggal Pembayaran</th>
+                            <th>Jumlah Checkin</th>
                             <th>Balance</th>
                             <th>Action</th>
                         </tr>
@@ -29,8 +29,8 @@
                                 $i = $i + 1;
                                 echo $i;
                             @endphp</td>
-                            <td style="width:35%">{{ $historis->jadwal_pembayaran }}</td>
-                            <td style="width:25%">{{ $historis->tanggal_pembayaran }}</td>
+                            <td style="width:35%">{{ $historis->tanggal_pembayaran }}</td>
+                            <td style="width:25%">40<i class="bi bi-people"></i></td>
                             <td>{{ $historis->hbalance }}</td>
                             <td>
                                 <a href="#" class="btn btn-primary" onclick="bukti({{ $historis->id_balance }})">Lihat Bukti</a>
