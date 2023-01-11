@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('id_mitra');
             $table->text('deskripsi_mitra');
             $table->string('balance');
+            $table->string('jumlahchekin');
             $table->timestamps();
         });
     }
