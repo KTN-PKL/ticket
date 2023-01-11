@@ -27,7 +27,7 @@ class c_fasilitas extends Controller
     {
         $data = ['fasilitas' => $request->fasilitas,];
         $this->fasilitas->addData($data);
-        return redirect()->route('datamaster.fasilitas')->with('create', 'Mitra Berhasil Dibuat');
+        return redirect()->route('datamaster.fasilitas')->with('success', 'Fasilitas Berhasil Dibuat');
     }
 
     public function edit($id_fasilitas)
@@ -40,12 +40,12 @@ class c_fasilitas extends Controller
     {
         $data = ['fasilitas' => $request->fasilitas,];
         $this->fasilitas->editData($id_fasilitas, $data);
-        return redirect()->route('datamaster.fasilitas')->with('create', 'Mitra Berhasil Dibuat');
+        return redirect()->route('datamaster.fasilitas')->with('success', 'Fasilitas Berhasil Diupdate');
     }
 
     public function destroy($id_fasilitas)
     {
         $this->fasilitas->deleteData($id_fasilitas);
-        return redirect()->route('datamaster.fasilitas')->with('create', 'Mitra Berhasil Dibuat');
+        return redirect()->route('datamaster.fasilitas')->with('success', 'Fasilitas Berhasil Dihapus');
     }
 }
