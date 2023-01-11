@@ -14,7 +14,7 @@
                         <tr>
                             <th>No</th>
                             <th>Tanggal Pembayaran</th>
-                            <th>Jumlah Checkin</th>
+                            <th>Jumlah Check-in</th>
                             <th>Balance</th>
                             <th>Action</th>
                         </tr>
@@ -30,8 +30,11 @@
                                 echo $i;
                             @endphp</td>
                             <td style="width:35%">{{ $historis->tanggal_pembayaran }}</td>
-                            <td style="width:25%">{{ $historis->hjumlahchekin }}<i class="bi bi-people"></i></td>
-                            <td>{{ $historis->hbalance }}</td>
+                            <td>@php $jumlahchekin = number_format($historis->hjumlahchekin,0,",","."); echo $jumlahchekin; @endphp  <i class="bi bi-people"></i></td>
+                            <td style="width:25%">@php
+                                $balance = number_format($historis->hbalance,0,",",".");
+                                echo "Rp.".$balance.",-";
+                            @endphp</td>
                             <td>
                                 <a href="#" class="btn btn-primary" onclick="bukti({{ $historis->id_balance }})">Lihat Bukti</a>
                             </td>

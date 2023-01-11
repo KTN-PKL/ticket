@@ -12,6 +12,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Mitra</th>
+                            <th>Jumlah Check-in</th>
                             <th>Balance</th>
                             <th>Action</th>
                         </tr>
@@ -24,13 +25,17 @@
                                 $i = $i+1;
                                 echo $i;
                             @endphp</td>
-                            <td style="width:35%">{{ $mitras->name }}</td>
-                            <td style="width:25%">{{ $mitras->balance }}</td>
+                            <td style="width:32%">{{ $mitras->name }}</td>
+                            <td>@php $jumlahchekin = number_format($mitras->jumlahchekin,0,",","."); echo $jumlahchekin; @endphp <i class="bi bi-people"></i></td>
+                            <td style="width:18%">@php
+                                $balance = number_format($mitras->balance,0,",",".");
+                                echo "Rp.".$balance.",-";
+                            @endphp </td>
                             <td>
-                                <a href="{{ route('pengunjung.pengunjung', $mitras->id_mitra) }}" class="btn btn-primary">Lihat Pengunjung</a>
-                                <a href="{{ route('pengunjung.histori', $mitras->id_mitra) }}" class="btn btn-warning"><i class="bi bi-clock-history"></i>History</a>
+                                <a href="{{ route('pengunjung.pengunjung', $mitras->id_mitra) }}" class="btn btn-sm btn-primary">Lihat Pengunjung</a>
+                                <a href="{{ route('pengunjung.histori', $mitras->id_mitra) }}" class="btn btn-sm btn-warning"><i class="bi bi-clock-history"></i>History</a>
                                 @if($mitras->balance <> 0)
-                                <a href="#" class="btn btn-success" onclick="bayar({{ $mitras->id_mitra }})">Bayar</a>
+                                <a href="#" class="btn btn-sm btn-success" onclick="bayar({{ $mitras->id_mitra }})">Bayar</a>
                                 @endif
                             </td>
                         </tr>
