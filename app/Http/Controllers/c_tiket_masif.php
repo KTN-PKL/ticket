@@ -61,8 +61,17 @@ class c_tiket_masif extends Controller
             'waktu_kunjungan' => $request->waktu_kunjungan,
             'qty' => $request->qty,
             'harga' => $request->harga,
+            'stat'=> 'process',
         ];
         $this->pesan_masif->editData($id_masif, $data);
         return redirect()->route('masif');
+    }
+
+    public function detail($id_masif)
+    {
+        $data = ['masif' => $this->pesan_masif->detailData($id_masif),
+                 'kategori' => $this->kategori->allData(),];
+        
+        return view('masif.index', $data);
     }
 }
