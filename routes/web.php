@@ -12,6 +12,7 @@ use App\Http\Controllers\c_beritainformasi;
 use App\Http\Controllers\c_profil;
 use App\Http\Controllers\c_pembatalan;
 use App\Http\Controllers\c_tiket_masif;
+use App\Http\Controllers\c_pembayaran;
 
 
 /*
@@ -71,6 +72,9 @@ Route::controller(c_tiket_masif::class)->middleware('auth')->group(function () {
     Route::get('/masif/detail/{id}', 'detail')->name('masif.detail');
     Route::get('/masif/invoice/{id}', 'invoice')->name('masif.invoice');
     Route::get('/masif/hubungi/{id}', 'hubungi')->name('masif.hubungi');
+    Route::get('/masif/terima/{id}', 'terima')->name('masif.terima');
+    // Route::get('/masif/hapusinvoice/{id}', 'hapusInvoice')->name('masif.hapusinvoice');
+
 });
 
 Route::controller(c_pengguna::class)->middleware('auth')->group(function () {
@@ -146,4 +150,9 @@ Route::controller(c_pembatalan::class)->middleware('auth')->group(function () {
     Route::get('/pembatalan/bukti/{id}', 'bukti')->name('pembatalan.bukti');
    
    
+});
+
+Route::controller(c_pembayaran::class)->middleware('auth')->group(function () {
+    Route::get('/pembayaran', 'index')->name('pembayaran');
+    Route::get('/pembayaran/store/{id}', 'store')->name('pembayaran.store');
 });

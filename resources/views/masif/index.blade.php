@@ -62,17 +62,17 @@
                                 @if($masifs->stat == "request")
                                 <a href="#" onclick="hubungiMitra({{$masifs->id_masif}})" class="btn btn-success"><i class="bi bi-whatsapp"></i>Hubungi Mitra</a>
                                 <a href="{{route('masif.edit', $masifs->id_masif)}}" class="btn btn-primary"> <i class="bi bi-pencil-square"></i>Edit</a>
-                                <a href="" class="btn btn-success">Terima</a>
+                                <a href="{{route('masif.terima', $masifs->id_masif)}}" class="btn btn-success">Terima</a>
                                 @elseif($masifs->stat == "process")
                                 <a href="#" class="btn btn-success" onclick="invoice({{$masifs->id_masif}})">Buat Invoice</a>
                                 <a href="{{route('masif.edit', $masifs->id_masif)}}" class="btn btn-warning"> <i class="bi bi-pencil-square"></i>Edit</a>
                                 <a href="{{route('masif.detail', $masifs->id_masif)}}" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
                                 @elseif($masifs->stat == "accepted")
                                 <a href="{{route('masif.detail', $masifs->id_masif)}}" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
-                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus</a>
+                                <a href="#" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus Invoice</a>
                                 @else
                                 <a href="{{route('masif.detail', $masifs->id_masif)}}" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
-                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus</a>
+                                <a href="#" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus Invoice</a>
                                  @endif
                             </td>
                         </tr>

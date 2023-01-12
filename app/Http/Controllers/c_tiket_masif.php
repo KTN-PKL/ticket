@@ -7,6 +7,7 @@ use App\Models\pesan_masif;
 use App\Models\kategori;
 use App\Models\wisata;
 use App\Models\paket;
+use App\Models\pembayaran;
 
 class c_tiket_masif extends Controller
 {
@@ -16,6 +17,7 @@ class c_tiket_masif extends Controller
         $this->pesan_masif = new pesan_masif();
         $this->kategori = new kategori();
         $this->wisata = new wisata();
+        $this->pembayaran = new pembayaran();
     }
     public function index()
     {
@@ -90,4 +92,17 @@ class c_tiket_masif extends Controller
         
         return view ('masif.hubungi', $data);
     }
+
+     public function terima($id_masif)
+    {
+        $data = ['stat' => "process"];
+        $this->pesan_masif->editData($id_masif, $data);
+        return redirect()->route('masif')->with('success', 'Pesanan Tiket Masif Telah Diterima');
+    }
+
+    // public function hapusInvoice($id_pembayaran)
+    // {
+    //     $this->pembayaran->deleteData($id_pembayaran);
+    //     return  redirect()->route('masif')->with('success', 'Invoice Berhasil dihapus');
+    // }
 }
