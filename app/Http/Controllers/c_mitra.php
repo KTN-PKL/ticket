@@ -26,30 +26,30 @@ class c_mitra extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'password' => 'required|confirmed',
-            'username' => 'required',
-            'email' => 'required|email',
-            'kontak' => 'required',
-            'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
-            'deskripsi_mitra'=>'required'
-        ],[
-            'name.required'=>'Nama Mitra Wajib terisi',
-            'password.required'=>'Password Wajib terisi',
-            'username.required'=>'Username Wajib terisi',
-            'email.required'=>'Email Wajib terisi',
-            'email.email'=>'Masukkan Format Email',
-            'kontak.required'=>'Kontak Wajib terisi',
-            'foto.required'=>'Foto Wajib terisi',
-            'foto.mimes'=>"Format Foto jpg,png, jpeg",
-            'foto.max'=>"Maksimal ukuran foto 2048mb",
-            'deskripsi_mitra.required'=>'Deskripsi Wajib terisi',
-           
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'password' => 'required|confirmed',
+        //     'username' => 'required',
+        //     'email' => 'required|email',
+        //     'kontak' => 'required',
+        //     'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
+        //     'deskripsi_mitra' => 'required'
+        // ], [
+        //     'name.required' => 'Nama Mitra Wajib terisi',
+        //     'password.required' => 'Password Wajib terisi',
+        //     'username.required' => 'Username Wajib terisi',
+        //     'email.required' => 'Email Wajib terisi',
+        //     'email.email' => 'Masukkan Format Email',
+        //     'kontak.required' => 'Kontak Wajib terisi',
+        //     'foto.required' => 'Foto Wajib terisi',
+        //     'foto.mimes' => "Format Foto jpg,png, jpeg",
+        //     'foto.max' => "Maksimal ukuran foto 2048mb",
+        //     'deskripsi_mitra.required' => 'Deskripsi Wajib terisi',
+
+        // ]);
         $file  = $request->foto;
-        $filename = $request->email.'.'.$file->extension();
-        $file->move(public_path('foto'),$filename);
+        $filename = $request->email . '.' . $file->extension();
+        $file->move(public_path('foto'), $filename);
         $data = [
             'name' => $request->name,
             'password' => Hash::make($request->password),
@@ -85,22 +85,22 @@ class c_mitra extends Controller
             'password' => 'confirmed',
             'kontak' => 'required',
             'foto' => 'mimes:jpg,png,jpeg|max:2048',
-            'deskripsi_mitra'=>'required'
-        ],[
-            'name.required'=>'Nama Mitra Wajib terisi',
-            'username.required'=>'Username Wajib terisi',
-            'email.email'=>'Masukkan Format Email',
-            'kontak.required'=>'Kontak Wajib terisi',
-            'foto.mimes'=>"Format Foto jpg,png, jpeg",
-            'foto.max'=>"Maksimal ukuran foto 2048mb",
-            'deskripsi_mitra.required'=>'Deskripsi Wajib terisi',
-           
+            'deskripsi_mitra' => 'required'
+        ], [
+            'name.required' => 'Nama Mitra Wajib terisi',
+            'username.required' => 'Username Wajib terisi',
+            'email.email' => 'Masukkan Format Email',
+            'kontak.required' => 'Kontak Wajib terisi',
+            'foto.mimes' => "Format Foto jpg,png, jpeg",
+            'foto.max' => "Maksimal ukuran foto 2048mb",
+            'deskripsi_mitra.required' => 'Deskripsi Wajib terisi',
+
         ]);
 
         if ($request->foto <> null) {
             $file  = $request->foto;
-            $filename = $request->email.'.'.$file->extension();
-            $file->move(public_path('foto'),$filename);
+            $filename = $request->email . '.' . $file->extension();
+            $file->move(public_path('foto'), $filename);
             $data = ['foto' => $filename,];
             $this->mitra->editUser($id_mitra, $data);
         }
@@ -143,7 +143,7 @@ class c_mitra extends Controller
     public function destroy($id_mitra)
     {
         $cek = $this->mitra->detailData($id_mitra);
-        unlink(public_path('foto'). '/' .$cek->foto);
+        unlink(public_path('foto') . '/' . $cek->foto);
         $this->mitra->deleteUser($id_mitra);
         $this->mitra->deleteMitra($id_mitra);
         return redirect()->route('mitra.akun')->with('create', 'Mitra Berhasil Dibuat');
