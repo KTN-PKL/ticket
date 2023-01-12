@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Mitra;
 use App\Http\Controllers\Controller;
 use App\Models\mitra;
 use App\Models\wisata;
+use App\Models\hbalance;
 use Illuminate\Http\Request;
 
 class DashMitraController extends Controller
@@ -14,6 +15,7 @@ class DashMitraController extends Controller
 
         $this->wisata = new wisata();
         $this->mitra = new mitra();
+        $this->hbalance = new hbalance();
     }
 
     public function index()
@@ -34,7 +36,8 @@ class DashMitraController extends Controller
             'nama' => $detailmitra->name,
             'balance' => $detailmitra->balance,
             'pengunjung' => $detailmitra->jumlahchekin,
-            'postingan' => count($this->wisata->mitraData($id_mitra))
+            'postingan' => count($this->wisata->mitraData($id_mitra)),
+            'estimasi' => $this->hbalance->estimasi($id_mitra)
         ];
         // return new DashMitraResouce($detailmitra);
         return response()->json(['data' => $dm, 200]);
