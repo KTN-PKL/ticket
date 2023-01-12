@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class pemesanan extends Model
 {
     use HasFactory;
+    public function addData($data)
+    {
+        DB::table('pemesanans')->insert($data);
+    }
 }

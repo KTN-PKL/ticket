@@ -13,6 +13,11 @@ class pembayaran extends Model
     {
         DB::table('pembayarans')->insert($data);
     }
+
+    public function id()
+    {
+        return DB::table('pembayarans')->count();
+    }
     // public function deleteData($id_pembayaran)
     // {
     //     DB::table('pembayarans')->where('id_pembayaran', $id_pembayaran)->delete();

@@ -13,6 +13,7 @@ use App\Http\Controllers\c_profil;
 use App\Http\Controllers\c_pembatalan;
 use App\Http\Controllers\c_tiket_masif;
 use App\Http\Controllers\c_pembayaran;
+use App\Http\Controllers\c_tiket_normal;
 
 
 /*
@@ -155,4 +156,11 @@ Route::controller(c_pembatalan::class)->middleware('auth')->group(function () {
 Route::controller(c_pembayaran::class)->middleware('auth')->group(function () {
     Route::get('/pembayaran', 'index')->name('pembayaran');
     Route::get('/pembayaran/store/{id}', 'store')->name('pembayaran.store');
+});
+
+Route::controller(c_tiket_normal::class)->middleware('auth')->group(function () {
+    Route::get('/tiketnormal', 'index')->name('tiketnormal');
+    Route::get('/tiketnormal/create', 'create')->name('tiketnormal.create');
+    Route::get('/tiketnormal/paket/{id}', 'paket')->name('tiketnormal.paket');
+    Route::post('/tiketnormal/store', 'store')->name('tiketnormal.store');
 });
