@@ -22,7 +22,6 @@
                             <th>No</th>
                             <th>Nama</th>
                             <th>Tujuan Wisata</th>
-                            <th>Whatsapp</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,11 +35,10 @@
                         $i=$i+1;
                         @endphp
                         <td>{{$i}}</td>
-                        <td>{{$tiket->atas_nama}}</td>
+                        <td>{{$tiket->email}}</td>
                         <td>{{$tiket->wisata}}</td>
-                        <td>{{$tiket->whatsapp}}</td>
                         <td>
-                            <a href="#" onclick="invoice($tiket->id_pemesanan)" class="btn btn-success btn-sm">Buat Invoice</a>
+                            <a href="#" onclick="invoice({{$tiket->id_pembayaran}})" class="btn btn-success btn-sm">Buat Invoice</a>
                             <a href="#" class="btn btn-primary btn-sm">Edit</a>
                             <a href="#" class="btn btn-danger btn-sm">Hapus</a>
                         </td>
