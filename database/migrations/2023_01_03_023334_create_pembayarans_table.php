@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pembayarans', function (Blueprint $table) {
-            $table->id('id_pembayaran');
+            $table->string('id_pembayaran')->primary();
             $table->string('id_pengguna');
             $table->string('id_paket');
             $table->string('email');
