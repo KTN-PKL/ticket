@@ -21,10 +21,10 @@
                                 <div class="form-group mandatory">
 
                                     <label for="name" class="form-label">Email Pengguna</label>
-                                    <select name="id_pengguna" id="nameid" class="js-example-responsive" style="width: 100%;">
+                                    <select name="id_pengguna" id="nameid" class="js-example-responsive" style="width: 100%;" data-parsley-required="true">
                                         <option value="">-- Pilih Pengguna --</option>
                                         @foreach($pengguna as $username)
-                                        <option value="{{ $username->email }}">{{ $username->email }}</option>
+                                        <option value="{{ $username->id_pengguna }}">{{ $username->email }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -32,7 +32,7 @@
                                     <label class="form-label">Data Pengunjung</label>
                                     <input type="text" name="jumlah" value="1" id="jumlah" hidden>
                                     <div class="input-group col-md-6 mb-3">
-                                    <input type="text" class="form-control  @error('atas_nama') is-invalid @enderror" value="{{ old('atas_nama') }}" name="atas_nama0" placeholder="Data Pengunjung 1">
+                                    <input type="text" class="form-control  @error('atas_nama') is-invalid @enderror" value="{{ old('atas_nama') }}" name="atas_nama0" placeholder="Data Pengunjung 1" data-parsley-required="true">
                                     <span class="input-group-text" id="T1" type = "button" onclick="plus(1)"><i class="fa fa-plus"></i></span>
                                     </div>
                                     <div id="M1"></div>
@@ -48,7 +48,7 @@
                             <div class="col-md-6">
                                 <div class="form-group mandatory">
                                     <label for="" class="form-label">Tujuan Wisata</label>
-                                    <select name="wisata" id="id_wisata" class="js-example-responsive" style="width: 100%;" onchange="readpaket()">
+                                    <select name="wisata" id="id_wisata" class="js-example-responsive" style="width: 100%;" onchange="readpaket()" data-parsley-required="true">
                                         <option value="" disabled selected >-- Pilih Tujuan Wisata</option>
                                         @foreach($wisata as $wisatas)
                                         <option value="{{ $wisatas->id_wisata }}">{{ $wisatas->wisata }}</option>
@@ -58,16 +58,18 @@
                                 <div id="paket" class="form-group mandatory">
                             
                                 </div>
-                                <div id="harga" class="form-group mandatory">
-                            
-                                </div>
+                               
                                 <div class="form-group mandatory">
                                     <label for="name" class="form-label">Waktu Kunjungan</label>
-                                    <input type="date" name="waktu_kunjungan" class="form-control">
+                                    <input onclick="harga()" type="date" name="waktu_kunjungan" class="form-control" data-parsley-required="true">
                                 </div>
+                                {{-- <div id="hargapaket" class="form-group mandatory" style="display:none">
+                                    <label for="" class="form-label">Harga Paket</label>
+                                    <input type="text" class="form-control" name="hargapaket"> 
+                                </div> --}}
                                 <div class="form-group mandatory">
                                     <label for="name" class="form-label">Whatsapp</label>
-                                    <input type="number" name="whatsapp" class="form-control">
+                                    <input type="number" name="whatsapp" class="form-control" data-parsley-required="true">
                                 </div>
                             </div>
                                 
@@ -109,7 +111,7 @@
       if(x<11){
         $("#plus" + id).html(`
       <div class="input-group col-md-6 mb-3">
-      <input type="text" class="form-control" name="atas_nama`+id+`" placeholder="Data Pengunjung `+x+`">
+      <input type="text" class="form-control" name="atas_nama`+id+`" placeholder="Data Pengunjung `+x+`" data-parsley-required="true">
       <span class="input-group-text" id="T`+x+`" type = "button" onclick="plus(`+x+`)"><i class="fa fa-plus"></i></span>
       <span class="input-group-text" id="M`+x+`" type = "button" onclick="mins(`+x+`)"><i class="fa fa-times"></i></span>
       </div>
@@ -147,6 +149,9 @@
         $.get("{{ url('tiketnormal/paket') }}/" + id, {}, function(data, status) {
           $("#paket").html(data);
       });
+    }
+    function harga(){
+        document.getElementById("hargapaket").style.display="block";
     }
  </script>
 
