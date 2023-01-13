@@ -14,6 +14,7 @@ use App\Http\Controllers\c_pembatalan;
 use App\Http\Controllers\c_tiket_masif;
 use App\Http\Controllers\c_pembayaran;
 use App\Http\Controllers\c_tiket_normal;
+use App\Http\Controllers\invoice;
 
 
 /*
@@ -76,6 +77,9 @@ Route::controller(c_tiket_masif::class)->middleware('auth')->group(function () {
     Route::get('/masif/terima/{id}', 'terima')->name('masif.terima');
     // Route::get('/masif/hapusinvoice/{id}', 'hapusInvoice')->name('masif.hapusinvoice');
 
+});
+Route::controller(invoice::class)->middleware('auth')->group(function () {
+    Route::get('/invoice/store/{id}', 'store')->name('invoice.store');
 });
 
 Route::controller(c_pengguna::class)->middleware('auth')->group(function () {

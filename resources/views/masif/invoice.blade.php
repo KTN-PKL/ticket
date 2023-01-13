@@ -84,7 +84,7 @@
             </div>
             <div class="mt-4" id="tombol_bayar">
                 <center>
-                    <a href="{{route('pembayaran.store', $masif->id_masif)}}"  style="background-color: #2CF940;width:200px;" class="btn btn-success" id="pay-button">Buat Invoice</a>
+                    <a href="{{ route('invoice.store', $masif->id_masif) }}"  style="background-color: #2CF940;width:200px;" class="btn btn-success" id="pay-button">Buat Invoice</a>
                 </center>
                
             </div>
