@@ -142,4 +142,17 @@ class invoice extends Controller
             }
         }
     }
+
+
+	// Tiket Normal
+	public function store2($id_pembayaran)
+    {
+       
+		$midtrans = $this->getSnapToken($id_pembayaran);
+		$data = ['snap_token' => $midtrans,];
+		$this->pembayaran->editData($id_pembayaran, $data);
+
+		return redirect()->route('invoice.show', $id_pembayaran);
+        
+    }
 }

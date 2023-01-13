@@ -18,5 +18,14 @@ class pesan_tiket extends Model
     {
         DB::table('pemesanans')->insert($data);
     }
+    public function detailData($id_pengguna)
+    {
+        return DB::table('users')->join('penggunas', 'users.id', '=', 'penggunas.id_pengguna')->where('id_pengguna', $id_pengguna)->first();
+    }
+
+    public function detailPaket($id_paket)
+    {
+        return DB::table('pakets')->where('id_paket', $id_paket)->first();
+    }
    
 }

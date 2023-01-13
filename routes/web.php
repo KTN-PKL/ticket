@@ -80,6 +80,7 @@ Route::controller(c_tiket_masif::class)->middleware('auth')->group(function () {
 });
 Route::controller(invoice::class)->group(function () {
     Route::get('/invoice/store/{id}', 'store')->name('invoice.store')->middleware('auth');
+    Route::get('/invoicenormal/store/{id}', 'store2')->name('invoice.store2')->middleware('auth');
     Route::get('/invoice/show/{id}', 'show')->name('invoice.show');
 });
 
@@ -168,4 +169,5 @@ Route::controller(c_tiket_normal::class)->middleware('auth')->group(function () 
     Route::get('/tiketnormal/create', 'create')->name('tiketnormal.create');
     Route::get('/tiketnormal/paket/{id}', 'paket')->name('tiketnormal.paket');
     Route::post('/tiketnormal/store', 'store')->name('tiketnormal.store');
+    Route::get('/tiketnormal/invoice/{id}', 'invoice')->name('tiketnormal.invoice');
 });

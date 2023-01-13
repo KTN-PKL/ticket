@@ -28,17 +28,24 @@
                     </thead>
                     <tbody>
                      <tr>
+                        @php
+                        $i=0;
+                        @endphp
                         @foreach($pesan_tiket as $tiket)
-                        <td>1</td>
+                        @php
+                        $i=$i+1;
+                        @endphp
+                        <td>{{$i}}</td>
                         <td>{{$tiket->atas_nama}}</td>
                         <td>{{$tiket->wisata}}</td>
                         <td>{{$tiket->whatsapp}}</td>
                         <td>
-                            Action
+                            <a href="#" onclick="invoice($tiket->id_pemesanan)" class="btn btn-success btn-sm">Buat Invoice</a>
+                            <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm">Hapus</a>
                         </td>
-                        @endforeach
-                       
                      </tr>
+                     @endforeach
                     </tbody>
                 </table>
             </div>
@@ -47,5 +54,48 @@
     </section>
     
 </div>
+<!-- Vertically Centered modal Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+    role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+            </h5>
+            <button type="button" class="close" data-bs-dismiss="modal"
+                aria-label="Close">
+                <i data-feather="x"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <section class="section">
+                <div class="col-md-12">
+                    <div id="form" class="card mt-2" style="margin-left:2em;margin-right:2em;"> 
+                        
+                       
+                    </div> 
+                </div>
+               
+        
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+
 
 @endsection
+
+<script>
+    function invoice(id)
+{
+    $("#exampleModalCenter").modal('show');
+    $.get("{{ url('tiketnormal/invoice') }}/" + id, {}, function(data, status) {
+            
+            $("#form").html(data);
+           
+        });
+}
+
+</script>
