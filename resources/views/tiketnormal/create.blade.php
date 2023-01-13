@@ -20,18 +20,14 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
 
-                                    <label for="name" class="form-label">Username</label>
+                                    <label for="name" class="form-label">Email Pengguna</label>
                                     <select name="id_pengguna" id="nameid" class="js-example-responsive" style="width: 100%;">
                                         <option value="">-- Pilih Pengguna --</option>
                                         @foreach($pengguna as $username)
-                                        <option value="{{ $username->id_pengguna }}">{{ $username->name }}</option>
+                                        <option value="{{ $username->email }}">{{ $username->email }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                {{-- <div class="form-group mandatory">
-                                    <label for="name" class="form-label">Data Pengunjung</label>
-                                    <input type="text" name="atas_nama" class="form-control">
-                                </div> --}}
                                 <div class="mb-3">
                                     <label class="form-label">Data Pengunjung</label>
                                     <input type="text" name="jumlah" value="1" id="jumlah" hidden>

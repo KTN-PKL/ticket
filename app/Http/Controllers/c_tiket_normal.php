@@ -65,7 +65,7 @@ class c_tiket_normal extends Controller
             'whatsapp' => $request->whatsapp,
             'id_paket'=>$request->id_paket,
             'id_pembayaran'=>$id_pembayaran,
-            'id_pengguna'=>$request->$id_pengguna,
+            'email'=>$request->$email,
             'qty'=>$jumlah,
         ];
         dd($data);
