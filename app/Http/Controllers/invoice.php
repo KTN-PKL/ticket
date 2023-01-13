@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\pembayaran;
 use App\Models\pesan_masif;
+use App\Models\tiket;
 use App\Services\Midtrans\CreateSnapTokenService;
 use Midtrans\Config;
 use Midtrans\Snap;
@@ -26,6 +27,7 @@ class invoice extends Controller
 		$this->_configureMidtrans();
         $this->pesan_masif = new pesan_masif();
         $this->pembayaran = new pembayaran();
+		$this->tiket = new tiket();
     }
 
     public function _configureMidtrans()
@@ -98,7 +100,8 @@ class invoice extends Controller
 		$midtrans = $this->getSnapToken($id_pembayaran);
 		$data = ['snap_token' => $midtrans,];
 		$this->pembayaran->editData($id_pembayaran, $data);
-		$data = ['stat' => "accepted",];
+		$data = ['stat' => "accepted",
+				 'id_pembayaran' => $id_pembayaran];
 		$this->pesan_masif->editData($id_masif, $data);
 		return redirect()->route('invoice.show', $id_pembayaran);
     }
@@ -107,6 +110,27 @@ class invoice extends Controller
 		$data = ['pembayaran' => $this->pembayaran->detailData($id_pembayaran),];
 		return view('invoice.show', $data);
 	}
+	public function buattiket($id)
+	{
+		$pembayaran = $this->pembayaran->detailData($id);
+		if ($pembayaran->jenis == "masif") {
+			$isi = $this->pesan_masif->detailDatap($id);
+			$t = str_replace("-","",$isi->waktu_kunjungan);
+			$kode = "ET-".$isi->id_masif.$id."-".$isi->id_kategori.$isi->id_wisata.$isi->id_paket."-".$t;
+			$data = [
+				'kode_tiket' => $kode,
+				'atas_nama' => $isi->name,
+				'whatsapp' => $isi->kontak,
+				'id_pengguna' => $isi->id_pengguna,
+				'qty' => $isi->qty,
+				'status' => "avaliable",
+				'id_paket' => $isi->id_paket,
+				'waktu_kunjungan' => $isi->waktu_kunjungan,
+				'harga' => $pembayaran->total_harga,
+			];
+			$this->tiket->addData($data);
+		}
+	}
     public function callback(Request $request)
     {
         $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$this->serverKey);
@@ -114,6 +138,7 @@ class invoice extends Controller
             if ($request->transaction_status == "capture") {
                 $data = ['status' => "lunas"];
                 $this->pembayaran->editData($request->order_id, $data);
+				$this->buattiket($request->order_id);
             }
         }
     }

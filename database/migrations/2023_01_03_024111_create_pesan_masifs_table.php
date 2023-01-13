@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('id_pengguna');
             $table->string('nik');
             $table->string('id_paket');
+            $table->string('id_pembayaran');
             $table->date('waktu_kunjungan');
             $table->string('qty');
             $table->string('harga')->nullabel();
