@@ -35,10 +35,9 @@ class invoice extends Controller
 		Config::$isSanitized = $this->isSanitized;
 		Config::$is3ds = $this->is3ds;
 	}
-    public function getSnapToken($order, $id)
+    public function getSnapToken($id)
 	{
-		$masif = $this->pesan_masif->detailData($order);
-        $total = $masif->qty * $masif->harga;
+		$pembayaran = $this->pembayaran->detailData($id);
 		$params = [
 			/**
 			 * 'order_id' => id order unik yang akan digunakan sebagai "primary key" oleh Midtrans untuk
@@ -47,7 +46,7 @@ class invoice extends Controller
 			 */
 			'transaction_details' => [
 				'order_id' => $id,
-				'gross_amount' => $total,
+				'gross_amount' => $pembayaran->total_harga,
 			],
 			/**
 			 * 'item_details' bisa diisi dengan detail item dalam order.
@@ -69,9 +68,9 @@ class invoice extends Controller
 			// ],
 			'customer_details' => [
 				// Key `customer_details` dapat diisi dengan data customer yang melakukan order.
-				'first_name' => $masif->name,
-				'email' => $masif->email,
-				'phone' => $masif->kontak,
+				'first_name' => $pembayaran->name,
+				'email' => $pembayaran->email,
+				'phone' => $pembayaran->kontak,
 			]
 		];
 		
@@ -81,10 +80,10 @@ class invoice extends Controller
     public function store($id_masif)
     {
         $id = $this->pembayaran->id();
-        $id_pembayaran = $id + 1;
+        $id_pem = $id + 1;
+		$id_pembayaran = "A".$id_pem;
         $masif = $this->pesan_masif->detailData($id_masif);
         $total = $masif->qty * $masif->harga;
-        $midtrans = $this->getSnapToken($id_masif, $id_pembayaran);
         $data = [
             'id_pembayaran' => $id_pembayaran,
             'id_pengguna' => $masif->id_pengguna,
@@ -93,11 +92,21 @@ class invoice extends Controller
             'qty' => $masif->qty,
             'total_harga' => $total,
             'status' => "tertunda",
-            'snap_token' => $midtrans,
+			'jenis' => "masif",
         ];
         $this->pembayaran->addData($data);
-        return view('invoice.show', $data);
+		$midtrans = $this->getSnapToken($id_pembayaran);
+		$data = ['snap_token' => $midtrans,];
+		$this->pembayaran->editData($id_pembayaran, $data);
+		$data = ['stat' => "accepted",];
+		$this->pesan_masif->editData($id_masif, $data);
+		return redirect()->route('invoice.show', $id_pembayaran);
     }
+	public function show($id_pembayaran)
+	{
+		$data = ['pembayaran' => $this->pembayaran->detailData($id_pembayaran),];
+		return view('invoice.show', $data);
+	}
     public function callback(Request $request)
     {
         $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$this->serverKey);

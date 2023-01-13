@@ -120,7 +120,7 @@
         payButton.addEventListener('click', function(e) {
             e.preventDefault();
 
-            snap.pay('{{ $snap_token }}', {
+            snap.pay('{{ $pembayaran->snap_token }}', {
                 // Optional
                 onSuccess: function(result) {
                     /* You may add your own js here, this is just example */

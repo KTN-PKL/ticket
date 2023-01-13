@@ -26,4 +26,8 @@ class pembayaran extends Model
     {
         DB::table('pembayarans')->where('id_pembayaran', $id)->update($data);
     }
+    public function detailData($id)
+    {
+        return DB::table('pembayarans')->join('users', 'pembayarans.id_pengguna', '=', 'users.id')->where('id_pembayaran', $id)->first();
+    }
 }

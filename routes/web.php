@@ -78,8 +78,9 @@ Route::controller(c_tiket_masif::class)->middleware('auth')->group(function () {
     // Route::get('/masif/hapusinvoice/{id}', 'hapusInvoice')->name('masif.hapusinvoice');
 
 });
-Route::controller(invoice::class)->middleware('auth')->group(function () {
-    Route::get('/invoice/store/{id}', 'store')->name('invoice.store');
+Route::controller(invoice::class)->group(function () {
+    Route::get('/invoice/store/{id}', 'store')->name('invoice.store')->middleware('auth');
+    Route::get('/invoice/show/{id}', 'show')->name('invoice.show');
 });
 
 Route::controller(c_pengguna::class)->middleware('auth')->group(function () {
