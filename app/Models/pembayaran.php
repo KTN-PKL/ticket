@@ -4,22 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class pembayaran extends Model
 {
     use HasFactory;
+
     public function addData($data)
     {
         DB::table('pembayarans')->insert($data);
     }
-
+    public function Data($id)
+    {
+        return DB::table('pembayarans')->where('id_pembayaran', $id)->first();
+    }
     public function id()
     {
         return DB::table('pembayarans')->count();
     }
-    // public function deleteData($id_pembayaran)
-    // {
-    //     DB::table('pembayarans')->where('id_pembayaran', $id_pembayaran)->delete();
-    // }
+    public function editData($id, $data)
+    {
+        DB::table('pembayarans')->where('id_pembayaran', $id)->update($data);
+    }
+    public function detailData($id)
+    {
+        return DB::table('pembayarans')->join('users', 'pembayarans.id_pengguna', '=', 'users.id')->where('id_pembayaran', $id)->first();
+    }
 }
