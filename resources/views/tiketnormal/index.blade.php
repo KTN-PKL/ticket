@@ -22,6 +22,7 @@
                             <th>No</th>
                             <th>Nama</th>
                             <th>Tujuan Wisata</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -37,6 +38,13 @@
                         <td>{{$i}}</td>
                         <td>{{$tiket->email}}</td>
                         <td>{{$tiket->wisata}}</td>
+                        <td>
+                            @if($tiket->status == "tertunda")
+                            <span class="badge bg-primary">Process</span>
+                            @else
+                            <span class="badge bg-success">Success</span>
+                            @endif
+                        </td>
                         <td>
                             <a href="#" onclick="invoice({{$tiket->id_pembayaran}})" class="btn btn-success btn-sm">Buat Invoice</a>
                             <a href="#" class="btn btn-primary btn-sm">Edit</a>
