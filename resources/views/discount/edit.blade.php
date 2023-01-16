@@ -14,13 +14,27 @@
                     </center>
                 </div>
                 <div class="card-body">
-                    <form  method="POST" action="{{ route('datamaster.fasilitas.update',$fasilitas->id_fasilitas) }}" class="form" data-parsley-validate>
+                    <form  method="POST" action="{{ route('datamaster.discount.update', $discount->id_discount) }}" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
-                                    <label for="fasilitas" class="form-label">Nama Fasilitas</label>
-                                    <input type="text" id="fasilitas" class="form-control" placeholder="Masukkan Nama Fasilitas" name="fasilitas" data-parsley-required="true" value="{{$fasilitas->fasilitas}}">
+                                    <label for="kategori">Jenis Discount</label>
+                                    <select type="text" class="form-select" name="jenis">
+                                      <option disabled>-- Pilih Jenis --</option>
+                                      <option @if ($discount->jenis == "persen")
+                                        selected 
+                                      @endif value="pernsen">Persen</option>
+                                      <option @if ($discount->jenis == "nominal")
+                                        selected 
+                                      @endif  value="nominal">Nominal</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group mandatory">
+                                    <label for="kategori">Discount</label>
+                                    <input type="number" class="form-control" name="discount" value="{{$discount->discount}}">
                                 </div>
                             </div>
                         </div>

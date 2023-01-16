@@ -58,9 +58,9 @@ class c_tiket_normal extends Controller
     {
         $email=$this->pesan_tiket->detailData($request->id_pengguna);
         $id = $this->pembayaran->id();
-        $id_pembayaran = $id + 1;
+        $id_pem = $id + 1;
         $jumlah=$request->jumlah;
-
+        $id_pembayaran = "B".$id_pem;
         $paket = $this->pesan_tiket->detailPaket($request->id_paket);
         $d = strtotime($request->waktu_kunjungan);
         $N = date('l' ,$d);
@@ -87,6 +87,7 @@ class c_tiket_normal extends Controller
             'id_pengguna'=>$request->id_pengguna,
             'qty'=>$jumlah,
             'total_harga'=> $total_harga,
+            'jenis' => "personal",
             'email'=>$email->email,
             'status'=>"tertunda",
         ];

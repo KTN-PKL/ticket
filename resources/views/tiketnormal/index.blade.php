@@ -46,7 +46,11 @@
                             @endif
                         </td>
                         <td>
-                            <a href="#" onclick="invoice({{$tiket->id_pembayaran}})" class="btn btn-success btn-sm">Buat Invoice</a>
+                            @php
+                                $id = str_replace("B", "",)
+                            @endphp
+                            <input type="text" hidden id="id{{ $i }}" value="{{ $tiket->id_pembayaran }}">
+                            <a href="#" onclick="invoice({{$i}})" class="btn btn-success btn-sm">Buat Invoice</a>
                             <a href="#" class="btn btn-primary btn-sm">Edit</a>
                             <a href="#" class="btn btn-danger btn-sm">Hapus</a>
                         </td>
@@ -96,8 +100,9 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <script>
     function invoice(id)
 {
+    var idt =  $("#id"+id).val();
     $("#exampleModalCenter").modal('show');
-    $.get("{{ url('tiketnormal/invoice') }}/" + id, {}, function(data, status) {
+    $.get("{{ url('tiketnormal/invoice') }}/" + idt, {}, function(data, status) {
             
             $("#form").html(data);
            
