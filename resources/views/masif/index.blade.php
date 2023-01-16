@@ -81,7 +81,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <a href=""> <i class="bi bi-exclamation-circle"></i></a>
+                <a href="#"> <i class="bi bi-exclamation-circle"></i></a>
             </div>
         </div>
 
@@ -170,15 +170,7 @@ aria-labelledby="exampleModalCenter2Title" aria-hidden="true">
             });
     }
 
-    function ask()
-    {
-        $("#exampleModalCenter2").modal('show');
-        $.get("{{ url('masif/ask') }}" {}, function(data, status) {
-                
-                $("#hubungi").html(data);
-               
-            });
-    }
+   
 
 
 </script>
