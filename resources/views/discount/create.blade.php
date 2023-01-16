@@ -10,17 +10,38 @@
             <div class="card mt-2" style="border: 1px solid rgb(85, 85, 85);margin-left:2em;margin-right:2em;border-radius:0%"> 
                 <div class="card-header">
                     <center>
-                    <h5>Create Fasilitas</h5>
+                    <h5>Create Discount</h5>
                     </center>
                 </div>
                 <div class="card-body">
-                    <form  method="POST" action="{{ route('datamaster.fasilitas.store') }}" class="form" data-parsley-validate>
+                    <form  method="POST" action="{{ route('datamaster.discount.store') }}" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
-                                    <label for="fasilitas" class="form-label">Nama Fasilitas</label>
-                                    <input type="text" id="fasilitas" class="form-control" placeholder="Masukkan Nama Fasilitas" name="fasilitas" data-parsley-required="true">
+                                    <label for="kategori">Kategori</label>
+                                    <select type="text" class="form-select" onchange="readwisata()" id="kategori">
+                                      <option selected disabled>-- Pilih Kategori --</option>
+                                      @foreach($kategori as $kategoris)
+                                      <option value="{{$kategoris->id_kategori}}">{{$kategoris->kategori}}</option>
+                                      @endforeach
+                                    </select>
+                                </div>
+                                <div id="cwisata"></div>
+                                <div id="cpaket"></div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group mandatory">
+                                    <label for="kategori">Jenis Discount</label>
+                                    <select type="text" class="form-select" name="jenis">
+                                      <option selected disabled>-- Pilih Jenis --</option>
+                                      <option value="pernsen">Persen</option>
+                                      <option value="nominal">Nominal</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mandatory">
+                                    <label for="kategori">Discount</label>
+                                    <input type="number" class="form-control" name="discount" placeholder="Masukan Discount">
                                 </div>
                             </div>
                         </div>
@@ -31,15 +52,18 @@
                         </center>
                     </form>        
                 </div>
-               
-
-
             </div> 
         </div>
-       
-
     </section>
-    
 </div>
 
 @endsection
+<script>
+    function readwisata()
+    {
+        var id = $("#kategori").val();
+        $.get("{{ url('datamaster/discount/cwisata') }}/"+id, {}, function(data, status) {
+          $("#cwisata").html(data);
+        });
+    }
+</script>
