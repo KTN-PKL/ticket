@@ -4,7 +4,7 @@
 <div class="container">
 <h3>Daftar Fasilitas Postingan</h3>
     <div class="col mt-4">
-        <a href="{{route('datamaster.fasilitas.create')}}" class="btn btn-primary">Create Discount</a>
+        <a href="{{route('datamaster.discount.create')}}" class="btn btn-primary">Create Discount</a>
     </div>
     <br>
     <section class="section">
@@ -24,16 +24,26 @@
                             <th>Jenis Dicount</th>
                             <th>Dicount</th>
                             <th>Status Discount</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($discount as $item)
                         <tr>
                             <td>{{$item->wisata}}</td>
-                            {{-- <td>
-                                <a href="{{route('datamaster.fasilitas.edit', $fst->id_fasilitas) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
-                                <a href="{{route('datamaster.fasilitas.destroy', $fst->id_fasilitas) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
-                            </td> --}}
+                            <td>{{$item->paket}}</td>
+                            <td>{{$item->jenis}}</td>
+                            <td>{{$item->discount}}</td>
+                            <td>{{$item->aktif}}</td>
+                            <td>
+                                <a href="{{route('datamaster.discount.edit', $item->id_discount) }}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{route('datamaster.discount.destroy', $item->id_discount) }}" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                                @if ($item->aktif == "aktif")
+                                <a href="{{route('datamaster.discount.inaktif', $item->id_discount) }}" class="btn btn-sm btn-warning">inaktif</a>
+                                @else
+                                <a href="{{route('datamaster.discount.aktif', $item->id_discount) }}" class="btn btn-sm btn-success">aktif</a> 
+                                @endif
+                            </td>
                           
                         </tr>
                        @endforeach

@@ -25,12 +25,28 @@ class c_discount extends Controller
 
     public function create()
     {
-        return view('discount.create');
+        $data = ['kategori' => $this->kategori->allData(),];
+        return view('discount.create', $data);
+    }
+
+    public function cwisata($id)
+    {
+        $data = ['wisata' => $this->wisata->kategoriData($id),];
+        return view('discount.cwisata', $data);
+    }
+    public function cpaket($id)
+    {
+        $data = ['paket' => $this->paket->wisataData($id),];
+        return view('discount.cpaket', $data);
     }
 
     public function store(Request $request)
     {
-        $data = ['discount' => $request->discount,];
+        $data = [
+            'id_paket' => $request->id_paket,
+            'jenis' => $request->jenis,
+            'discount' => $request->discount,
+            'aktif' => "aktif",];
         $this->discount->addData($data);
         return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Dibuat');
     }
@@ -43,7 +59,22 @@ class c_discount extends Controller
 
     public function update(Request $request, $id_discount)
     {
-        $data = ['discount' => $request->discount,];
+        $data = ['jenis' => $request->jenis,
+            'discount' => $request->discount,];
+        $this->discount->editData($id_discount, $data);
+        return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Diupdate');
+    }
+
+    public function aktif($id_discount)
+    {
+        $data = ['aktif' => "aktif"];
+        $this->discount->editData($id_discount, $data);
+        return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Diupdate');
+    }
+
+    public function inaktif($id_discount)
+    {
+        $data = ['aktif' => "inaktif"];
         $this->discount->editData($id_discount, $data);
         return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Diupdate');
     }

@@ -12,22 +12,22 @@ class discount extends Model
 
     public function allData()
     {
-        return DB::table('dicounts')-join('pakets', 'discounts.id_paket', '=', 'pakets.id_paket')->join('wisatas', 'pakets.')->get();
+        return DB::table('discounts')->join('pakets', 'discounts.id_paket', '=', 'pakets.id_paket')->join('wisatas', 'pakets.id_wisata', '=', 'wisatas.id_wisata')->get();
     }
     public function addData($data)
     {
-        DB::table('dicounts')->insert($data);
+        DB::table('discounts')->insert($data);
     }
     public function detailData($id_discount)
     {
-        return DB::table('dicounts')->where('id_discount', $id_discount)->first();
+        return DB::table('discounts')->where('id_discount', $id_discount)->first();
     }
     public function editData($id_discount, $data)
     {
-        DB::table('dicounts')->where('id_discount', $id_discount)->update($data);
+        DB::table('discounts')->where('id_discount', $id_discount)->update($data);
     }
     public function deleteData($id_discount)
     {
-        DB::table('dicounts')->where('id_discount', $id_discount)->delete();
+        DB::table('discounts')->where('id_discount', $id_discount)->delete();
     }
 }
