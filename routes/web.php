@@ -76,6 +76,7 @@ Route::controller(c_tiket_masif::class)->middleware('auth')->group(function () {
     Route::get('/masif/invoice/{id}', 'invoice')->name('masif.invoice');
     Route::get('/masif/hubungi/{id}', 'hubungi')->name('masif.hubungi');
     Route::get('/masif/terima/{id}', 'terima')->name('masif.terima');
+    Route::get('/masif/informasi', 'informasi')->name('masif.informasi');
     // Route::get('/masif/hapusinvoice/{id}', 'hapusInvoice')->name('masif.hapusinvoice');
 
 });

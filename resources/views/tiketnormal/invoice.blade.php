@@ -45,14 +45,14 @@
                 <div  class="col-md-5 mt-4" >  
                     <table>
                         <tr>
-                            <td valign="top" valign="top"><h6>Jumlah Pengunjung</h6></td>
-                            <td valign="top" valign="top"><h6>:</h6></td>
-                            <td valign="top" valign="top"><h6 style="color: black">{{$pembayaran->qty}}</h6></td>
+                            <td valign="top"><h6>Jumlah Pengunjung</h6></td>
+                            <td valign="top"><h6>:</h6></td>
+                            <td valign="top"><h6 style="color: black">{{$pembayaran->qty}}</h6></td>
                         </tr>
                         <tr>
-                            <td valign="top" valign="top"><h6>Data Pengunjung</h6></td>
-                            <td valign="top" valign="top"><h6>:</h6></td>
-                            <td valign="top" valign="top">
+                            <td valign="top"><h6>Data Pengunjung</h6></td>
+                            <td valign="top"><h6>:</h6></td>
+                            <td valign="top">
                                 @foreach($pengunjung as $data)
                                 <h6 style="color: black">
                                 {{$data->atas_nama}}</h6>

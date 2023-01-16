@@ -158,7 +158,7 @@
                 </div>  
 
             </div>
-            <div class="pemisah" style="border-bottom:3px solid rgb(0, 174, 255);">
+            <div class="pemisah" style="border-bottom:2px solid rgb(0, 174, 255);">
             </div>
             <br>
            
@@ -181,27 +181,49 @@
                 @endforeach
             </tr>
         </table>
-        @else
-        <table>
+        <div class="pemisah" style="border-bottom:2px solid rgb(0, 174, 255);">
+        </div>
+       @endif
+
+       <div class="detailPemesanan">
+       
+        <table style="width:100%">
             <tr>
                 <th><h6 class="header">No</h6></th>
-                <th><h6 class="header">Nama Penanggung Jawab</h6></th> 
+                <th><h6 class="header">Nama Paket</h6></th> 
+                <th><h6 class="header">Fitur Paket</h6></th>
+                <th><h6 class="header">Qty</h6></th>
+                <th><h6 class="header">Harga Satuan </h6></th>
             </tr>
             <tr>
-                @php 
-                $i=1;
-                @endphp
-                @foreach($pengunjung as $data)
+                <td valign="top" style="width:10%"><h6 class="isi">1</h6></td>
+                <td valign="top" style="width:25%"><h6 class="isi">{{$pembayaran->paket}}</h6></td>
+                <td valign="top" style="width:25%">
                 @php
-                $i=$i+1;
+                    $fiturpaket = explode("+" , $pembayaran->fitur);
                 @endphp
-                <td style="width:10%"><h6 class="isi">{{$i}}</h6></td>
-                <td style="width:90%"><h6 class="isi">{{$data->atas_nama}}</h6></td>
+                @foreach($fiturpaket as $fitur)
+                <h6 class="isi">- {{$fitur}}</h6>
                 @endforeach
+                </td>
+                <td valign="top" style="width:10%"><h6 class="isi">{{$pembayaran->qty}}</h6></td>
+                <td valign="top" style="width:30%">
+                    <h6 class="isi">
+                        @if($pembayaran->jenis == "masif")
+                        @ {{$pesan_masif->harga}}
+                    @elseif($pembayaran->jenis == "personal")
+                        @ {{$pembayaran->harga}}
+                    @endif
+                    </h6>
+                </td>
             </tr>
+
         </table>
 
-        @endif
+       </div>
+     
+
+
     </div>   
     </div>
 
@@ -212,7 +234,10 @@
 
     <div class="card-body">
         {{-- @if ($order->payment_status == 1) --}}
-            <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
+        <center>
+            <button style="width:100%" class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
+        </center>
+           
         {{-- @else
             Pembayaran berhasil
         @endif --}}

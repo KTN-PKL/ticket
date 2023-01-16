@@ -51,9 +51,11 @@
                                 @if($masifs->stat == "request")
                                 <span class="badge bg-warning">Request</span>
                                 @elseif($masifs->stat == "process")
-                                <span class="badge bg-primary">Process</span>
+                                <span class="badge bg-secondary">Process</span>
                                 @elseif($masifs->stat == "accepted")
-                                <span class="badge bg-success">Accepted</span>
+                                <span class="badge bg-primary">Accepted</span>
+                                @elseif($masifs->stat == "paid")
+                                <span class="badge bg-success">Paid</span>
                                 @else
                                 <span class="badge bg-danger">Paid off</span>
                                 @endif
@@ -68,10 +70,10 @@
                                 <a href="{{route('masif.edit', $masifs->id_masif)}}" class="btn btn-warning"> <i class="bi bi-pencil-square"></i>Edit</a>
                                 <a href="{{route('masif.detail', $masifs->id_masif)}}" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
                                 @elseif($masifs->stat == "accepted")
-                                <a href="{{route('masif.detail', $masifs->id_masif)}}" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
+                                <a href="{{route('invoice.show', $masifs->id_pembayaran)}}" target="_blank" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat Invoice</a>
                                 <a href="#" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus Invoice</a>
                                 @else
-                                <a href="{{route('masif.detail', $masifs->id_masif)}}" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
+                                <a href="{{route('invoice.show', $masifs->id_pembayaran)}}" target="_blank" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat Invoice</a>
                                 <a href="#" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus Invoice</a>
                                  @endif
                             </td>
@@ -79,6 +81,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                <a href=""> <i class="bi bi-exclamation-circle"></i></a>
             </div>
         </div>
 
@@ -166,5 +169,16 @@ aria-labelledby="exampleModalCenter2Title" aria-hidden="true">
                
             });
     }
+
+    function ask()
+    {
+        $("#exampleModalCenter2").modal('show');
+        $.get("{{ url('masif/ask') }}" {}, function(data, status) {
+                
+                $("#hubungi").html(data);
+               
+            });
+    }
+
 
 </script>
