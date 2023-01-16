@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\c_mitra;
 use App\Http\Controllers\Mitra\DashMitraController;
+use App\Http\Controllers\Mitra\ListPostMitraController;
+use App\Http\Controllers\Mitra\ProfileMitraController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +23,5 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('mitra', [DashMitraController::class, 'index']);
 Route::get('mitra/{id}', [DashMitraController::class, 'mitra']);
+Route::get('mitra/profile/{id}', [ProfileMitraController::class, 'profile']);
+Route::get('mitra/listpost/{id}', [ListPostMitraController::class, 'listpost']);
