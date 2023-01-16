@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\pembayaran;
 use App\Models\pesan_masif;
 use App\Models\tiket;
+use App\Models\pesan_tiket;
 use App\Services\Midtrans\CreateSnapTokenService;
 use Midtrans\Config;
 use Midtrans\Snap;
@@ -28,6 +29,7 @@ class invoice extends Controller
         $this->pesan_masif = new pesan_masif();
         $this->pembayaran = new pembayaran();
 		$this->tiket = new tiket();
+		$this->pesan_tiket = new pesan_tiket();
     }
 
     public function _configureMidtrans()
@@ -107,7 +109,13 @@ class invoice extends Controller
     }
 	public function show($id_pembayaran)
 	{
-		$data = ['pembayaran' => $this->pembayaran->detailData($id_pembayaran),];
+		$data = [
+				 'pemesanan' => $this->pesan_tiket->detailPemesanan($id_pembayaran),
+                 'pembayaran' => $this->pesan_tiket->detailPembayaran($id_pembayaran),
+                 'pengunjung' => $this->pesan_tiket->dataPengunjung($id_pembayaran),
+				 'pesan_masif'=> $this->pesan_masif->detailDatap($id_pembayaran),
+                 
+		];
 		return view('invoice.show', $data);
 	}
 	public function buattiket($id)
