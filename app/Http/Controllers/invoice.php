@@ -83,7 +83,7 @@ class invoice extends Controller
     {
         $id = $this->pembayaran->id();
         $id_pem = $id + 1;
-		$id_pembayaran = "A".$id_pem;
+		$id_pembayaran = "B".$id_pem;
         $masif = $this->pesan_masif->detailData($id_masif);
         $total = $masif->qty * $masif->harga;
         $data = [
