@@ -138,6 +138,8 @@ class invoice extends Controller
             if ($request->transaction_status == "capture") {
                 $data = ['status' => "lunas"];
                 $this->pembayaran->editData($request->order_id, $data);
+				$data = ['stat' => "paid"];
+				$this->pesan_masif->editData($request->order_id, $data);
 				$this->buattiket($request->order_id);
             }
         }
