@@ -40,7 +40,7 @@ class DashMitraController extends Controller
             'estimasi' => $this->hbalance->estimasi($id_mitra)
         ];
         // return new DashMitraResouce($detailmitra);
-        return response()->json(['data' => $dm, 200]);
+        return response()->json(['data' => $dm]);
     }
 
     // public function postingan($id_mitra)
