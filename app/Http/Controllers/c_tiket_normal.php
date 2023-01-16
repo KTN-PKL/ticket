@@ -44,12 +44,13 @@ class c_tiket_normal extends Controller
         
         return view('tiketnormal.paket', $data);
     }
-    public function invoice($id_pemesanan)
+    public function invoice($id_pembayaran)
     {
-        $data = ['tiket' => $this->pesan_tiket->detailData($id_pemesanan),
+        $data = ['pemesanan' => $this->pesan_tiket->detailPemesanan($id_pembayaran),
+                 'pembayaran' => $this->pesan_tiket->detailPembayaran($id_pembayaran),
+                 'pengunjung' => $this->pesan_tiket->dataPengunjung($id_pembayaran),
                  'kategori' => $this->kategori->allData(),];
-        
-        return view ('masif.invoice', $data);
+        return view ('tiketnormal.invoice', $data);
     }
 
 

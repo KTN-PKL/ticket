@@ -16,17 +16,22 @@
                         <tr>
                             <td valign="top" style="width:50%"><h6>Email Pengguna</h6></td>
                             <td valign="top"><h6>:</h6></td>
-                            <td valign="top"><h6 style="color: black">{{$tiket->name}}</h6></td>
-                        </tr>
-                        <tr>
-                            <td valign="top"><h6>NIK</h6></td>
-                            <td valign="top"><h6>:</h6></td>
-                            <td valign="top"><h6 style="color: black">{{$tiket->nik}}</h6></td>
+                            <td valign="top"><h6 style="color: black">{{$pembayaran->email}}</h6></td>
                         </tr>
                         <tr>
                             <td valign="top"><h6>Whatsapp</h6></td>
                             <td valign="top"><h6>:</h6></td>
-                            <td valign="top"><h6 style="color: black">{{$tiket->kontak}}</h6></td>
+                            <td valign="top"><h6 style="color: black">{{$pembayaran->kontak}}</h6></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><h6>Wisata</h6></td>
+                            <td valign="top"><h6>:</h6></td>
+                            <td valign="top"><h6 style="color: black">{{$pembayaran->wisata}}</h6></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><h6>Waktu Kunjungan</h6></td>
+                            <td valign="top"><h6>:</h6></td>
+                            <td valign="top"><h6 style="color: black">{{$pemesanan->waktu_kunjungan}}</h6></td>
                         </tr>
                     </table>
                 </div>
@@ -40,46 +45,27 @@
                 <div  class="col-md-5 mt-4" >  
                     <table>
                         <tr>
-                            <td valign="top" valign="top"><h6>Wisata</h6></td>
+                            <td valign="top" valign="top"><h6>Jumlah Pengunjung</h6></td>
                             <td valign="top" valign="top"><h6>:</h6></td>
-                            <td valign="top" valign="top"><h6 style="color: black">{{$masif->wisata}}</h6></td>
+                            <td valign="top" valign="top"><h6 style="color: black">{{$pembayaran->qty}}</h6></td>
                         </tr>
                         <tr>
-                            <td valign="top"><h6>Jadwal Kunjungan</h6></td>
-                            <td valign="top"><h6>:</h6></td>
-                            <td valign="top"><h6 style="color: black">{{$masif->waktu_kunjungan}}</h6></td>
-                        </tr>
-                        <tr>
-                            <td valign="top" style="width:50%"><h6>Jumlah Pengunjung</h6></td>
-                            <td valign="top"><h6>:</h6></td>
-                            <td valign="top"><h6 style="color: black">{{$masif->qty}}<i class="bi bi-people"></i></h6></td>
-                        </tr>
-                        <tr>
-                            <td valign="top"><h6>Paket</h6></td>
-                            <td valign="top"><h6>:</h6></td>
-                            <td valign="top"><span class="badge bg-success" style="font-size: 14px"> {{$masif->paket}}</span></td>
-                        </tr>
-                        <tr>
-                            <td valign="top"><h6>Harga Satuan</h6></td>
-                            <td valign="top"><h6>:</h6></td>
-                            <td valign="top"><h6 style="color: black">{{$masif->harga}}</h6></td>
-                        </tr>
-                        <tr>
-                            <td valign="top"><h6>Harga Total</h6></td>
-                            <td valign="top"><h6>:</h6></td>
-                            <td valign="top">
-                                @php
-                                $hargatotal = $masif->harga * $masif->qty;
-                                @endphp
-                                <h6 style="color: black">{{$hargatotal}}</h6>
+                            <td valign="top" valign="top"><h6>Data Pengunjung</h6></td>
+                            <td valign="top" valign="top"><h6>:</h6></td>
+                            <td valign="top" valign="top">
+                                @foreach($pengunjung as $data)
+                                <h6 style="color: black">
+                                {{$data->atas_nama}}</h6>
+                                @endforeach
                             </td>
                         </tr>
+                       
                     </table>
                 </div>
             </div>
             <div class="mt-4" id="tombol_bayar">
                 <center>
-                    <a href="{{route('pembayaran.store', $masif->id_masif)}}"  style="background-color: #2CF940;width:200px;" class="btn btn-success" id="pay-button">Buat Invoice</a>
+                    <a href="#"  style="background-color: #2CF940;width:200px;" class="btn btn-success" id="pay-button">Buat Invoice</a>
                 </center>
                
             </div>
