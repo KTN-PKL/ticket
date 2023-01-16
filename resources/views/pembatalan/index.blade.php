@@ -36,12 +36,13 @@
                                 @endif
                             </td>
                             <td>
+                                <input type="text" hidden id="id{{ $i }}" value="{{ $pembatalans->kode_tiket }}">
                                 <a href="{{route('pembatalan.detail', $pembatalans->kode_tiket)}}" class="btn btn-success"><i class="bi bi-eye"></i></a>
                                 @if($pembatalans->status == "process refund")
                                 <a href="https://api.whatsapp.com/send?phone=62{{$pembatalans->whatsapp}}&text=Kami%20dari%20admin%20ulinyuk.com" class="btn btn-primary" target="_blank">Hubungi</a>
-                                <a href="#" class="btn btn-danger" onclick="batalkan({{ $pembatalans->kode_tiket }})">Batalkan</a>
+                                <a href="#" class="btn btn-danger" onclick="batalkan({{ $i }})">Batalkan</a>
                                 @else
-                                <a href="#" class="btn btn-success" onclick="bukti({{ $pembatalans->kode_tiket }})">Bukti Refund</a>
+                                <a href="#" class="btn btn-success" onclick="bukti({{ $i }})">Bukti Refund</a>
                                 @endif
                             </td>
                         </tr>
@@ -94,7 +95,8 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <script>
     function batalkan(id)
     {
-        var action = "{{ url('pembatalan/batalkan') }}/" + id
+        var idt =  $("#id"+id).val();
+        var action = "{{ url('pembatalan/batalkan') }}/" + idt
         
         $("#exampleModalCenter").modal('show');
         $("#form").html(` <form enctype="multipart/form-data" method="post" action="`+action+`">
@@ -124,9 +126,10 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
     function bukti(id)
     {
+        var idt =  $("#id"+id).val();
         $("#exampleModalCenter").modal('show');
         document.getElementById("dld").style.display = "block";
-        $.get("{{ url('pembatalan/bukti') }}/" + id, {}, function(data, status) {
+        $.get("{{ url('pembatalan/bukti') }}/" + idt, {}, function(data, status) {
                 
                 $("#form").html(`
                 <center>
