@@ -58,7 +58,7 @@ class c_mitra extends Controller
             'kontak' => $request->kontak,
             'foto' => $filename,
             'level' => "mitra",
-            'status' => "active",
+            'account' => "active",
         ];
         $this->mitra->addDataUser($data);
         $user = $this->mitra->id($request->email);
@@ -122,7 +122,7 @@ class c_mitra extends Controller
 
     public function inactive($id_mitra)
     {
-        $data = ['status' => "inactive"];
+        $data = ['account' => "inactive"];
         $this->mitra->editUser($id_mitra, $data);
         return redirect()->route('mitra.akun')->with('create', 'Mitra Berhasil Dibuat');
     }
@@ -135,7 +135,7 @@ class c_mitra extends Controller
 
     public function active($id_mitra)
     {
-        $data = ['status' => "active"];
+        $data = ['account' => "active"];
         $this->mitra->editUser($id_mitra, $data);
         return redirect()->route('mitra.akun')->with('create', 'Mitra Berhasil Dibuat');
     }
