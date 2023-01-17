@@ -30,6 +30,7 @@ class invoice extends Controller
         $this->pembayaran = new pembayaran();
 		$this->tiket = new tiket();
 		$this->pesan_tiket = new pesan_tiket();
+		$this->pemesanan = new pemesanan();
     }
 
     public function _configureMidtrans()
@@ -146,7 +147,7 @@ class invoice extends Controller
 				'kode_tiket' => $kode,
 				'atas_nama' => $datas->atas_nama,
 				'whatsapp' => $datas->whatsapp,
-				'id_pengguna' => $datas->id_pengguna,
+				'id_pengguna' => $pembayaran->id_pengguna,
 				'qty' => 1,
 				'status' => "avaliable",
 				'id_paket' => $datas->id_paket,
