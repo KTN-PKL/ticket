@@ -240,14 +240,15 @@
 
 
     <div class="card-body">
-        {{-- @if ($order->payment_status == 1) --}}
+        
+
         <center>
+            @if ($pembayaran->status == "lunas")
             <button style="width:100%" class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
-        </center>
-           
-        {{-- @else
+            @else
             Pembayaran berhasil
-        @endif --}}
+            @endif
+        </center>
     </div>
 </div>
    
