@@ -12,7 +12,7 @@ class pesan_tiket extends Model
 
     public function allData()
     {
-        return DB::table('pembayarans')->join('pakets', 'pembayarans.id_paket', '=', 'pakets.id_paket')->join('wisatas', 'pakets.id_wisata', '=', 'wisatas.id_wisata')->get();
+        return DB::table('pembayarans')->join('pakets', 'pembayarans.id_paket', '=', 'pakets.id_paket')->join('wisatas', 'pakets.id_wisata', '=', 'wisatas.id_wisata')->join('users', 'pembayarans.id_pengguna', '=', 'users.id')->where('jenis', "personal")->get();
     }
     public function addData($data)
     {

@@ -38,21 +38,18 @@
                         <td>{{$i}}</td>
                         <td>{{$tiket->email}}</td>
                         <td>{{$tiket->wisata}}</td>
-                        <td>
-                            @if($tiket->status == "tertunda")
+                        <td>{{$tiket->status}}
+                            {{-- @if($tiket->status == "tertunda")
                             <span class="badge bg-primary">Process</span>
                             @else
                             <span class="badge bg-success">Success</span>
-                            @endif
+                            @endif --}}
                         </td>
                         <td>
-                            @php
-                                $id = str_replace("B", "",)
-                            @endphp
                             <input type="text" hidden id="id{{ $i }}" value="{{ $tiket->id_pembayaran }}">
                             <a href="#" onclick="invoice({{$i}})" class="btn btn-success btn-sm">Buat Invoice</a>
-                            <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                            <a href="{{route('tiketnormal.edit', $tiket->id_pembayaran)}}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm">Hapus Tiket</a>
                         </td>
                      </tr>
                      @endforeach

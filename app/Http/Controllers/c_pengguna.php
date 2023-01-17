@@ -46,7 +46,7 @@ class c_pengguna extends Controller
             'kontak' => $request->kontak,
             'foto' => $filename,
             'level' => "pengguna",
-            'status' => "active",
+            'account' => "active",
         ];
         $this->pengguna->addDataUser($data);
         $user = $this->pengguna->id($request->email);
@@ -84,7 +84,7 @@ class c_pengguna extends Controller
 
     public function inactive($id_pengguna)
     {
-        $data = ['status' => "inactive"];
+        $data = ['account' => "inactive"];
         $this->pengguna->editUser($id_pengguna, $data);
         return redirect()->route('pengguna')->with('success', 'Status Pengguna Dimatikan');
     }
@@ -97,7 +97,7 @@ class c_pengguna extends Controller
 
     public function active($id_pengguna)
     {
-        $data = ['status' => "active"];
+        $data = ['account' => "active"];
         $this->pengguna->editUser($id_pengguna, $data);
         return redirect()->route('pengguna')->with('success', 'Status Pengguna Diaktifkan');
     }
