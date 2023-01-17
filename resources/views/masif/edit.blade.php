@@ -85,11 +85,24 @@
                         <div class="form-group mandatory">
                           <label for="username" class="form-label">Harga</label>
                           <input type="number" id="harga" class="form-control" placeholder="Masukkan Harga Satuan" name="harga" @if ($masif->harga == null)
-                              @if ($N == "Saturday" || $N == "Sunday")
-                              value="{{ $masif->harga_wend }}"
-                              @else
-                              value="{{ $masif->harga_wday }}"
-                              @endif
+                              @php
+                              if ($N == "Saturday" || $N == "Sunday") {
+                              $harga = $masif->harga_wend;
+                              } else {
+                              $harga = $masif->harga_wday;
+                              }
+                              if ($masif->discount <> null && $masif->aktif == "aktif") {
+                                  if ($masif->jenis == "persen") {
+                                      $discount = ($masif->discount * $harga)/100;
+                                  } else {
+                                  $discount = $masif->discount;
+                                  }
+                                  $hasil = $harga -$discount;
+                              } else {
+                                   $hasil = $harga;
+                              }
+                              @endphp
+                              value = "{{ $hasil }}"
                           @else
                           value="{{ $masif->harga }}"
                           @endif

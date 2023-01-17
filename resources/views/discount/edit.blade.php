@@ -24,7 +24,7 @@
                                       <option disabled>-- Pilih Jenis --</option>
                                       <option @if ($discount->jenis == "persen")
                                         selected 
-                                      @endif value="pernsen">Persen</option>
+                                      @endif value="persen">Persen</option>
                                       <option @if ($discount->jenis == "nominal")
                                         selected 
                                       @endif  value="nominal">Nominal</option>

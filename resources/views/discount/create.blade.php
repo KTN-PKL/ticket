@@ -35,7 +35,7 @@
                                     <label for="kategori">Jenis Discount</label>
                                     <select type="text" class="form-select" name="jenis">
                                       <option selected disabled>-- Pilih Jenis --</option>
-                                      <option value="pernsen">Persen</option>
+                                      <option value="persen">Persen</option>
                                       <option value="nominal">Nominal</option>
                                     </select>
                                 </div>
