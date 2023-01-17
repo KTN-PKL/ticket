@@ -25,7 +25,7 @@ class pesan_tiket extends Model
 
     public function detailPaket($id_paket)
     {
-        return DB::table('pakets')->where('id_paket', $id_paket)->first();
+        return DB::table('pakets')->leftJoin('discounts', 'pakets.id_paket', '=', 'discounts.id_paket')->where('pakets.id_paket', $id_paket)->first();
     }
 
     public function detailPemesanan($id_pembayaran)
