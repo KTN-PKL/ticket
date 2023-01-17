@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('kontak');
             $table->string('foto');
             $table->string('level');
-            $table->string('status');
+            $table->string('account');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
