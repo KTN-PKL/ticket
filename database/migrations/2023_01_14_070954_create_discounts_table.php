@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('discount');
             $table->string('jenis', 10);
             $table->string('aktif', 10);
+            $table->date('dari');
+            $table->date('sampai');
             $table->timestamps();
         });
     }

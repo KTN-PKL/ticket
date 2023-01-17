@@ -46,6 +46,8 @@ class c_discount extends Controller
             'id_paket' => $request->id_paket,
             'jenis' => $request->jenis,
             'discount' => $request->discount,
+            'dari' => $request->dari,
+            'sampai' => $request->sampai,
             'aktif' => "aktif",];
         $this->discount->addData($data);
         return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Dibuat');
@@ -60,7 +62,9 @@ class c_discount extends Controller
     public function update(Request $request, $id_discount)
     {
         $data = ['jenis' => $request->jenis,
-            'discount' => $request->discount,];
+            'discount' => $request->discount,
+            'dari' => $request->dari,
+            'sampai' => $request->sampai,];
         $this->discount->editData($id_discount, $data);
         return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Diupdate');
     }

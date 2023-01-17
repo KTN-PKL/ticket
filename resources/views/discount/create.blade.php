@@ -43,6 +43,14 @@
                                     <label for="kategori">Discount</label>
                                     <input type="number" class="form-control" name="discount" placeholder="Masukan Discount">
                                 </div>
+                                <div class="form-group mandatory">
+                                    <label for="kategori">Rentang Waktu Discount</label>
+                                    <div class="input-group"> 
+                                    <input type="date" class="form-control" name="dari">
+                                    <span class="input-group-text">-</span>
+                                    <input type="date" class="form-control" name="sampai">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <center>
