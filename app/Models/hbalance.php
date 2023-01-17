@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class hbalance extends Model
 {
     use HasFactory;
-    
+
     public function mitraData($id_mitra)
     {
         return DB::table('hbalances')->where('id_mitra', $id_mitra)->get();
@@ -21,5 +21,9 @@ class hbalance extends Model
     public function addData($data)
     {
         DB::table('hbalances')->insert($data);
+    }
+    public function estimasi($id_mitra)
+    {
+        return DB::table('hbalances')->where('id_mitra', $id_mitra)->sum('hbalance');
     }
 }

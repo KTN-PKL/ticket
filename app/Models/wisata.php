@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class wisata extends Model
 {
     use HasFactory;
-    
+
     public function allData()
     {
         return DB::table('wisatas')->join('kategoris', 'wisatas.id_kategori', '=', 'kategoris.id_kategori')->get();
@@ -41,5 +41,10 @@ class wisata extends Model
     public function editData($id_wisata, $data)
     {
         DB::table('wisatas')->where('id_wisata', $id_wisata)->update($data);
+    }
+
+    public function desc($id_wisata)
+    {
+        DB::table('wisatas')->where('id_wisata', $id_wisata)->get();
     }
 }
