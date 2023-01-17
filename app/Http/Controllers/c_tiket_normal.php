@@ -42,7 +42,8 @@ class c_tiket_normal extends Controller
         $data = [
             'wisata' => $this->wisata->allData(),
             'pengguna'=>$this->pengguna->allData(),
-            'pesan_tiket'=>$this->pesan_tiket->detailPemesanan($id_pembayaran),
+            'pesan_tiket'=>$this->pesan_tiket->detailPembayaran($id_pembayaran),
+            'pengunjung'=>$this->pesan_tiket->detailPemesanan($id_pembayaran),
         ];
         return view('tiketnormal.edit', $data);
     }

@@ -14,7 +14,7 @@
                     </center>
                 </div>
                 <div class="card-body">
-                    <form  method="POST" action="{{route('tiketnormal.update')}}" class="form" data-parsley-validate>
+                    <form  method="POST" action="#" class="form" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">
@@ -23,8 +23,8 @@
                                     <label for="name" class="form-label">Email Pengguna</label>
                                     <select name="id_pengguna" id="nameid" class="js-example-responsive" style="width: 100%;" data-parsley-required="true">
                                         <option value="">-- Pilih Pengguna --</option>
-                                        @foreach($pengguna as $username)
-                                        <option value="{{ $username->id_pengguna }}" @if($username->id_pengguna == $pesan_tiket->id_pengguna)selected @endif>{{ $username->email }}</option>
+                                        @foreach($pengguna as $penggunas)
+                                        <option value="{{ $penggunas->id_pengguna }}" @if($penggunas->id_pengguna == $pesan_tiket->id_pengguna) selected @endif>{{ $penggunas->email }}</option>
                                         @endforeach
                                     </select>
                                 </div>

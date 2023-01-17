@@ -41,9 +41,9 @@
                             <td style="width:20%">{{$penggunas->email}}</td>
                             <td>{{$penggunas->kontak}}</td>
                             <td>
-                                @if($penggunas->status == "active")
+                                @if($penggunas->account == "active")
                                 <span class="badge bg-success"><i style="font-size: 18px" class="bi bi-patch-check"></i> Active</span>
-                                @elseif($penggunas->status == "inactive")
+                                @elseif($penggunas->account == "inactive")
                                 <span class="badge bg-danger"><i style="font-size: 18px" class="bi bi-x-circle"></i> Inactive</span>
                                 @endif
                             </td>
