@@ -51,7 +51,7 @@
                                 <a href="{{route('pengguna.detail', $penggunas->id_pengguna)}}" class="btn btn-success"><i class="bi bi-eye"></i></a>
                                 <a href="{{route('pengguna.edit', $penggunas->id_pengguna)}}"class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                                 <a href="{{route('pengguna.destroy', $penggunas->id_pengguna)}}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
-                                @if($penggunas->status == "active")
+                                @if($penggunas->account == "active")
                                 <a href="{{route('pengguna.inactive', $penggunas->id_pengguna)}}" class="btn btn-danger">Inactive</a>
                                 @else
                                 <a href="{{route('pengguna.active', $penggunas->id_pengguna)}}" class="btn btn-success">Active</a>

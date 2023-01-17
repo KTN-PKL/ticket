@@ -38,18 +38,26 @@
                         <td>{{$i}}</td>
                         <td>{{$tiket->email}}</td>
                         <td>{{$tiket->wisata}}</td>
-                        <td>{{$tiket->status}}
-                            {{-- @if($tiket->status == "tertunda")
-                            <span class="badge bg-primary">Process</span>
-                            @else
-                            <span class="badge bg-success">Success</span>
-                            @endif --}}
+                        <td>
+                           
+                            @if($tiket->status == "tertunda")
+                            <span class="badge bg-success">Process</span>
+                            @elseif($tiket->status == "lunas")
+                            <span class="badge bg-success">Paid</span>
+                            @endif
                         </td>
                         <td>
+                            @if($tiket->snap_token == null)
                             <input type="text" hidden id="id{{ $i }}" value="{{ $tiket->id_pembayaran }}">
                             <a href="#" onclick="invoice({{$i}})" class="btn btn-success btn-sm">Buat Invoice</a>
                             <a href="{{route('tiketnormal.edit', $tiket->id_pembayaran)}}" class="btn btn-primary btn-sm">Edit</a>
                             <a href="#" class="btn btn-danger btn-sm">Hapus Tiket</a>
+                            @elseif($tiket->snap_token <> null)
+                            <a href="{{route('invoice.show', $tiket->id_pembayaran)}}" target="_blank" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat Invoice</a>
+                            <a href="#" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus Invoice</a>
+                            @elseif($tiket->status="lunas")
+                            <span class="badge bg-success">Pembayaran Telah Dilakukan</span>
+                            @endif
                         </td>
                      </tr>
                      @endforeach

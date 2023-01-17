@@ -140,7 +140,13 @@
                             <tr>
                                 <td valign="top"><h6 class="title">Waktu Kunjungan</h6></td>
                                 <td valign="top"><h6>:</h6></td>
-                                <td valign="top"><h6 style="color: black">{{$pesan_masif->waktu_kunjungan}}</h6></td>
+                                <td valign="top"><h6 style="color: black">
+                                    @if($pembayaran->jenis == "masif")
+                                    {{$pesan_masif->waktu_kunjungan}}
+                                    @elseif($pembayaran->jenis =="personal")
+                                    {{$pemesanan->waktu_kunjungan}}
+                                    @endif
+                                </h6></td>
                             </tr>
                             <tr>
                                 <td valign="top"><h6 class="title">Jumlah Pengunjung</h6></td>
@@ -163,16 +169,17 @@
             <br>
            
         @if($pembayaran->jenis == "personal")
-        <table>
+        <table style="width:100%" >
             <tr>
                 <th><h6 class="header">No</h6></th>
                 <th><h6 class="header">Nama Pengunjung</h6></th> 
             </tr>
-            <tr>
+          
                 @php 
-                $i=1;
+                $i=0;
                 @endphp
                 @foreach($pengunjung as $data)
+            <tr>
                 @php
                 $i=$i+1;
                 @endphp
@@ -184,7 +191,7 @@
         <div class="pemisah" style="border-bottom:2px solid rgb(0, 174, 255);">
         </div>
        @endif
-
+        <br>
        <div class="detailPemesanan">
        
         <table style="width:100%">
@@ -212,7 +219,7 @@
                         @if($pembayaran->jenis == "masif")
                         @ {{$pesan_masif->harga}}
                     @elseif($pembayaran->jenis == "personal")
-                        @ {{$pembayaran->harga}}
+                        @ {{$pembayaran->total_harga}}
                     @endif
                     </h6>
                 </td>
