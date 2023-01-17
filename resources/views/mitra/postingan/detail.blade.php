@@ -1,4 +1,15 @@
-
+<style>
+    .sizingfont{
+        font-size:12px;
+    }
+    .coret{
+        color: red;
+    }
+    .harga{
+        font-size:14px;
+        color:green;
+    }
+</style>
 @extends('layouts.template')
 @section('content')
 <div class="col mt-2">
@@ -173,7 +184,39 @@
                                                         </div>
                                                     @endforeach
                                         </div>
-                                        
+                                        @php
+                                        $wday=$pakets->harga_wday - $pakets->discount;
+                                        $wend=$pakets->harga_wend - $pakets->discount;
+                                        @endphp
+                                        <h6 style="font-size:12px">Harga</h6>
+                                        <table>
+                                            <tr>
+                                                <td><h6 class="sizingfont">Weekday</h6></td>
+                                                <td><h6 class="sizingfont">:</h6></td>
+                                                <td>
+                                                    <h6 class="sizingfont">IDR 
+                                                    @if($pakets->discount == null)
+                                                    {{$pakets->harga_wday}}
+                                                    @else
+                                                    <s class="coret">{{$pakets->harga_wday}}</s> / <span class="harga">{{$wday}}
+                                                        @endif</span> 
+                                                    </h6>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><h6 class="sizingfont">Weekend</h6></td>
+                                                <td><h6 class="sizingfont">:</h6></td>
+                                                <td><h6 class="sizingfont">IDR
+                                                    @if($pakets->discount == null)
+                                                    {{$pakets->harga_wend}}
+                                                    @else
+                                                    <s class="coret">{{$pakets->harga_wend}}</s> / <span class="harga">{{$wend}}</span>
+                                                    @endif
+                                                    </h6>
+                                                </td>
+                                            </tr>
+                                           
+                                        </table>
                                     </div>
                             </div>
                             @endforeach
