@@ -37,6 +37,16 @@ class c_tiket_normal extends Controller
         return view('tiketnormal.create', $data);
     }
 
+    public function edit($id_pembayaran)
+    {
+        $data = [
+            'wisata' => $this->wisata->allData(),
+            'pengguna'=>$this->pengguna->allData(),
+            'pesan_tiket'=>$this->pesan_tiket->detailPemesanan($id_pembayaran),
+        ];
+        return view('tiketnormal.edit', $data);
+    }
+
     public function paket($id_wisata)
     {
         $data = [
@@ -97,14 +107,7 @@ class c_tiket_normal extends Controller
         
     }
 
-    public function edit()
-    {
-        $data = [
-            'wisata' => $this->wisata->allData(),
-            'pengguna'=>$this->pengguna->allData(),
-        ];
-        return view('tiketnormal.edit', $data);
-    }
+
 
    
     

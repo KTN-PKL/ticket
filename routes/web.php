@@ -180,6 +180,8 @@ Route::controller(c_pembayaran::class)->middleware('auth')->group(function () {
 Route::controller(c_tiket_normal::class)->middleware('auth')->group(function () {
     Route::get('/tiketnormal', 'index')->name('tiketnormal');
     Route::get('/tiketnormal/create', 'create')->name('tiketnormal.create');
+    Route::get('/tiketnormal/edit/{id}', 'edit')->name('tiketnormal.edit');
+    Route::post('/tiketnormal/update/{id}', 'update')->name('tiketnormal.update');
     Route::get('/tiketnormal/paket/{id}', 'paket')->name('tiketnormal.paket');
     Route::post('/tiketnormal/store', 'store')->name('tiketnormal.store');
     Route::get('/tiketnormal/invoice/{id}', 'invoice')->name('tiketnormal.invoice');
