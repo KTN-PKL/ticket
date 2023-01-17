@@ -69,12 +69,20 @@
                 </a>
             </li>
             <li
-                class="sidebar-item {{request()->routeIs('masif*') ? 'active' : ''}} ">
-                <a href="{{route('masif')}}" class='sidebar-link'>
-                    <i class="bi bi-ticket"></i>
-                    <span>Tiket Masif</span>
-                </a>
-            </li>
+            class="sidebar-item  {{request()->routeIs('datamaster*') ? 'active' : ''}} has-sub ">
+            <a href="#" class='sidebar-link '>
+                <i class="bi bi-stack"></i>
+                <span>Tiket</span>
+            </a>
+            <ul class="submenu">
+                <li class="submenu-item">
+                    <a href="{{route('tiketnormal')}}">Tiket Personal</a>
+                </li>
+                <li class="submenu-item ">
+                    <a href="{{route('masif')}}">Tiket Masif</a>
+                </li>
+            </ul>
+        </li>
             <li class="sidebar-item {{request()->routeIs('pembatalan*') ? 'active' : ''}}">
                 <a href="{{route('pembatalan')}}" class='sidebar-link'>
                     <i class="bi bi-clipboard2-x-fill"></i>

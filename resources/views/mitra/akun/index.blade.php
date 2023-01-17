@@ -33,7 +33,7 @@
                             <td>{{$mitras->email}}</td>
                             <td>{{$mitras->username}}</td>
                             <td>
-                                @if ($mitras->status == "active")
+                                @if ($mitras->account == "active")
                                 <span class="badge bg-success">Active</span>
                                 @else
                                 <span class="badge bg-danger">Inactive</span>
@@ -43,7 +43,7 @@
                                 <a href="{{route('mitra.akun.detail', $mitras->id_mitra)}}" class="btn btn-success"><i class="bi bi-eye"></i></a>
                                 <a href="{{route('mitra.akun.edit', $mitras->id_mitra) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                                 <a href="{{route('mitra.akun.destroy', $mitras->id_mitra) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
-                                @if($mitras->status == "active")
+                                @if($mitras->account == "active")
                                 <a href="{{route('mitra.akun.inactive', $mitras->id_mitra)}}" class="btn btn-danger">Inactive</a>
                                 @else
                                 <a href="{{route('mitra.akun.active', $mitras->id_mitra)}}" class="btn btn-success">Active</a>
