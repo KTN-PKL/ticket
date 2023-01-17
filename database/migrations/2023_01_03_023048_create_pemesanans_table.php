@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('id_paket');
             $table->date('waktu_kunjungan');
             $table->string('atas_nama');
+            $table->string('harga');
             $table->string('id_pembayaran');
             $table->string('whatsapp');
             $table->timestamps();

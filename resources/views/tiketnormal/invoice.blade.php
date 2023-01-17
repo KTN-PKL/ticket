@@ -59,6 +59,11 @@
                                 @endforeach
                             </td>
                         </tr>
+                        <tr>
+                            <td valign="top"><h6>Total Harga</h6></td>
+                            <td valign="top"><h6>:</h6></td>
+                            <td valign="top"><h6 style="color: black">IDR {{$pembayaran->total_harga}}</h6></td>
+                        </tr>
                        
                     </table>
                 </div>
