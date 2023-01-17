@@ -80,7 +80,17 @@ class c_tiket_normal extends Controller
         } else {
             $harga = $paket->harga_wday;
         }
-        $total_harga=$harga * $jumlah;
+        if ($paket->discount <> null && $paket->aktif == "aktif") {
+            if ($paket->jenis == "persen") {
+                $discount = ($paket->discount * $harga)/100;
+            } else {
+                $discount = $paket->discount;
+            }
+            $hasil = $harga -$discount;
+        } else {
+            $hasil = $harga;
+        }
+        $total_harga=$hasil * $jumlah;
 
         for ($i=0; $i < $request->jumlah; $i++) { 
             $data = [
@@ -89,6 +99,7 @@ class c_tiket_normal extends Controller
                 'whatsapp' => $request->whatsapp,
                 'id_paket'=>$request->id_paket,
                 'id_pembayaran'=>$id_pembayaran,
+                'harga' =>$hasil,
             ];
             $this->pesan_tiket->addData($data);
         }  
