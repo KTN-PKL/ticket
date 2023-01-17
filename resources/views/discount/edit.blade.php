@@ -38,6 +38,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group mandatory">
+                            <label for="kategori">Rentang Waktu Discount</label>
+                            <div class="input-group"> 
+                            <input type="date" class="form-control" name="dari" value="{{ $discount->dari }}">
+                            <span class="input-group-text">-</span>
+                            <input type="date" class="form-control" name="sampai" value="{{ $discount->dari }}>
+                            </div>
+                        </div>
                         <center>
                         <div class="mt-4" id="tombol_create">
                             <input class="btn btn-primary" type="submit" value="Edit">
