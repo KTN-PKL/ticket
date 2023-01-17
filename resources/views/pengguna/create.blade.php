@@ -67,16 +67,12 @@
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
-                                  <div class="input-group mb-3">
-                                    <label for="kontak">Whatsapp</label>
-                                    <span class="input-group-text" id="basic-addon1">+62</span>
-                                    <input type="number" name="kontak" class="form-control @error('kontak') is-invalid @enderror" placeholder="81286216470" value="{{old('kontak')}}">
-                                </div>
-                                  @error('kontak')
-                                      <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                      </span>
-                                    @enderror
+                                    <label for="whatsapp" class="form-label">Whatsapp</label>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon1">+62</span>
+                                      <input type="number" name="kontak" class="form-control @error('kontak') is-invalid @enderror" placeholder="81286216470" value="{{old('kontak')}}">
+                                  </div>
+                                  
                                 </div>
                                 <div class="form-group">
                                   <label for="foto" class="form-label">Upload Foto</label>

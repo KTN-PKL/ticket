@@ -238,7 +238,6 @@
                                     <div id="plus{{ $a }}0{{ $b }}"></div>
                                     @else
                                     @if ($b <> 1)
-                                  </div> 
                                     @endif
                                     @endif
                                     @endforeach
@@ -250,6 +249,8 @@
                                             <strong>{{ $message }}</strong>
                                           </span>
                                      @enderror
+                                  </div> 
+                                    
                                      <center>
                                       <div class="col-md-4">
                                       <a id="tp{{ $a }}" class="btn btn-success" onclick="tambahpaket({{ $a }})" @if ($a <> $jp)
@@ -279,16 +280,17 @@
                                 </div>
                                 </div>
                             </div>
+                            <center>
+                              <div class="mt-4" id="tombol_create">
+                                  <input class="btn btn-primary" type="submit" value="Edit">
+                              </div>
+                              </center>
+                          </form> 
                           </div>
 
                       
 
-                          <center>
-                            <div class="mt-4" id="tombol_create">
-                                <input class="btn btn-primary" type="submit" value="Edit">
-                            </div>
-                            </center>
-                        </form> 
+                        
                         
                         </div>
             </div>

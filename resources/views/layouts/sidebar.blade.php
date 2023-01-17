@@ -43,6 +43,9 @@
                 <li class="submenu-item ">
                     <a href="{{route('datamaster.fasilitas')}}">Fasilitas</a>
                 </li>
+                <li class="submenu-item ">
+                    <a href="{{route('datamaster.discount')}}">Diskon</a>
+                </li>
             </ul>
         </li>
             
@@ -69,7 +72,7 @@
                 </a>
             </li>
             <li
-            class="sidebar-item  {{request()->routeIs('datamaster*') ? 'active' : ''}} has-sub ">
+            class="sidebar-item has-sub ">
             <a href="#" class='sidebar-link '>
                 <i class="bi bi-stack"></i>
                 <span>Tiket</span>
