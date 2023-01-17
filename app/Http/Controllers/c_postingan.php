@@ -187,7 +187,7 @@ class c_postingan extends Controller
         $i = 0;
         foreach ($paket as $pkt) {  
         if ($i < $request->jp) {
-            $k = $i + 1;
+            $k = $i;
             $fitur = $request->{"fitur".$k};
             if ($request->{"jftr".$i} <> 1) {
             for ($j=1; $j < $request->{"jftr".$i} ; $j++) { 
@@ -203,8 +203,25 @@ class c_postingan extends Controller
             $this->paket->editData($pkt->id_paket, $data);
         } else {
             $this->paket->deleteData($pkt->id_paket);
+            break;
         }
         $i = $i + 1;
+        }
+        if ($i < $request->jp) {
+            $fitur = $request->{"fitur".$i};
+            if ($request->{"jftr".$i} <> 1) {
+            for ($j=1; $j < $request->{"jftr".$i} ; $j++) { 
+                $fitur = $fitur."+".$request->{"fitur".$i."-".$j};
+            }
+            }
+            $data = [
+                'id_wisata' => $id_wisata,
+                'fitur' => $fitur,
+                'paket' => $request->{"paket".$i},
+                'harga_wday' => $request->{"harga_wday".$i},
+                'harga_wend' => $request->{"harga_wend".$i},
+            ];
+            $this->paket->addData($data);
         }
         $id = $this->wisata->detailData($id_wisata);
         return redirect()->route('mitra.postingan', $id->id_mitra)->with('success', 'Mitra Berhasil Diupdate');

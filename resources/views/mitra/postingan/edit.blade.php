@@ -205,7 +205,6 @@
                                     @endphp
                                     <input type="text" name="jftr{{ $a }}" value="{{ $jftr }}" id="jftr{{ $a }}" hidden>
                                     @php
-                                    $a = $a + 1;
                                     $b = 0;
                                    @endphp
                       
@@ -243,6 +242,9 @@
                                     @endif
                                     @endif
                                     @endforeach
+                                    @php
+                                         $a = $a + 1;
+                                    @endphp
                                      @error('fitur')
                                           <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
