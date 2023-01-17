@@ -14,13 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pembayarans', function (Blueprint $table) {
-            $table->id('id_pembayaran');
+            $table->string('id_pembayaran')->primary();
             $table->string('id_pengguna');
             $table->string('id_paket');
             $table->string('email');
             $table->string('qty');
             $table->string('total_harga');
             $table->string('status');
+            $table->string('jenis');
+            $table->string('snap_token', 36)->nullable();
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Models\pesan_masif;
 use App\Models\kategori;
 use App\Models\wisata;
 use App\Models\paket;
+use App\Models\pembayaran;
 
 class c_tiket_masif extends Controller
 {
@@ -16,6 +17,7 @@ class c_tiket_masif extends Controller
         $this->pesan_masif = new pesan_masif();
         $this->kategori = new kategori();
         $this->wisata = new wisata();
+        $this->pembayaran = new pembayaran();
     }
     public function index()
     {
@@ -51,7 +53,17 @@ class c_tiket_masif extends Controller
         } else {
             $harga = $paket->harga_wday;
         }
-        return $harga;
+        if ($paket->discount <> null && $paket->aktif == "aktif") {
+            if ($paket->jenis == "persen") {
+                $discount = ($paket->discount * $harga)/100;
+            } else {
+                $discount = $paket->discount;
+            }
+            $hasil = $harga -$discount;
+        } else {
+            $hasil = $harga;
+        }
+        return $hasil;
     }
     public function update(Request $request, $id_masif)
     {
@@ -67,6 +79,14 @@ class c_tiket_masif extends Controller
         return redirect()->route('masif');
     }
 
+    public function detail($id_masif)
+    {
+        $data = ['masif' => $this->pesan_masif->detailData($id_masif),
+                ];
+        
+        return view ('masif.detail', $data);
+    }
+
     public function invoice($id_masif)
     {
         $data = ['masif' => $this->pesan_masif->detailData($id_masif),
@@ -74,4 +94,25 @@ class c_tiket_masif extends Controller
         
         return view ('masif.invoice', $data);
     }
+
+    public function hubungi($id_masif)
+    {
+        $data = ['masif' => $this->pesan_masif->hubungiData($id_masif),
+                ];
+        
+        return view ('masif.hubungi', $data);
+    }
+
+     public function terima($id_masif)
+    {
+        $data = ['stat' => "process"];
+        $this->pesan_masif->editData($id_masif, $data);
+        return redirect()->route('masif')->with('success', 'Pesanan Tiket Masif Telah Diterima');
+    }
+
+    // public function hapusInvoice($id_pembayaran)
+    // {
+    //     $this->pembayaran->deleteData($id_pembayaran);
+    //     return  redirect()->route('masif')->with('success', 'Invoice Berhasil dihapus');
+    // }
 }

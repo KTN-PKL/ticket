@@ -12,6 +12,10 @@ use App\Http\Controllers\c_beritainformasi;
 use App\Http\Controllers\c_profil;
 use App\Http\Controllers\c_pembatalan;
 use App\Http\Controllers\c_tiket_masif;
+use App\Http\Controllers\c_pembayaran;
+use App\Http\Controllers\c_tiket_normal;
+use App\Http\Controllers\invoice;
+use App\Http\Controllers\c_discount;
 
 
 /*
@@ -70,6 +74,15 @@ Route::controller(c_tiket_masif::class)->middleware('auth')->group(function () {
     Route::post('/masif/update/{id}', 'update')->name('masif.update');
     Route::get('/masif/detail/{id}', 'detail')->name('masif.detail');
     Route::get('/masif/invoice/{id}', 'invoice')->name('masif.invoice');
+    Route::get('/masif/hubungi/{id}', 'hubungi')->name('masif.hubungi');
+    Route::get('/masif/terima/{id}', 'terima')->name('masif.terima');
+    // Route::get('/masif/hapusinvoice/{id}', 'hapusInvoice')->name('masif.hapusinvoice');
+
+});
+Route::controller(invoice::class)->group(function () {
+    Route::get('/invoice/store/{id}', 'store')->name('invoice.store')->middleware('auth');
+    Route::get('/invoicenormal/store/{id}', 'store2')->name('invoice.store2')->middleware('auth');
+    Route::get('/invoice/show/{id}', 'show')->name('invoice.show');
 });
 
 Route::controller(c_pengguna::class)->middleware('auth')->group(function () {
@@ -121,6 +134,18 @@ Route::controller(c_fasilitas::class)->middleware('auth')->group(function () {
     Route::post('/datamaster/fasilitas/update/{id}', 'update')->name('datamaster.fasilitas.update');
     Route::get('/datamaster/fasilitas/destroy/{id}', 'destroy')->name('datamaster.fasilitas.destroy');
 });
+Route::controller(c_discount::class)->middleware('auth')->group(function () {
+    Route::get('/datamaster/discount', 'index')->name('datamaster.discount');
+    Route::post('/datamaster/discount/store', 'store')->name('datamaster.discount.store');
+    Route::get('/datamaster/discount/create', 'create')->name('datamaster.discount.create');
+    Route::get('/datamaster/discount/cwisata/{id}', 'cwisata')->name('datamaster.discount.cwisata');
+    Route::get('/datamaster/discount/cpaket/{id}', 'cpaket')->name('datamaster.discount.cpaket');
+    Route::get('/datamaster/discount/edit/{id}', 'edit')->name('datamaster.discount.edit');
+    Route::post('/datamaster/discount/update/{id}', 'update')->name('datamaster.discount.update');
+    Route::get('/datamaster/discount/aktif/{id}', 'aktif')->name('datamaster.discount.aktif');
+    Route::get('/datamaster/discount/inaktif/{id}', 'inaktif')->name('datamaster.discount.inaktif');
+    Route::get('/datamaster/discount/destroy/{id}', 'destroy')->name('datamaster.discount.destroy');
+});
 
 Route::controller(c_feedback::class)->middleware('auth')->group(function () {
     Route::get('/feedback', 'index')->name('feedback');
@@ -145,4 +170,19 @@ Route::controller(c_pembatalan::class)->middleware('auth')->group(function () {
     Route::get('/pembatalan/bukti/{id}', 'bukti')->name('pembatalan.bukti');
    
    
+});
+
+Route::controller(c_pembayaran::class)->middleware('auth')->group(function () {
+    Route::get('/pembayaran', 'index')->name('pembayaran');
+    Route::get('/pembayaran/store/{id}', 'store')->name('pembayaran.store');
+});
+
+Route::controller(c_tiket_normal::class)->middleware('auth')->group(function () {
+    Route::get('/tiketnormal', 'index')->name('tiketnormal');
+    Route::get('/tiketnormal/create', 'create')->name('tiketnormal.create');
+    Route::get('/tiketnormal/edit/{id}', 'edit')->name('tiketnormal.edit');
+    Route::post('/tiketnormal/update/{id}', 'update')->name('tiketnormal.update');
+    Route::get('/tiketnormal/paket/{id}', 'paket')->name('tiketnormal.paket');
+    Route::post('/tiketnormal/store', 'store')->name('tiketnormal.store');
+    Route::get('/tiketnormal/invoice/{id}', 'invoice')->name('tiketnormal.invoice');
 });

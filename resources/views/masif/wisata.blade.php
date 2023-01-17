@@ -1,6 +1,6 @@
 <label>Wisata</label>
 <select type="text" id="id_wisata" onchange="readpaket({{ $masif->id_masif }})" class="form-select" >
-  <option selected disabled>-- Pilih Kategori --</option>
+  <option selected disabled>-- Pilih Wisata --</option>
    @foreach($wisata as $wisatas)
   <option value="{{$wisatas->id_wisata}}" @if ($wisatas->id_wisata == $masif->id_wisata)   
     selected

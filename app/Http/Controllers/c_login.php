@@ -40,8 +40,6 @@ class c_login extends Controller
 
     public function logout(Request $request)
     {
-        // Auth::logout();
-        // $request->session()->flush();
         Auth::logout();
  
         $request->session()->invalidate();

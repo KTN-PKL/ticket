@@ -51,34 +51,37 @@
                                 @if($masifs->stat == "request")
                                 <span class="badge bg-warning">Request</span>
                                 @elseif($masifs->stat == "process")
-                                <span class="badge bg-primary">Process</span>
+                                <span class="badge bg-secondary">Process</span>
                                 @elseif($masifs->stat == "accepted")
-                                <span class="badge bg-success">Accepted</span>
+                                <span class="badge bg-primary">Accepted</span>
+                                @elseif($masifs->stat == "paid")
+                                <span class="badge bg-success">Paid</span>
                                 @else
                                 <span class="badge bg-danger">Paid off</span>
                                 @endif
                             </td>
-                            <td style="width:30%">
+                            <td style="width:40%">
                                 @if($masifs->stat == "request")
-                                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-whatsapp"></i>Hubungi</a>
-                                <a href="#" class="btn btn-primary"> <i class="bi bi-pencil-square"></i>Edit</a>
-                                <a href="" class="btn btn-success">Terima</a>
+                                <a href="#" onclick="hubungiMitra({{$masifs->id_masif}})" class="btn btn-success"><i class="bi bi-whatsapp"></i>Hubungi Mitra</a>
+                                <a href="{{route('masif.edit', $masifs->id_masif)}}" class="btn btn-primary"> <i class="bi bi-pencil-square"></i>Edit</a>
+                                <a href="{{route('masif.terima', $masifs->id_masif)}}" class="btn btn-success">Terima</a>
                                 @elseif($masifs->stat == "process")
                                 <a href="#" class="btn btn-success" onclick="invoice({{$masifs->id_masif}})">Buat Invoice</a>
                                 <a href="{{route('masif.edit', $masifs->id_masif)}}" class="btn btn-warning"> <i class="bi bi-pencil-square"></i>Edit</a>
-                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
+                                <a href="{{route('masif.detail', $masifs->id_masif)}}" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
                                 @elseif($masifs->stat == "accepted")
-                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
-                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus</a>
+                                <a href="{{route('invoice.show', $masifs->id_pembayaran)}}" target="_blank" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat Invoice</a>
+                                <a href="#" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus Invoice</a>
                                 @else
-                                <a href="" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat</a>
-                                <a href="" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus</a>
+                                <a href="{{route('invoice.show', $masifs->id_pembayaran)}}" target="_blank" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat Invoice</a>
+                                <a href="#" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus Invoice</a>
                                  @endif
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <a href="#"> <i class="bi bi-exclamation-circle"></i></a>
             </div>
         </div>
 
@@ -104,7 +107,35 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-body">
             <section class="section">
                 <div class="col-md-12">
-                    <div id="invoice" class="card mt-2" style="margin-left:2em;margin-right:2em;"> 
+                    <div id="form" class="card mt-2" style="margin-left:2em;margin-right:2em;"> 
+                        
+                       
+                    </div> 
+                </div>
+               
+        
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenter2Title" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+    role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenter2Title">
+            </h5>
+            <button type="button" class="close" data-bs-dismiss="modal"
+                aria-label="Close">
+                <i data-feather="x"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <section class="section">
+                <div class="col-md-12">
+                    <div id="hubungi" class="card mt-2" style="margin-left:2em;margin-right:2em;"> 
                         
                        
                     </div> 
@@ -124,8 +155,22 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         $("#exampleModalCenter").modal('show');
         $.get("{{ url('masif/invoice') }}/" + id, {}, function(data, status) {
                 
-                $("#invoice").html(data);
+                $("#form").html(data);
                
             });
     }
+
+    function hubungiMitra(id)
+    {
+        $("#exampleModalCenter2").modal('show');
+        $.get("{{ url('masif/hubungi') }}/" + id, {}, function(data, status) {
+                
+                $("#hubungi").html(data);
+               
+            });
+    }
+
+   
+
+
 </script>

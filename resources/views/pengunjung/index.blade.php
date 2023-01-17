@@ -26,7 +26,7 @@
                                 echo $i;
                             @endphp</td>
                             <td style="width:32%">{{ $mitras->name }}</td>
-                            <td>@php $jumlahchekin = number_format($mitras->jumlahchekin,0,",","."); echo $jumlahchekin; @endphp</td>
+                            <td>@php $jumlahchekin = number_format($mitras->jumlahchekin,0,",","."); echo $jumlahchekin; @endphp <i class="bi bi-people"></i></td>
                             <td style="width:18%">@php
                                 $balance = number_format($mitras->balance,0,",",".");
                                 echo "Rp.".$balance.",-";
