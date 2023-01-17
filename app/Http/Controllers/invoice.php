@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\pembayaran;
 use App\Models\pesan_masif;
 use App\Models\tiket;
+use App\Models\pemesanan;
 use App\Models\pesan_tiket;
-use App\Services\Midtrans\CreateSnapTokenService;
 use Midtrans\Config;
 use Midtrans\Snap;
 
@@ -137,6 +137,24 @@ class invoice extends Controller
 				'harga' => $pembayaran->total_harga,
 			];
 			$this->tiket->addData($data);
+		} else {
+			$isi = $this->pemesanan->pembayaranData($id);
+			foreach ($isi as $datas) {
+			$t = str_replace("-","",$datas->waktu_kunjungan);
+			$kode = "ET-".$datas->id_pemesanan.$id."-".$datas->id_kategori.$datas->id_wisata.$datas->id_paket."-".$t;
+			$data = [
+				'kode_tiket' => $kode,
+				'atas_nama' => $datas->atas_nama,
+				'whatsapp' => $datas->whatsapp,
+				'id_pengguna' => $datas->id_pengguna,
+				'qty' => 1,
+				'status' => "avaliable",
+				'id_paket' => $datas->id_paket,
+				'waktu_kunjungan' => $datas->waktu_kunjungan,
+				'harga' => $datas->harga,
+			];
+			$this->tiket->addData($data);
+			}
 		}
 	}
     public function callback(Request $request)
@@ -146,8 +164,11 @@ class invoice extends Controller
             if ($request->transaction_status == "capture") {
                 $data = ['status' => "lunas"];
                 $this->pembayaran->editData($request->order_id, $data);
-				$data = ['stat' => "paid"];
-				$this->pesan_masif->editData($request->order_id, $data);
+				$pembayaran = $this->pembayaran->detailData($request->order_id);
+				if ($pembayaran->jenis == "masif") {
+					$data = ['stat' => "paid"];
+					$this->pesan_masif->editData($request->order_id, $data);
+				}
 				$this->buattiket($request->order_id);
             }
         }
