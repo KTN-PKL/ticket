@@ -56,7 +56,7 @@
                             <a href="{{route('invoice.show', $tiket->id_pembayaran)}}" target="_blank" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat Invoice</a>
                             <a href="#" class="btn btn-danger"> <i class="bi bi-trash"></i>Hapus Invoice</a>
                             @elseif($tiket->status="lunas")
-                            <span class="badge bg-success">Pembayaran Telah Dilakukan</span>
+                            <a href="{{route('invoice.show', $tiket->id_pembayaran)}}" target="_blank" class="btn btn-primary"> <i class="bi bi-eye"></i>Lihat Invoice</a>
                             @endif
                         </td>
                      </tr>
