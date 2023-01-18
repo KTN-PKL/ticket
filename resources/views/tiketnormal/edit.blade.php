@@ -48,10 +48,11 @@
                             <div class="col-md-6">
                                 <div class="form-group mandatory">
                                     <label for="" class="form-label">Tujuan Wisata</label>
-                                    <select name="wisata" id="id_wisata" class="js-example-responsive" style="width: 100%;" onchange="readpaket()" data-parsley-required="true">
+                                    <select name="wisata" id="id_wisata" class="js-example-responsive" style="width: 100%;" onchange="readpaket($pengunjung->)" data-parsley-required="true">
                                         <option value="" disabled selected >-- Pilih Tujuan Wisata</option>
                                         @foreach($wisata as $wisatas)
-                                        <option value="{{ $wisatas->id_wisata }}">{{ $wisatas->wisata }}</option>
+                                        <option value="{{ $wisatas->id_wisata }}" @if($pesan_tiket->id_wisata == $wisatas->id_wisata) selected 
+                                            @endif>{{ $wisatas->wisata }}</option>
                                         @endforeach
                                     </select>
                                 </div>
