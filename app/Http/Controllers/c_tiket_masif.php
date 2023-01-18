@@ -53,6 +53,7 @@ class c_tiket_masif extends Controller
         } else {
             $harga = $paket->harga_wday;
         }
+        
         if ($paket->discount <> null && $paket->aktif == "aktif") {
             if ($paket->jenis == "persen") {
                 $discount = ($paket->discount * $harga)/100;
