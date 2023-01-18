@@ -43,7 +43,7 @@
                             <div class="input-group"> 
                             <input type="date" class="form-control" name="dari" value="{{ $discount->dari }}">
                             <span class="input-group-text">-</span>
-                            <input type="date" class="form-control" name="sampai" value="{{ $discount->dari }}>
+                            <input type="date" class="form-control" name="sampai" value="{{ $discount->sampai }}">
                             </div>
                         </div>
                         <center>
