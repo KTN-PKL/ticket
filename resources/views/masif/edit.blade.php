@@ -86,12 +86,14 @@
                           <label for="username" class="form-label">Harga</label>
                           <input type="number" id="harga" class="form-control" placeholder="Masukkan Harga Satuan" name="harga" @if ($masif->harga == null)
                               @php
+                              date_default_timezone_set("Asia/Jakarta");
+                              $t = date("Y-m-d");
                               if ($N == "Saturday" || $N == "Sunday") {
                               $harga = $masif->harga_wend;
                               } else {
                               $harga = $masif->harga_wday;
                               }
-                              if ($masif->discount <> null && $masif->aktif == "aktif") {
+                              if ($masif->discount <> null && $t >= $masif->dari && $t <= $masif->sampai) {
                                   if ($masif->jenis == "persen") {
                                       $discount = ($masif->discount * $harga)/100;
                                   } else {

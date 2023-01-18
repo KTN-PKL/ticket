@@ -54,7 +54,9 @@ class c_tiket_masif extends Controller
             $harga = $paket->harga_wday;
         }
         
-        if ($paket->discount <> null && $paket->aktif == "aktif") {
+        date_default_timezone_set("Asia/Jakarta");
+        $t = date("Y-m-d");
+        if ($paket->discount <> null && $t >= $paket->dari && $t <= $paket->sampai) {
             if ($paket->jenis == "persen") {
                 $discount = ($paket->discount * $harga)/100;
             } else {
