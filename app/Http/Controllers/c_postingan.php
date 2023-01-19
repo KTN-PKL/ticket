@@ -130,7 +130,7 @@ class c_postingan extends Controller
             'fasilitas_wisata' => $this->fasilitas_wisata->wisataData($id_wisata),
             'jam_buka' => $this->jam_buka->wisataData($id_wisata),
             'fotowisata' => $this->fotowisata->wisataData($id_wisata),
-            'paket' => $this->paket->wisataData($id_wisata),
+            'paket' => $this->paket->wisataDatad($id_wisata),
             'kategori' => $this->kategori->allData(),
             'fasilitas' => $this->fasilitas->allData(),
         ];

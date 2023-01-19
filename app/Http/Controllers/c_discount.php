@@ -48,7 +48,7 @@ class c_discount extends Controller
             'discount' => $request->discount,
             'dari' => $request->dari,
             'sampai' => $request->sampai,
-            'aktif' => "aktif",];
+            ];
         $this->discount->addData($data);
         return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Dibuat');
     }
@@ -65,20 +65,6 @@ class c_discount extends Controller
             'discount' => $request->discount,
             'dari' => $request->dari,
             'sampai' => $request->sampai,];
-        $this->discount->editData($id_discount, $data);
-        return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Diupdate');
-    }
-
-    public function aktif($id_discount)
-    {
-        $data = ['aktif' => "aktif"];
-        $this->discount->editData($id_discount, $data);
-        return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Diupdate');
-    }
-
-    public function inaktif($id_discount)
-    {
-        $data = ['aktif' => "inaktif"];
         $this->discount->editData($id_discount, $data);
         return redirect()->route('datamaster.discount')->with('success', 'discount Berhasil Diupdate');
     }

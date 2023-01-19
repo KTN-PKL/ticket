@@ -142,8 +142,6 @@ Route::controller(c_discount::class)->middleware('auth')->group(function () {
     Route::get('/datamaster/discount/cpaket/{id}', 'cpaket')->name('datamaster.discount.cpaket');
     Route::get('/datamaster/discount/edit/{id}', 'edit')->name('datamaster.discount.edit');
     Route::post('/datamaster/discount/update/{id}', 'update')->name('datamaster.discount.update');
-    Route::get('/datamaster/discount/aktif/{id}', 'aktif')->name('datamaster.discount.aktif');
-    Route::get('/datamaster/discount/inaktif/{id}', 'inaktif')->name('datamaster.discount.inaktif');
     Route::get('/datamaster/discount/destroy/{id}', 'destroy')->name('datamaster.discount.destroy');
 });
 

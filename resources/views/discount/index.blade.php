@@ -23,7 +23,7 @@
                             <th>Nama Paket</th>
                             <th>Jenis Dicount</th>
                             <th>Dicount</th>
-                            <th>Status Discount</th>
+                            <th>Waktu Discount</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -34,15 +34,10 @@
                             <td>{{$item->paket}}</td>
                             <td>{{$item->jenis}}</td>
                             <td>{{$item->discount}}</td>
-                            <td>{{$item->aktif}}</td>
+                            <td>{{$item->dari}}-{{ $item->sampai }}</td>
                             <td>
                                 <a href="{{route('datamaster.discount.edit', $item->id_discount) }}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i></a>
                                 <a href="{{route('datamaster.discount.destroy', $item->id_discount) }}" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
-                                @if ($item->aktif == "aktif")
-                                <a href="{{route('datamaster.discount.inaktif', $item->id_discount) }}" class="btn btn-sm btn-warning">inaktif</a>
-                                @else
-                                <a href="{{route('datamaster.discount.aktif', $item->id_discount) }}" class="btn btn-sm btn-success">aktif</a> 
-                                @endif
                             </td>
                           
                         </tr>

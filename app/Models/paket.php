@@ -15,6 +15,11 @@ class paket extends Model
         return DB::table('pakets')->where('id_wisata', $id_wisata)->get();
     }
 
+    public function wisataDatad($id_wisata)
+    {
+        return DB::table('pakets')->leftJoin('discounts', 'pakets.id_paket', '=', 'discounts.id_paket')->where('id_wisata', $id_wisata)->get();
+    }
+
     public function addData($data)
     {
         DB::table('pakets')->insert($data);

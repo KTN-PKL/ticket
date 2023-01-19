@@ -164,6 +164,10 @@
 
                             <br><br>
 
+                            @php
+                                date_default_timezone_set("Asia/Jakarta");
+                                $t = date("Y-m-d");
+                            @endphp         
                             @foreach($paket as $pakets)
                             <div style="border:1px solid grey;border-radius:5%;margin-top:1em">                                
                                 <center>
@@ -195,10 +199,10 @@
                                                 <td><h6 class="sizingfont">:</h6></td>
                                                 <td>
                                                     <h6 class="sizingfont">IDR 
-                                                    @if($pakets->discount == null)
-                                                    {{$pakets->harga_wday}}
-                                                    @else
+                                                    @if($pakets->discount <> null && $t >= $pakets->dari && $t <= $pakets->sampai)
                                                     <s class="coret">{{$pakets->harga_wday}}</s> / <span class="harga">{{$wday}}
+                                                    @else
+                                                    {{$pakets->harga_wday}}
                                                         @endif</span> 
                                                     </h6>
                                                 </td>
@@ -207,10 +211,10 @@
                                                 <td><h6 class="sizingfont">Weekend</h6></td>
                                                 <td><h6 class="sizingfont">:</h6></td>
                                                 <td><h6 class="sizingfont">IDR
-                                                    @if($pakets->discount == null)
-                                                    {{$pakets->harga_wend}}
-                                                    @else
+                                                    @if($pakets->discount <> null && $t >= $pakets->dari && $t <= $pakets->sampai)
                                                     <s class="coret">{{$pakets->harga_wend}}</s> / <span class="harga">{{$wend}}</span>
+                                                    @else
+                                                    {{$pakets->harga_wend}}
                                                     @endif
                                                     </h6>
                                                 </td>
