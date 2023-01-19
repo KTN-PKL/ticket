@@ -10,6 +10,11 @@ class hbalance extends Model
 {
     use HasFactory;
 
+    public function id($id_mitra)
+    {
+        return DB::table('hbalances')->where('id_mitra', $id_mitra)->count();
+    }
+
     public function mitraData($id_mitra)
     {
         return DB::table('hbalances')->where('id_mitra', $id_mitra)->get();
