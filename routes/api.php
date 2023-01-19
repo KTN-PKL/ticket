@@ -7,6 +7,7 @@ use App\Http\Controllers\Mitra\ProfileMitraController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\invoice;
+use App\Http\Controllers\user\c_chekin;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('midtrans/callback', [invoice::class, 'callback']);
+Route::post('chekin', [c_chekin::class, 'chekin']);
 

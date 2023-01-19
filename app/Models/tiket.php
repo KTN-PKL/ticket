@@ -14,4 +14,12 @@ class tiket extends Model
     {
         DB::table('tikets')->insert($data);
     }
+    public function editData($id, $data)
+    {
+        DB::table('tikets')->where('kode_tiket', $id)->update($data);
+    }
+    public function detailData($id)
+    {
+        return DB::table('tikets')->join('pakets', 'tikets.id_paket', '=' ,'pakets.id_paket')->join('wisatas', 'pakets.id_wisata', '=' ,'wisatas.id_wisata')->where('kode_tiket', $id)->first();
+    }
 }

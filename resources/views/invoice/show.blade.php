@@ -243,7 +243,7 @@
         
 
         <center>
-            @if ($pembayaran->status == "lunas")
+            @if ($pembayaran->status <> "lunas")
             <button style="width:100%" class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
             @else
             Pembayaran berhasil
