@@ -4,7 +4,7 @@
     <a href="{{ route('pengunjung') }}"><i class="bi bi-arrow-left-circle-fill" style="font-size: 24px"></i></a>
 </div>
 <div class="container">
-<h3>History Balance Mitra, Sari Ater Corp</h3>
+<h3>History Harian Balance Mitra, Sari Ater Corp</h3>
     <br>
     <section class="section">
         <div class="card">
