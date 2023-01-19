@@ -71,4 +71,9 @@ class c_pengunjung extends Controller
         $this->mitra->editMitra($id_mitra, $data);
         return redirect()->route('pengunjung');
     }
+    public function harian($id)
+    {
+        $data = ['harian' => $this->hharian->historiData($id),];
+        return view('pengunjung.harian', $data);
+    }
 }

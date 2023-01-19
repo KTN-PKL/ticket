@@ -104,6 +104,7 @@ Route::controller(c_pengunjung::class)->middleware('auth')->group(function () {
     Route::get('/pengunjung/histori/{id}', 'histori')->name('pengunjung.histori');
     Route::get('/pengunjung/detail/{id}', 'detail')->name('pengunjung.detail');
     Route::get('/pengunjung/detailhistori/{id}', 'detailhistori')->name('pengunjung.detailhistori');
+    Route::get('/pengunjung/harian/{id}', 'harian')->name('pengunjung.harian');
 });
 
 Route::controller(c_postingan::class)->middleware('auth')->group(function () {

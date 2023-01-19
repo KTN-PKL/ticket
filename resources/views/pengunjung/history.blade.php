@@ -29,14 +29,15 @@
                                 $i = $i + 1;
                                 echo $i;
                             @endphp</td>
-                            <td style="width:35%">{{ $historis->tanggal_pembayaran }}</td>
+                            <td style="width:25%">{{ $historis->tanggal_pembayaran }}</td>
                             <td>@php $jumlahchekin = number_format($historis->hjumlahchekin,0,",","."); echo $jumlahchekin; @endphp  <i class="bi bi-people"></i></td>
                             <td style="width:25%">@php
                                 $balance = number_format($historis->hbalance,0,",",".");
                                 echo "Rp.".$balance.",-";
                             @endphp</td>
                             <td>
-                                <a href="#" class="btn btn-primary" onclick="bukti({{ $historis->id_balance }})">Lihat Bukti</a>
+                                <a href="#" class="btn btn-sm btn-primary" onclick="bukti({{ $historis->id_balance }})">Lihat Bukti</a>
+                                <a href="{{ route('pengunjung.harian', $historis->id_balance) }}" class="btn btn-sm btn-success">Detail Harian</a>
                             </td>
                         </tr>
                         @endforeach
