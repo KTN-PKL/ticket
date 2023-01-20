@@ -40,4 +40,8 @@ class paket extends Model
     {
         DB::table('pakets')->where('id_paket', $id_paket)->update($data);
     }
+    public function listpaket($id)
+    {
+        return DB::table('pakets')->select('id_paket', 'paket')->where('id_wisata', $id)->get();
+    }
 }

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\invoice;
 use App\Http\Controllers\user\c_chekin;
+use App\Http\Controllers\user\c_pesan_masif;
+use App\Http\Controllers\user\c_list;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +32,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('midtrans/callback', [invoice::class, 'callback']);
-Route::post('chekin', [c_chekin::class, 'chekin']);
-
+Route::post('chekin', [c_chekin::class, 'chekin']); //isi data request {kode_tiket}
+Route::get('pesanmasif/{id}', [c_pesan_masif::class, 'create']); //untuk mengambil data user {email, nama, whatsapp}  debagai data default di pesan masif menggunakan parameter id_pengguna
+Route::post('pesanmasif/pesan', [c_pesan_masif::class, 'store']); //untuk membuat pesan masif, isi data request {id_pengguna, id_paket, nik, waktu_kunjungan, qty}
+Route::get('list/kategori', [c_list::class, 'kategori']); //untuk memanggil list kategori
+Route::get('list/wisata/{id}', [c_list::class, 'wisata']); //untuk memanggil list wisata bedasarkan id_kategori dengan parameeter id_kategori
+Route::get('list/paket/{id}', [c_list::class, 'paket']); //untuk memanggil list paket bedasarkan id_wisata dengan parameeter id_wisata

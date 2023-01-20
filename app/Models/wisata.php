@@ -47,4 +47,8 @@ class wisata extends Model
     {
         DB::table('wisatas')->where('id_wisata', $id_wisata)->get();
     }
+    public function listwisata($id)
+    {
+        return DB::table('wisatas')->select('id_wisata', 'wisata')->where('id_kategori', $id)->get();
+    }
 }

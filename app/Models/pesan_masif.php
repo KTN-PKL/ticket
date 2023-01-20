@@ -30,4 +30,8 @@ class pesan_masif extends Model
     {
         DB::table('pesan_masifs')->where('id_masif', $id_masif)->update($data);
     }
+    public function addData($data)
+    {
+        DB::table('pesan_masifs')->insert($data);
+    }
 }
